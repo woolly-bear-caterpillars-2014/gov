@@ -20,3 +20,10 @@ CLIENT = Twitter::REST::Client.new do |config|
   config.access_token = ENV['ACCESS_TOKEN']
   config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
+
+article_config = YAML.load_file(APP_ROOT.join('config', 'nyt.yml'))
+
+article_config.each do |key, value|
+	ENV[key] = value
+end
+

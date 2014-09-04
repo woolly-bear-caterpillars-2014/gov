@@ -18,3 +18,4 @@
 #Ignore all API keys
 /config/nyt.yml
 /config/twitter.yml
+/config/other_nyt.yml
