@@ -5,7 +5,9 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 
 
-CLIENT = REST::Client.new do |config|
+
+#Twitter configuration
+CLIENT = Twitter::REST::Client.new do |config|
   config.consumer_key = ENV['TWITTER_KEY']
   config.consumer_secret = ENV['TWITTER_SECRET']
   config.access_token = ENV['ACCESS_TOKEN']
