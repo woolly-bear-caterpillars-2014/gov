@@ -8,7 +8,7 @@ Rails.application.initialize!
 
 #Twitter configuration
 
-twitter_config = YAML.load_file(APP_ROOT.join('config', 'twitter.yml'))
+twitter_config = YAML.load_file('config/twitter.yml')
 
 twitter_config.each do |key, value|
 	ENV[key]=value
@@ -21,9 +21,11 @@ CLIENT = Twitter::REST::Client.new do |config|
   config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
 
-article_config = YAML.load_file(APP_ROOT.join('config', 'nyt.yml'))
+
+article_config = YAML.load_file('config/nyt.yml')
 
 article_config.each do |key, value|
 	ENV[key] = value
 end
 
+#Base.api_key = ENV['ARTICLE_SEARCH']
