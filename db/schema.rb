@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140904162141) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "fedregs", force: true do |t|
     t.string   "type_of_doc"
     t.text     "title"
