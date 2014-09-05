@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>First paragraph:</strong>
+  <%= @article.first_paragraph %>
+</p>
+
+<p>
+  <strong>Publication date:</strong>
+  <%= @article.publication_date %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @article.url %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @article.source %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

@@ -1,0 +1,53 @@
+<%= form_for(@legislation) do |f| %>
+  <% if @legislation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@legislation.errors.count, "error") %> prohibited this legislation from being saved:</h2>
+
+      <ul>
+      <% @legislation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :proposal_date %><br>
+    <%= f.date_select :proposal_date %>
+  </div>
+  <div class="field">
+    <%= f.label :publication_date %><br>
+    <%= f.date_select :publication_date %>
+  </div>
+  <div class="field">
+    <%= f.label :congress_voting_date %><br>
+    <%= f.date_select :congress_voting_date %>
+  </div>
+  <div class="field">
+    <%= f.label :senate_voting_date %><br>
+    <%= f.date_select :senate_voting_date %>
+  </div>
+  <div class="field">
+    <%= f.label :president_signing_date %><br>
+    <%= f.date_select :president_signing_date %>
+  </div>
+  <div class="field">
+    <%= f.label :abstract %><br>
+    <%= f.text_area :abstract %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
