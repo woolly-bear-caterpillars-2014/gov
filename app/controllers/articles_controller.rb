@@ -1,11 +1,26 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
-  # GET /articles
-  # GET /articles.json
   def index
     @articles = Article.all
+    # @result_set = FederalRegister::Article.search(:conditions => {:term => "Accessibility"})
   end
+
+  def create
+    # agency_name = params[:agency_name]
+    # p @result_set = FederalRegister::Article.search(conditions: {term: agency_name})
+
+  #   if request.xhr?
+  #     render json: @result_set.to_json
+  #   else
+  #     render :index
+  #   end
+  # end
+
+#   # GET /articles
+#   # GET /articles.json
+#   def index
+#     @articles = Article.all
+#   end
 
   # GET /articles/1
   # GET /articles/1.json
@@ -71,4 +86,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :first_paragraph, :publication_date, :url, :source)
     end
+  end
 end
