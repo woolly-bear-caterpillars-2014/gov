@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>References:</strong>
-  <%= @articles_legislation.references %>
-</p>
+<% @legislation.articles.each do |article| %>
+  <p><%= article.title %></p>
+<% end %>
 
-<p>
-  <strong>References:</strong>
-  <%= @articles_legislation.references %>
-</p>
-
-<%= link_to 'Edit', edit_articles_legislation_path(@articles_legislation) %> |
-<%= link_to 'Back', articles_legislations_path %>
