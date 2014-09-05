@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   $('#frame').sly({
     horizontal: 1,
-    itemNav: 'forceCentered',
+    itemNav: 'centered',
     smart: 1,
     activateOn: 'click',
     scrollBy: 1,
