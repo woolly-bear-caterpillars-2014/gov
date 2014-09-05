@@ -1,28 +1,13 @@
-== README
+Gov
+===
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A new way of viewing legislation, news, and reaction. 
 
-Things you may want to cover:
+Team members:
+- Audrey Mcgowan
+- Bruno Pasini
+- Chase Blokker
+- Eric Shemtov
+- Max Lock
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Trello: https://trello.com/b/6dZ7iia4/the-governors

@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   resources :articles
 
   resources :legislations
-
-  resources :fedregs
-  root 'fedregs#index'
+  root 'articles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
