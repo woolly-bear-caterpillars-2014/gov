@@ -1,7 +1,7 @@
 class CreateAgencies < ActiveRecord::Migration
   def change
     create_table :agencies do |t|
-      t.legislation :references
+      t.references :legislation, index: true
 
       t.timestamps
     end
