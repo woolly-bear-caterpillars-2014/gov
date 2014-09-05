@@ -1,11 +1,5 @@
 class FedregsController < ApplicationController
 	def index
-    @fedregs = Fedreg.all
-    p @fedregs
-    if request.xhr?
-      render json: @fedregs.to_json
-    else
-      render :index
-    end
+    p @result_set = FederalRegister::Article.search(:conditions => {:term => "Accessibility"})
   end
 end
