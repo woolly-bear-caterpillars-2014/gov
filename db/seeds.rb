@@ -30,7 +30,17 @@ end
 # keywords_to_fetch = Legistation.take(10)
 
 Legislation.all.each do |leg|
-	NytimesHelper.query_by_keywords(leg.title)
+	NytimesHelper.query_by_keywords(leg.title)['response']['docs'].each do |article|
+		a = Article.create(
+			title: article['headline']['main'],
+			first_paragraph: article['lead_paragraph'],
+			publication_date: article['pub_date'],
+			url: article['web_url'],
+			source: 'New York Times')
+		ArticlesLegislation.create(
+			article: a,
+			legislation: leg)
+	end
 end
 
 # keywords_to_fetch.each do |legislation|
