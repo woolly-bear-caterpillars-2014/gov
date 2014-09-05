@@ -10,6 +10,7 @@ class ArticlesLegislationsController < ApplicationController
   # GET /articles_legislations/1
   # GET /articles_legislations/1.json
   def show
+    @legislation = Legislation.find(params[:id])
   end
 
   # GET /articles_legislations/new
