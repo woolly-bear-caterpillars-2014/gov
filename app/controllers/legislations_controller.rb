@@ -1,5 +1,4 @@
 class LegislationsController < ApplicationController
-  before_action :set_legislation, only: [:show, :edit, :update, :destroy]
 
   def index
     @legislations = Legislation.all
