@@ -1,1 +1,31 @@
-<div id="my-timeline"></div>
+<%= form_tag fedregs_path, method: 'post' do %>
+  <%= select_tag :agency_name, options_for_select([
+      "Nuclear Regulatory Commission",
+      "Agriculture Department"
+    ],
+    "Nuclear Regulatory Commission")
+  %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
+<div id="frame">
+    <ul class="slidee">
+      <% @result_set.each do |data| %>
+        <li>
+          <h1><a href="<%= data.attributes["public_inspection_pdf_url"] %>">
+            <%= data.title %>
+          </a></h1>
+          <% data.agencies.each do |agency| %>
+            <p><a href="<%= agency.url %>">
+              <%= agency.name %>
+            </a></p>
+          <% end %>
+          <p align="justify"><%= data.abstract %></p>
+          <p><%= data.type %></p>
+          <p><%= data.publication_date %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

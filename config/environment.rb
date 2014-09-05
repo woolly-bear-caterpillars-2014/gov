@@ -5,7 +5,6 @@ require File.expand_path('../application', __FILE__)
 Rails.application.initialize!
 
 
-
 #Twitter configuration
 
 twitter_config = YAML.load_file('config/twitter.yml')
@@ -22,10 +21,10 @@ CLIENT = Twitter::REST::Client.new do |config|
 end
 
 
-article_config = YAML.load_file('config/nyt.yml')
+# article_config = YAML.load_file('config/nyt.yml')
 
-article_config.each do |key, value|
-	ENV[key] = value
-end
+# article_config.each do |key, value|
+# 	ENV[key] = value
+# end
 
 #Base.api_key = ENV['ARTICLE_SEARCH']
