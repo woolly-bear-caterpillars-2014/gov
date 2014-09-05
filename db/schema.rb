@@ -44,15 +44,6 @@ ActiveRecord::Schema.define(version: 20140905181415) do
   add_index "articles_legislations", ["article_id"], name: "index_articles_legislations_on_article_id", using: :btree
   add_index "articles_legislations", ["legislation_id"], name: "index_articles_legislations_on_legislation_id", using: :btree
 
-  create_table "fedregs", force: true do |t|
-    t.string   "type_of_doc"
-    t.text     "title"
-    t.text     "abstract"
-    t.date     "pub_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "legislations", force: true do |t|
     t.string   "title"
     t.date     "proposal_date"
