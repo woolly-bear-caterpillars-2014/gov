@@ -11,10 +11,6 @@
 # result_set.each do |doc|
 # 	Fedreg.create(type_of_doc: doc.type, title: doc.title, abstract: doc.abstract, pub_date: doc.publication_date)
 # end
-
-
-
-
 FederalRegisterHelper.search_by_date('2014-06-01')['results'].each do |result|
 	Legislation.create(
 	  title: result['title'],
