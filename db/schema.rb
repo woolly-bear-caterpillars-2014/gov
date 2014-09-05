@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20140905181415) do
   add_index "agencies", ["legislation_id"], name: "index_agencies_on_legislation_id", using: :btree
 
   create_table "articles", force: true do |t|
-    t.string   "title"
+    t.text     "title"
     t.text     "first_paragraph"
     t.date     "publication_date"
-    t.string   "url"
+    t.text     "url"
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -45,14 +45,14 @@ ActiveRecord::Schema.define(version: 20140905181415) do
   add_index "articles_legislations", ["legislation_id"], name: "index_articles_legislations_on_legislation_id", using: :btree
 
   create_table "legislations", force: true do |t|
-    t.string   "title"
+    t.text     "title"
     t.date     "proposal_date"
     t.date     "publication_date"
     t.date     "congress_voting_date"
     t.date     "senate_voting_date"
     t.date     "president_signing_date"
     t.text     "abstract"
-    t.string   "url"
+    t.text     "url"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"

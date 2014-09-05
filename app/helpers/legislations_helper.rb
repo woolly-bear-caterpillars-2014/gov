@@ -10,7 +10,7 @@ module LegislationsHelper
 		end
 
 		def search_by_date_govtrack(date_as_string)
-			url = "https://www.govtrack.us/api/v2/bill?introduced_date=#{date_as_string}&limit=600"
+			url = "https://www.govtrack.us/api/v2/bill?introduced_date=#{date_as_string}&limit=5"
 			uri = URI(url)
 			reply = uri.read
 			parsed_reply = JSON.parse reply
