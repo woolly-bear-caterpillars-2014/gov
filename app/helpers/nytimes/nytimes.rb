@@ -5,7 +5,7 @@ require 'json'
 require 'open-uri'
 require 'forwardable'
 module NYTimes
-	API_KEY = 'b71fa36db552c767ec607525e67daac4:10:63456932'
+	API_KEY = ENV['ARTICLE_SEARCH']
 	BASE_URI = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'
 
 	class NYTimes

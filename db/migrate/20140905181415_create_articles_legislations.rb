@@ -1,8 +1,8 @@
 class CreateArticlesLegislations < ActiveRecord::Migration
   def change
     create_table :articles_legislations do |t|
-      t.article :references
-      t.legislation :references
+      t.references :article, index: true
+      t.references :legislation, index: true
 
       t.timestamps
     end
