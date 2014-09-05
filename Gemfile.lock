@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/eshem/govtrack
+  revision: 6423665894c3b5e9f6d119c4c92ef05ec397c391
+  specs:
+    govtrack (0.0.1)
+      httparty (>= 0.6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -73,6 +80,7 @@ GEM
     naught (1.0.0)
     pg (0.17.1)
     polyglot (0.3.5)
+    pp-colour (0.1.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -145,9 +153,11 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   federal_register
+  govtrack!
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pp-colour
   rails (= 4.1.5)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

@@ -16,59 +16,20 @@
 //= require_tree .
 
 $(document).ready(function() {
-console.log("hi");
-  $.ajax({
-      url: '/fedregs',
-      type: 'get',
-      data: {},
-      dataType: "json"
-  }).done(function(data) {
+  console.log('hi');
 
-
-      var dataObject = {
-        "timeline": {
-          "headline":"The Main Timeline Headline Goes here",
-          "type":"default",
-          "text":"<p>Intro body text goes here, some HTML is ok</p>",
-          "asset": {
-            "media":"http://twitter.com/ArjunaSoriano/status/164181156147900416",
-            "credit":"Credit Name Goes Here",
-            "caption":"Caption text goes here"
-          },
-          "date": [
-              {
-                  "startDate":"2013,12,10",
-                  "endDate":"2013,12,10",
-                  "headline": data[0].title,
-                  "text":"<p>" + data[0].abstract +"</p>",
-                  "tag":"This is Optional",
-                  "classname":"optionaluniqueclassnamecanbeaddedhere",
-                  "asset": {
-                      "media":"http://twitter.com/ArjunaSoriano/status/164181156147900416",
-                      "thumbnail":"optional-32x32px.jpg",
-                      "credit":"Credit Name Goes Here",
-                      "caption":"Caption text goes here"
-                  }
-              }
-          ],
-          "era": [
-            {
-              "startDate":"2012,12,10",
-              "endDate":"2014,12,11",
-              "headline":"Headline Goes Here",
-              "text":"<p>Body text goes here, some HTML is OK</p>",
-              "tag":"This is Optional"
-            }
-          ]
-        }
-      }
-
-    createStoryJS({
-      type:       'timeline',
-      width:      '800',
-      height:     '600',
-      source:     dataObject,
-      embed_id:   'my-timeline'
-    });
-  })
+  $('#frame').sly({
+    horizontal: 1,
+    itemNav: 'centered',
+    smart: 1,
+    activateOn: 'click',
+    scrollBy: 1,
+    mouseDragging: 1,
+    swingSpeed: 0.2,
+    scrollBar: $('.scrollbar'),
+    dragHandle: 1,
+    speed: 600,
+    startAt: 0,
+    keyboardNavBy: 'horizontal'
+  });
 });
