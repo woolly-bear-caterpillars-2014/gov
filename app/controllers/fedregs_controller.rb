@@ -1,6 +1,7 @@
 class FedregsController < ApplicationController
 	def index
-    p @result_set = FederalRegister::Article.search(:conditions => {:term => "Accessibility"})
+    @articles = Article.all
+    # @articles = FederalRegister::Article.search(:conditions => {:term => "Accessibility"})
   end
 
   def new
@@ -8,7 +9,7 @@ class FedregsController < ApplicationController
 
   def create
     agency_name = params[:agency_name]
-    p @result_set = FederalRegister::Article.search(conditions: {term: agency_name})
+    @result_set = FederalRegister::Article.search(conditions: {term: agency_name})
 
     if request.xhr?
       render json: @result_set.to_json
