@@ -42,4 +42,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'federal_register'
+gem 'govtrack', git: "git://github.com/eshem/govtrack"
 

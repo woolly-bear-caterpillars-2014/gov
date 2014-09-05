@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/eshem/govtrack
+  revision: 6423665894c3b5e9f6d119c4c92ef05ec397c391
+  specs:
+    govtrack (0.0.1)
+      httparty (>= 0.6.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -146,6 +153,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   federal_register
+  govtrack!
   jbuilder (~> 2.0)
   jquery-rails
   pg
