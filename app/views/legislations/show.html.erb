@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @legislation.title %>
+</p>
+
+<p>
+  <strong>Proposal date:</strong>
+  <%= @legislation.proposal_date %>
+</p>
+
+<p>
+  <strong>Publication date:</strong>
+  <%= @legislation.publication_date %>
+</p>
+
+<p>
+  <strong>Congress voting date:</strong>
+  <%= @legislation.congress_voting_date %>
+</p>
+
+<p>
+  <strong>Senate voting date:</strong>
+  <%= @legislation.senate_voting_date %>
+</p>
+
+<p>
+  <strong>President signing date:</strong>
+  <%= @legislation.president_signing_date %>
+</p>
+
+<p>
+  <strong>Abstract:</strong>
+  <%= @legislation.abstract %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @legislation.url %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @legislation.type %>
+</p>
+
+<%= link_to 'Edit', edit_legislation_path(@legislation) %> |
+<%= link_to 'Back', legislations_path %>
