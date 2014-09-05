@@ -13,7 +13,7 @@ $(document).ready(function() {
   // $form.on('submit', function(e) {
   //   e.preventDefault();
 
-  //   $.ajax('/fedregs', {
+  //   $.ajax('/articles', {
   //     type: 'POST',
   //     dataType: 'html',
   //     data: $form.serialize()
