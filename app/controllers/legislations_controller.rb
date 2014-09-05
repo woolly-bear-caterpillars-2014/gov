@@ -5,7 +5,7 @@ class LegislationsController < ApplicationController
   end
 
   def show
-
+    @legislation = Legislation.find(params[:id])
   end
 
   def new
