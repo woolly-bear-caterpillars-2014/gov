@@ -7,7 +7,7 @@
           <p>legislation: <%= legislation.type %></p>
           <p>publication date: <%= legislation.publication_date %></p>
           <p>proposal date: <%= legislation.proposal_date %></p>
-          <%= link_to 'Articles', articles_legislation_path(legislation) %>
+          <%= link_to 'Articles', legislation_path(legislation) %>
         </li>
       <% end %>
     </ul>
