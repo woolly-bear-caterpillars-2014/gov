@@ -2,7 +2,10 @@
     <ul class="slidee">
       <% @result_set.each do |data| %>
         <li>
-          <h1><%= data.title %></h1>
+
+          <h1><a href="<%= data.attributes["public_inspection_pdf_url"] %>">
+            <%= data.title %>
+          </a></h1>
           <% data.agencies.each do |agency| %>
             <p><a href="<%= agency.url %>">
               <%= agency.name %>

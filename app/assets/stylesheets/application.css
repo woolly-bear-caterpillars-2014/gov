@@ -25,6 +25,20 @@ ul {
   padding: 0px 0px;
 }
 
+a {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+}
+
 #frame {
   height: 600px;
   width: 100%;
