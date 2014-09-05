@@ -11,16 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904162141) do
+ActiveRecord::Schema.define(version: 20140905181415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agencies", force: true do |t|
+    t.integer  "legislation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "agencies", ["legislation_id"], name: "index_agencies_on_legislation_id", using: :btree
+
+  create_table "articles", force: true do |t|
+    t.string   "title"
+    t.text     "first_paragraph"
+    t.date     "publication_date"
+    t.string   "url"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "articles_legislations", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "legislation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "articles_legislations", ["article_id"], name: "index_articles_legislations_on_article_id", using: :btree
+  add_index "articles_legislations", ["legislation_id"], name: "index_articles_legislations_on_legislation_id", using: :btree
 
   create_table "fedregs", force: true do |t|
     t.string   "type_of_doc"
     t.text     "title"
     t.text     "abstract"
     t.date     "pub_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "legislations", force: true do |t|
+    t.string   "title"
+    t.date     "proposal_date"
+    t.date     "publication_date"
+    t.date     "congress_voting_date"
+    t.date     "senate_voting_date"
+    t.date     "president_signing_date"
+    t.text     "abstract"
+    t.string   "url"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
