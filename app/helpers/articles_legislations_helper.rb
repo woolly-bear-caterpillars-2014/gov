@@ -1,0 +1,2 @@
+module ArticlesLegislationsHelper
+end

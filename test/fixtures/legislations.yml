@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  proposal_date: 2014-09-05
+  publication_date: 2014-09-05
+  congress_voting_date: 2014-09-05
+  senate_voting_date: 2014-09-05
+  president_signing_date: 2014-09-05
+  abstract: MyText
+  url: MyString
+  type: 
+
+two:
+  title: MyString
+  proposal_date: 2014-09-05
+  publication_date: 2014-09-05
+  congress_voting_date: 2014-09-05
+  senate_voting_date: 2014-09-05
+  president_signing_date: 2014-09-05
+  abstract: MyText
+  url: MyString
+  type: 

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :articles_legislations
+
+  resources :agencies
+
+  resources :articles
+
+  resources :legislations
+
   resources :fedregs
   root 'fedregs#index'
   # The priority is based upon order of creation: first created -> highest priority.
