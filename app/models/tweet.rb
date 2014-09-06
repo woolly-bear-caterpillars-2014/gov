@@ -7,7 +7,7 @@ module TweetsHandler
 
 
 	# retrieve tweets
-	def TweetsStreamer(person_name)
+	def TweetsStreamer(person_name, state)
 		# topics = person_name.split
 		STREAMINGCLIENT.filter(:track => person_name) do |object|
 		  if object.is_a?(Twitter::Tweet)
@@ -26,3 +26,8 @@ module TweetsHandler
 	end
 
 end
+
+# STREAMINGCLIENT.filter(:locations => '-74,40,-73,41') do |object|
+# 	p object.geo.coordinates
+# 	p object.text
+# end

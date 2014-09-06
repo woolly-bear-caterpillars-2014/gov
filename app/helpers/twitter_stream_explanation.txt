@@ -1,13 +1,10 @@
 
 
-      STREAMINGCLIENT.filter(:locations => '-180,-90,180,90') do |object|
-       
-        p object.geo.coordinates
-        p.object.text
+STREAMINGCLIENT.filter(:locations => '-74,40,-73,41') do |object|
+	p object.geo.coordinates
+	p object.text
+end
 
-        end
-
-        #copy and paste the above into the rails console
-
-         #this will print the coordinates as an array of two strings like [ 'long', 'lat']
-        #we need to pass these coordinates to the api and plot them
+#copy and paste the above into the rails console
+#this will print the coordinates as an array of two strings like [ 'long', 'lat']
+#we need to pass these coordinates to the api and plot them
