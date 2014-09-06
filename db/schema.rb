@@ -11,18 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906183848) do
-
+ActiveRecord::Schema.define(version: 20140906190236) do
+  
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "agencies", force: true do |t|
-    t.integer  "legislation_id"
+  create_table "article_congress_people", force: true do |t|
+    t.integer  "article_id"
+    t.integer  "congress_person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "agencies", ["legislation_id"], name: "index_agencies_on_legislation_id", using: :btree
 
   create_table "articles", force: true do |t|
     t.text     "title"
@@ -34,15 +33,26 @@ ActiveRecord::Schema.define(version: 20140906183848) do
     t.datetime "updated_at"
   end
 
-  create_table "articles_legislations", force: true do |t|
-    t.integer  "article_id"
-    t.integer  "legislation_id"
+  create_table "congress_people", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.string   "title"
+    t.string   "party"
+    t.string   "phone_number"
+    t.string   "twitter_id"
+    t.string   "youtube_id"
+    t.string   "district"
+    t.string   "website_url"
+    t.integer  "state_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "articles_legislations", ["article_id"], name: "index_articles_legislations_on_article_id", using: :btree
-  add_index "articles_legislations", ["legislation_id"], name: "index_articles_legislations_on_legislation_id", using: :btree
+  create_table "gmaps", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "gmaps", force: true do |t|
     t.datetime "created_at"
@@ -52,13 +62,14 @@ ActiveRecord::Schema.define(version: 20140906183848) do
   create_table "legislations", force: true do |t|
     t.text     "title"
     t.date     "proposal_date"
-    t.date     "publication_date"
-    t.date     "congress_voting_date"
-    t.date     "senate_voting_date"
-    t.date     "president_signing_date"
     t.text     "abstract"
     t.text     "url"
-    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
