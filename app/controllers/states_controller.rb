@@ -5,6 +5,16 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     @states = State.all
+    # @hash = Gmaps4rails.build_markers(@cities) do |city, marker|
+    # marker.lat city.latitude
+    # marker.lng city.longitude
+    # marker.title "i'm the title"
+    # marker.picture({
+    #     :url => "/tweet.png",
+    #     :width  => 32,
+    #     :height => 32
+    #     })
+    end
   end
 
   # GET /states/1
