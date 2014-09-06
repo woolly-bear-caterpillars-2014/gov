@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # gem 'nytimes-articles'
+gem 'sunlight'
 
 gem 'pp-colour'
 
