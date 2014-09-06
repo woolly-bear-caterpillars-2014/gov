@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  
-  resources :states
 
-  root 'states:index'
+
+  root 'states#index'
 
   resources :states do
     :congress_people
