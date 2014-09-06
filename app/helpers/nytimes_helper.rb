@@ -32,7 +32,7 @@ module NytimesHelper
 			 p url
 		end
 
-		def self.is_stale?
+		def get_congress_people
 			if NytimesHelper	
 			end
 		end
