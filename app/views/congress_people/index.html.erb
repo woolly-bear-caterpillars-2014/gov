@@ -1,0 +1,23 @@
+<h1>Listing congress_people</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @congress_people.each do |congress_person| %>
+      <tr>
+        <td><%= link_to 'Show', congress_person %></td>
+        <td><%= link_to 'Edit', edit_congress_person_path(congress_person) %></td>
+        <td><%= link_to 'Destroy', congress_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Congress person', new_congress_person_path %>
