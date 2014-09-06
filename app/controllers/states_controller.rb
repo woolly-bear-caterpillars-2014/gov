@@ -5,6 +5,8 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     @states = State.all
+    TweetStreamHelper.tw_config
+
     # @hash = Gmaps4rails.build_markers(@cities) do |city, marker|
     # marker.lat city.latitude
     # marker.lng city.longitude
@@ -14,7 +16,6 @@ class StatesController < ApplicationController
     #     :width  => 32,
     #     :height => 32
     #     })
-    end
   end
 
   # GET /states/1
