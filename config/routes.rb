@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :gmaps
+
   resources :articles_legislations
 
   resources :agencies
@@ -6,8 +8,6 @@ Rails.application.routes.draw do
   resources :articles
 
   resources :legislations
-
-  resources :googlemaps
   
   root 'legislations#index'
   # The priority is based upon order of creation: first created -> highest priority.
