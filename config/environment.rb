@@ -28,28 +28,19 @@ STREAMINGCLIENT = Twitter::Streaming::Client.new do |config|
   config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
 end
 
-
 article_config = YAML.load_file('config/nyt.yml')
-
-<<<<<<< HEAD
 
 article_config.each do |key, value|
 	ENV[key] = value
 end
-=======
-article_config.each do |key, value|
- 	ENV[key] = value
-end
 
+# sunlight_config = YAML.load_file('config/sunlight.yml')
 
-article_config = YAML.load_file('config/sunlight.yml')
-
-article_config.each do |key, value|
-  ENV[key] = value
-end
+# sunlight_config.each do |key, value|
+#   ENV[key] = value
+# end
 
 # Sunlight::Base.api_key = ENV['SUNLIGHT_KEY']
->>>>>>> 091ec46ffd04df7f96b5853e30d1a467d9b050c5
 
 #Base.api_key = ENV['ARTICLE_SEARCH']
 
