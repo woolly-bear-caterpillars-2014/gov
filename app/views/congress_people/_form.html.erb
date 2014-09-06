@@ -1,0 +1,17 @@
+<%= form_for(@congress_person) do |f| %>
+  <% if @congress_person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@congress_person.errors.count, "error") %> prohibited this congress_person from being saved:</h2>
+
+      <ul>
+      <% @congress_person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
