@@ -43,7 +43,7 @@ NytimesHelper.fetch_house["results"].first["members"].each do |congressperson|
 		)
 end
 
-NytimesHelper.featch_senate["results"].first["members"].each do |congressperson|
+NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
 	CongressPerson.create(first_name: congressperson["first_name"],
 		last_name: congressperson["last_name"],
 		title: "Senator",
