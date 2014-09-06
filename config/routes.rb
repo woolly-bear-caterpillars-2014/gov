@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
-
-
   root 'states#index'
-
-  resources :states do
-    resources :congress_people
+  resources :gmaps, only: [:index, :show]
+  resources :states, only: [:index, :show] do
+    :congress_people
   end
-
-  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
