@@ -13,13 +13,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-# gem 'nytimes-articles'
-gem 'sunlight'
-
-gem 'pp-colour'
-
-gem 'twitter'
-gem 'gmaps4rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -44,6 +37,13 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+# gem 'nytimes-articles'
+gem 'twitter'
+gem 'gmaps4rails'
 gem 'federal_register'
 gem 'govtrack', git: "git://github.com/eshem/govtrack"
+gem 'pp-colour'
 gem 'font-awesome-rails'
+gem 'sunlight'
+gem 'tweetstream'
