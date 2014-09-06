@@ -60,7 +60,6 @@ NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
 		)
 end
 
-CongressPerson.find_by(first_name: 'André').destroy!
 
 CongressPerson.all.each do |person|
 	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
