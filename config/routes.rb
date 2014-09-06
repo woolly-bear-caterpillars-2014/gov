@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :congress_people
+  resources :states
 
   root 'states:index'
 
   resources :states do
     :congress_people
   end
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
