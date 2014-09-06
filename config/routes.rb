@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'states#index'
 
   resources :states do
-    :congress_people
+    resources :congress_people
   end
 
   
