@@ -20,9 +20,9 @@ class StatesController < ApplicationController
   # GET /states/1
   # GET /states/1.json
   def show
-    abr = params[:id]
-    p params[:id]
-    @state = State.find_by(abbreviation: abr)
+    @state = State.find_by(abbreviation: params[:id])
+    @congress_people = @state.congress_people.where(title: "Congressperson")
+    @senators = @state.congress_people.where(title: "Senator")
   end
 
   # GET /states/new

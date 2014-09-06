@@ -36,7 +36,7 @@ a {
 }
 
 a:hover {
-  color: orange;
+  color: #435A66;
   background-color: white;
 }
 
@@ -55,17 +55,36 @@ nav li {
   z-index: 1000;
   max-width: 200px;
   display: none;
-  color: #343434;
+  color: #424342;
 }
 
+#senator-list {
+  margin: 10px 10px 10px 35px;
+  float: center;
+}
+
+.senator-item {
+  margin: 20px;
+  padding: 20px;
+  float: left;
+  background-color: #B7C11E;
+  -webkit-box-shadow: 0 0 11px 1px #666;
+}
+
+.senator-item:hover {
+  background-color: blue;
+}
+
+
 #frame {
-  height: 600px;
+  height: 400px;
   width: 100%;
   margin: 0px 0px;
   padding: 0px 0px;
-/*  overflow: auto;*/
   float: left;
+  background-color: #23A38F;
   border-bottom: 1px solid;
+  border-top: 1px solid;
 }
 
 #container {
@@ -77,22 +96,22 @@ nav li {
 
 .slidee {
   list-style: none;
-  height: 100%;
+  height: 100px;
   border-color: green;
-  border-bottom: 1px solid;
-  border-top: 1px solid;
 }
 
 .slidee li {
+  -webkit-box-shadow: 0 0 11px 1px #333;
   float: left;
-  height: 100%;
-  width: 600px;
+  width: 180px;
+  height: 300px;
   overflow: auto;
-  background: #fff;
+  background: #EFF1C2;
   border-radius: 1px;
-  color: #ddd;
   padding-right: 30px;
   padding-left: 30px;
+  margin: 10px;
+  margin-top: 30px;
   text-align: center;
   cursor: pointer;
   -o-transition:.5s;
@@ -101,9 +120,15 @@ nav li {
   -webkit-transition:.5s;
   transition:.5s;
 }
+
+
 .slidee li.active {
-  color: #000;
-  width: 600px;
+  -ms-transform: scale(1.1, 1.1); /* IE 9 */
+  -webkit-transform: scale(1.1, 1.1); /* Chrome, Safari, Opera */
+  transform: scale(1.1, 1.1);
+  -webkit-box-shadow: 0 0 22px 10px #444;
+  color: white;
+  background-color: #B7C11E;
 }
 
 .scrollbar {
@@ -126,6 +151,28 @@ nav li {
   left: 0;
   width: 100%;
   height: 20px;
+}
+
+.btn {
+  border: 1px solid rgba(0,0,0,0);
+  background-color: #20272D;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.btn:hover {
+  background-color: #F6F6EF;
+  color: #20272D;
+  border: 1px solid #20272D;
 }
 
 
