@@ -1,9 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @state.name %>
-</p>
+<center><h1>
+  <%= @state.abbreviation %>
+</h1></center>
 
-<%= link_to 'Edit', edit_state_path(@state) %> |
-<%= link_to 'Back', states_path %>
+
+<div id="senator-list">
+  <center><h2>Senators</h2></center>
+  <% @senators.each do |senator| %>
+    <div class="senator-item">
+      <h3>
+        <%= senator.first_name %> <%= senator.last_name %>
+      </h3>
+    </div>
+  <% end %>
+</div>
+
+<center><h2>Congress People</h2></center>
+<div id="frame" data-no-turbolink>
+  <ul class="slidee">
+    <% @congress_people.each do |congress_person| %>
+        <li>
+          <h3>
+            <%= congress_person.first_name %> <%= congress_person.last_name %>
+          </h3>
+          <h3><%= congress_person.party %></h3>
+          <p>Votes with party <%= congress_person.votes_with_party_pct %>%
+            Missed Votes <%= congress_person.missed_votes_pct %>%
+          </p>
+          <%= link_to 'Select', states_path, {class: 'btn'} %>
+        </li>
+    <% end %>
+  </ul>
+</div>
+
+<!--       t.string :first_name, :last_name, :title, :party, :phone_number, :twitter_account, :facebook_account, :votes_with_party_pct, :website_url, :missed_votes_pct, :youtube_id, :seniority, :district, :next_election
+      t.belongs_to :state
+      t.string :picture_id
+      t.timestamps -->
+

@@ -7,12 +7,13 @@ $(document).ready(function() {
       },
       defaultArea: {
         attrs: {
-          fill: "#5ba4ff",
-          stroke: "#99c7ff",
+          fill: "#424342",
+          stroke: "#F5F2EB",
           cursor: "pointer"
         },
         attrsHover: {
-          animDuration: 0
+          animDuration: 100,
+          fill: "#88A6AF"
         },
         text: {
           attrs: {

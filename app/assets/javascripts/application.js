@@ -20,19 +20,19 @@
 $(document).ready(function() {
   // console.log('hi');
 
-  // $('#frame').sly({
-  //   horizontal: 1,
-  //   itemNav: 'centered',
-  //   smart: 1,
-  //   activateOn: 'click',
-  //   scrollBy: 1,
-  //   mouseDragging: 1,
-  //   swingSpeed: 0.2,
-  //   scrollBar: $('.scrollbar'),
-  //   dragHandle: 1,
-  //   speed: 600,
-  //   startAt: 0,
-  //   keyboardNavBy: 'horizontal'
-  // });
+  $('#frame').sly({
+    horizontal: 1,
+    itemNav: 'centered',
+    smart: 1,
+    activateOn: 'click',
+    scrollBy: 1,
+    mouseDragging: 1,
+    swingSpeed: 0.2,
+    scrollBar: $('.scrollbar'),
+    dragHandle: 1,
+    speed: 600,
+    startAt: 3,
+    keyboardNavBy: 'horizontal'
+  });
 
 });
