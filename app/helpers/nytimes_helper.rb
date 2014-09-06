@@ -10,7 +10,8 @@ module NytimesHelper
 		CONGRESS_KEY = ENV["CONGRESS"]
 
 		def get_url(string)
-			params = string.split(' ').join('+')
+			k = string.split(' ').each{ |a| a.gsub!(/[^0-9A-Za-z]/, '')}
+			params = k.join("+")
 			@url = ("#{BASE_URI}" + "q=%22#{params}%22" + "&api-key=#{API_KEY}")
 			p @url
 		end
