@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905181415) do
+ActiveRecord::Schema.define(version: 20140906183848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 20140905181415) do
 
   add_index "articles_legislations", ["article_id"], name: "index_articles_legislations_on_article_id", using: :btree
   add_index "articles_legislations", ["legislation_id"], name: "index_articles_legislations_on_legislation_id", using: :btree
+
+  create_table "gmaps", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "legislations", force: true do |t|
     t.text     "title"

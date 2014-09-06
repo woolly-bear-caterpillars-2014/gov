@@ -29,12 +29,19 @@ STREAMINGCLIENT = Twitter::Streaming::Client.new do |config|
 end
 
 
- article_config = YAML.load_file('config/nyt.yml')
+article_config = YAML.load_file('config/nyt.yml')
 
-
- article_config.each do |key, value|
+article_config.each do |key, value|
  	ENV[key] = value
- end
+end
+
+article_config = YAML.load_file('config/sunlight.yml')
+
+# article_config.each do |key, value|
+#   ENV[key] = value
+# end
+
+# Sunlight::Base.api_key = ENV['SUNLIGHT_KEY']
 
 #Base.api_key = ENV['ARTICLE_SEARCH']
 

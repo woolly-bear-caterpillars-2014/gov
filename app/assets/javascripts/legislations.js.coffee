@@ -1,3 +1,29 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(function(){
+  $(".maparea7").mapael({
+    map : {
+      name : "usa_states"
+    },
+    plots: {
+      'ny' : {
+        latitude: 40.717079,
+        longitude: -74.00116,
+        tooltip: {content : "New York"}
+      },
+      'an' : {
+        latitude: 61.2108398,
+        longitude: -149.9019557,
+        tooltip: {content : "Anchorage"}
+      },
+      'sf' : {
+        latitude: 37.792032,
+        longitude: -122.394613,
+        tooltip: {content : "San Francisco"}
+      },
+      'pa' : {
+        latitude: 19.493204,
+        longitude: -154.8199569,
+        tooltip: {content : "Pahoa"}
+      }
+    }
+  });
+})
