@@ -1,3 +1,8 @@
+<h2><%= link_to @legislation.title, @legislation.url %></h2>
+
+<h4>Relevant Articles:</h4>
 <% @legislation.articles.each do |article| %>
   <p><%= link_to article.title, article.url %></p>
 <% end %>
+
+<h4>Relevant Tweets:</h4>

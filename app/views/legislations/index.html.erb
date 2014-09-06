@@ -1,13 +1,15 @@
+<h2>Govrregator</h2>
 <div id="frame">
     <ul class="slidee">
       <% @legislations.each do |legislation| %>
         <li>
-          <h3><%= legislation.title %></h3>
+          <h3><a href="/legislations/<%= legislation.id %>"><%= legislation.title %></a></h3>
           <p align="justify"><%= legislation.abstract %></p>
-          <p>legislation: <%= legislation.type %></p>
-          <p>publication date: <%= legislation.publication_date %></p>
-          <p>proposal date: <%= legislation.proposal_date %></p>
-          <%= link_to 'Articles', legislation_path(legislation) %>
+          <p>Legislation: <%= legislation.type %></p>
+          <p>Publication date: <%= legislation.publication_date %></p>
+          <p>Proposal date: <%= legislation.proposal_date %></p>
+          <h4><p><%= link_to 'Articles', legislation_path(legislation) %></p></h4>
+          <h4><p><%= link_to "Direct link", legislation.url %></p></h4>
         </li>
       <% end %>
     </ul>
