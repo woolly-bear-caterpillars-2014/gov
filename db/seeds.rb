@@ -14,29 +14,67 @@
 #       url: result['html_url'])
 # end
 
-LegislationsHelper.search_by_date_govtrack('2011-01-05')['objects'].each do |object|
-	Legislation.create(
-	  title: object['title_without_number'],
-	  publication_date: object['introduced_date'],
-      abstract: object['titles'][0][2],
-      url: object['thomas_link'])
-end
+# LegislationsHelper.search_by_date_govtrack('2011-01-05')['objects'].each do |object|
+# 	Legislation.create(
+# 	  title: object['title_without_number'],
+# 	  publication_date: object['introduced_date'],
+#       abstract: object['titles'][0][2],
+#       url: object['thomas_link'])
+# end
 
 # keywords_to_fetch = Legistation.take(10)
 
-Legislation.all.each do |leg|
-	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
-		a = Article.create(
-			title: article['headline']['main'],
-			first_paragraph: article['lead_paragraph'],
-			publication_date: article['pub_date'],
-			url: article['web_url'],
-			source: 'New York Times')
-		ArticlesLegislation.create(
-			article: a,
-			legislation: leg)
-	end
+# Legislation.all.each do |leg|
+
+NytimesHelper.fetch_house["results"].first["members"].each do |congressperson|
+	CongressPerson.create(first_name: congressperson["first_name"],
+		last_name: congressperson["last_name"],
+		title: "Congressperson",
+		party: congressperson["party"],
+		twitter_account: congressperson["twitter_account"],
+		facebook_account: congressperson["facebook_account"],
+		votes_with_party_pct: congressperson["votes_with_party_pct"],
+		website_url: congressperson["url"],
+		missed_votes_pct: congressperson["missed_votes_pct"],
+		seniority: congressperson["seniority"],
+		district: congressperson["district"],
+		next_election: congressperson["next_election"],
+		state: State.find_or_create_by(abbreviation: congressperson["state"])
+		)
 end
+
+NytimesHelper.featch_senate["results"].first["members"].each do |congressperson|
+	CongressPerson.create(first_name: congressperson["first_name"],
+		last_name: congressperson["last_name"],
+		title: "Senator",
+		party: congressperson["party"],
+		twitter_account: congressperson["twitter_account"],
+		facebook_account: congressperson["facebook_account"],
+		votes_with_party_pct: congressperson["votes_with_party_pct"],
+		website_url: congressperson["url"],
+		missed_votes_pct: congressperson["missed_votes_pct"],
+		seniority: congressperson["seniority"],
+		district: congressperson["district"],
+		next_election: congressperson["next_election"],
+		state: State.find_or_create_by(abbreviation: congressperson["state"])
+		)
+end
+
+
+
+# CongressPerson.all.each do |congressperson|
+# 	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
+# # 		a = Article.create(
+# # 			title: article['headline']['main'],
+# # 			first_paragraph: article['lead_paragraph'],
+# # 			publication_date: article['pub_date'],
+# # 			url: article['web_url'],
+# 			source: 'New York Times')
+# 		ArticlesLegislation.create(
+# 			article: a,
+# 			legislation: leg)
+# 	end
+# end
 
 # keywords_to_fetch.each do |legislation|
 # 	k = NytimesHelper.query_by_keywords(legislation.title)

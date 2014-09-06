@@ -12,7 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20140906190236) do
-  
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,20 +36,20 @@ ActiveRecord::Schema.define(version: 20140906190236) do
   create_table "congress_people", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "gender"
     t.string   "title"
     t.string   "party"
     t.string   "phone_number"
-    t.string   "twitter_id"
-    t.string   "youtube_id"
-    t.string   "district"
+    t.string   "twitter_account"
+    t.string   "facebook_account"
+    t.string   "votes_with_party_pct"
     t.string   "website_url"
+    t.string   "missed_votes_pct"
+    t.string   "youtube_id"
+    t.string   "seniority"
+    t.string   "district"
+    t.string   "next_election"
     t.integer  "state_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "gmaps", force: true do |t|
+    t.string   "picture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20140906190236) do
 
   create_table "states", force: true do |t|
     t.string   "name"
+    t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

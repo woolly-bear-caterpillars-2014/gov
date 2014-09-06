@@ -34,7 +34,7 @@ end
 
  article_config.each do |key, value|
  	ENV[key] = value
- end
+end
 
 #Base.api_key = ENV['ARTICLE_SEARCH']
 
