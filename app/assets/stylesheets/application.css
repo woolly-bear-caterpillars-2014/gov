@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+  *= require font-awesome
  */
 
 body {
@@ -39,6 +40,10 @@ a:hover {
   background-color: white;
 }
 
+nav li {
+  display:inline-block;
+}
+
 #frame {
   height: 600px;
   width: 100%;
@@ -49,9 +54,17 @@ a:hover {
   border-bottom: 1px solid;
 }
 
+#container {
+  margin: 20px auto;
+  width: 800px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+
 .slidee {
   list-style: none;
   height: 100%;
+  border-color: green;
   border-bottom: 1px solid;
   border-top: 1px solid;
 }
@@ -100,4 +113,6 @@ a:hover {
   width: 100%;
   height: 20px;
 }
+
+
 

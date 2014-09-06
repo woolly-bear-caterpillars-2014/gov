@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Governmentdata</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="http://darsa.in/sly/js/sly.min.js"></script>
-  <%= csrf_meta_tags %>
-  <!-- BEGIN TimelineJS -->
-	 <script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+	  <title>Govreggator</title>
+	  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	  <!-- BEGIN TimelineJS -->
+		 <script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+	</head>
+	<body>
+		<%= render partial: '/nav' %>
+		<%= yield %>
+	</body>
 </html>
