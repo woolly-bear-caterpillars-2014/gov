@@ -43,7 +43,7 @@ NytimesHelper.fetch_house["results"].first["members"].each do |congressperson|
 		)
 end
 
-NytimesHelper.featch_senate["results"].first["members"].each do |congressperson|
+NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
 	CongressPerson.create(first_name: congressperson["first_name"],
 		last_name: congressperson["last_name"],
 		title: "Senator",
@@ -58,6 +58,21 @@ NytimesHelper.featch_senate["results"].first["members"].each do |congressperson|
 		next_election: congressperson["next_election"],
 		state: State.find_or_create_by(abbreviation: congressperson["state"])
 		)
+end
+
+
+CongressPerson.all.each do |person|
+	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
+		a = Article.create(
+			title: article['headline']['main'],
+			first_paragraph: article['lead_paragraph'],
+			publication_date: article['pub_date'],
+			url: article['web_url'],
+			source: 'New York Times')
+		ArticleCongressPerson.create(
+			article: a,
+			congress_person: person)
+	end
 end
 
 
