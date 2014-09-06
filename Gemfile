@@ -44,4 +44,4 @@ gem 'spring',        group: :development
 
 gem 'federal_register'
 gem 'govtrack', git: "git://github.com/eshem/govtrack"
-gem 'font-awesome-sass'
+gem 'font-awesome-rails'
