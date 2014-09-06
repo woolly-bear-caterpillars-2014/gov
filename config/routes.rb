@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
-  resources :articles_legislations
-
-  resources :agencies
-
-  resources :articles
-
-  resources :legislations
-
-  resources :googlemaps
   
-  root 'legislations#index'
+  resources :congress_people
+
+  root 'states:index'
+
+  resources :states do
+    :congress_people
+  end
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
