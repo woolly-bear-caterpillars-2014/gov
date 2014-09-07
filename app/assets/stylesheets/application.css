@@ -59,8 +59,7 @@ nav li {
 }
 
 #senator-list {
-  margin: 10px 10px 10px 35px;
-  float: center;
+  margin: 0 aut;
 }
 
 .senator-democrat {
@@ -79,6 +78,10 @@ nav li {
   -webkit-box-shadow: 0 0 11px 1px #666;
 }
 
+.inner {
+  margin: 0 auto;
+  width: 800px;
+}
 
 #frame {
   height: 400px;
@@ -89,13 +92,12 @@ nav li {
   background-color: #23A38F;
   border-bottom: 1px solid;
   border-top: 1px solid;
+  z-index: 10px;
 }
 
 #container {
-  margin: 20px auto;
-  width: 800px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .slidee {
