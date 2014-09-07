@@ -7,6 +7,7 @@ class CongressPeopleController < ApplicationController
 
   def show
     @congress_person = CongressPerson.find(params[:id])
+    # @congress_person_articles = @congress_person.articles
   end
 
   # GET /congress_people/new
