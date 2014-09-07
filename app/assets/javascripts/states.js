@@ -1,4 +1,4 @@
-function generate_map() {
+function generateMap(response) {
   var $mapArea = $(".map-area");
 
   $mapArea.mapael({
@@ -34,44 +34,99 @@ function generate_map() {
         }
       }
     },
-    areas: {
-        "CA": {
-          href : "#",
-          tooltip: {content : "<span style=\"font-weight:bold;\">Nord (59)</span><br />Population : 2617939"}
-        },
-        "FL": {
-          value: "2268265",
-          href : "#",
-          tooltip: {content : "<span style=\"font-weight:bold;\">Paris (75)</span><br />Population : 2268265"}
-        }
+    legend : {
+      area : {
+        display : true,
+        title :"Political Leaning",
+        slices : [
+          {
+            max: -5,
+            attrs : {
+              fill : "#6B0C22"
+            },
+            label :"Less than de 300 000 inhabitants"
+          },
+          {
+            min: -5,
+            max: -1,
+            attrs : {
+              fill : "#D9042B"
+            },
+            label :"Between 100 000 and 500 000 inhabitants"
+          },
+          {
+            min: -1,
+            max: 2,
+            attrs : {
+              fill : "#FFF"
+            },
+            label :"Between 500 000 and 1 000 000 inhabitants"
+          },
+          {
+            min :2,
+            max :6,
+            attrs : {
+              fill : "#588C8C"
+            },
+            label :"More than 1 million inhabitants"
+          },
+          {
+            min: 6,
+            attrs : {
+              fill : "#00314C"
+            },
+            label :"More than 1 million inhabitants"
+          }
+        ]
       }
+    },
+    areas: colorizeStates(response)
   })
 }
 
-
-function generate_areas() {
-
-  // var $form = $('form');
-
-  // $form.on('submit', function(e) {
-  //   e.preventDefault();
-
-  //   $.ajax('/maps', {
-  //     type: 'GET',
-  //     dataType: 'json',
-  //     data: $form.serialize()
-  //   }).done(function(response) {
-  //     console.log(response)
-  //   })
-  // });
-
-
-  // states = [
-  //   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID",
-  //   "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS",
-  //   "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK",
-  //   "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV",
-  //   "WI", "WY"
-  // ]
-
+function getRepubDemCount() {
+  $.ajax('/states', {
+    type: 'GET',
+    dataType: 'json'
+  }).done(function(response) {
+    generateMap(response);
+  })
 }
+
+function stateNames(response) {
+  var states = [];
+
+  for (var i = 0; i < response.states.length; i++) {
+    var name = response.states[i].abbreviation;
+    var democratCount = response.democrats[i].length;
+    var republicanCount = response.republicans[i].length;
+    var politicalLeaning = democratCount - republicanCount;
+
+    states[i] = {
+      'name': name,
+      'politicalLeaning': politicalLeaning
+    }
+  }
+
+  return states
+}
+
+function colorizeStates(response) {
+  console.log(response)
+  var states = stateNames(response);
+  var areas = {};
+
+  for (var i = 0; i < response.states.length; i++) {
+    var name = states[i].name;
+    areas[name] = {
+      value: states[i].politicalLeaning,
+      tooltip: {
+        content : "<span style=\"font-weight:bold;\">" + name + "</span><br>" +
+        "<p>" + states[i].politicalLeaning + "</p>"
+      }
+    }
+  }
+
+  return areas
+}
+
