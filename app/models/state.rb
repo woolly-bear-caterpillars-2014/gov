@@ -18,13 +18,9 @@ class State < ActiveRecord::Base
 	end
 
 	def political_leaning
-		if self.democrat_count > self.republican_count
-			puts republican_count
-		((self.democrat_count / self.congress_people_count.to_f) * 100).to_s + "D"
-		else
-			((self.republican_count/self.congress_people_count.to_f) * 100).to_s + "R"
-		end
-		
+		#0 will be when every representative is a republican
+		#100 will be when every rep is a democrat
+		((self.democrat_count / self.congress_people_count.to_f) * 100)
 	end
 
 end
