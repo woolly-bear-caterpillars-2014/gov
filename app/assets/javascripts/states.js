@@ -1,5 +1,7 @@
-$(document).ready(function() {
-  $(".maparea3").mapael({
+function generate_map() {
+  var $mapArea = $(".map-area");
+
+  $mapArea.mapael({
     map: {
       name: "usa_states",
       zoom: {
@@ -32,5 +34,5 @@ $(document).ready(function() {
         }
       }
     }
-  });
-});
+  })
+}
