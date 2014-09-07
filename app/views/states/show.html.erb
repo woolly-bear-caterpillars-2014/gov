@@ -6,11 +6,29 @@
 <div id="senator-list">
   <center><h2>Senators</h2></center>
   <% @senators.each do |senator| %>
-    <div class="senator-item">
-      <h3>
-        <%= senator.first_name %> <%= senator.last_name %>
-      </h3>
-    </div>
+    <% if senator.party == "D" %>s
+      <div class="senator-democrat">
+        <h3>
+          <%= senator.first_name %> <%= senator.last_name %>
+        </h3>
+        <h3><%= senator.party %></h3>
+        <p>Votes with party <%= senator.votes_with_party_pct %>%
+          Missed Votes <%= senator.missed_votes_pct %>%
+        </p>
+        <%= link_to 'Select', states_path, {class: 'btn'} %>
+      </div>
+    <% else %>
+      <div class="senator-republican">
+        <h3>
+          <%= senator.first_name %> <%= senator.last_name %>
+        </h3>
+        <h3><%= senator.party %></h3>
+        <p>Votes with party <%= senator.votes_with_party_pct %>%
+          Missed Votes <%= senator.missed_votes_pct %>%
+        </p>
+        <%= link_to 'Select', states_path, {class: 'btn'} %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
@@ -18,16 +36,27 @@
 <div id="frame" data-no-turbolink>
   <ul class="slidee">
     <% @congress_people.each do |congress_person| %>
-        <li>
+      <% if congress_person.party == "D" %>
+        <li class="democrat">
           <h3>
             <%= congress_person.first_name %> <%= congress_person.last_name %>
           </h3>
-          <h3><%= congress_person.party %></h3>
           <p>Votes with party <%= congress_person.votes_with_party_pct %>%
             Missed Votes <%= congress_person.missed_votes_pct %>%
           </p>
           <%= link_to 'Select', states_path, {class: 'btn'} %>
         </li>
+      <% else %>
+        <li class="republican">
+          <h3>
+            <%= congress_person.first_name %> <%= congress_person.last_name %>
+          </h3>
+          <p>Votes with party <%= congress_person.votes_with_party_pct %>%
+            Missed Votes <%= congress_person.missed_votes_pct %>%
+          </p>
+          <%= link_to 'Select', states_path, {class: 'btn'} %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 </div>

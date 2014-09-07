@@ -63,16 +63,20 @@ nav li {
   float: center;
 }
 
-.senator-item {
+.senator-democrat {
   margin: 20px;
   padding: 20px;
   float: left;
-  background-color: #B7C11E;
+  background-color: #588C8C;
   -webkit-box-shadow: 0 0 11px 1px #666;
 }
 
-.senator-item:hover {
-  background-color: blue;
+.senator-republican {
+  margin: 20px;
+  padding: 20px;
+  float: left;
+  background-color: #D9042B;
+  -webkit-box-shadow: 0 0 11px 1px #666;
 }
 
 
@@ -106,13 +110,13 @@ nav li {
   width: 180px;
   height: 300px;
   overflow: auto;
-  background: #EFF1C2;
   border-radius: 1px;
   padding-right: 30px;
   padding-left: 30px;
   margin: 10px;
   margin-top: 30px;
   text-align: center;
+  color: white;
   cursor: pointer;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -121,15 +125,31 @@ nav li {
   transition:.5s;
 }
 
+.slidee li.republican {
+  background: #6B0C22;
+}
+
+.slidee li.republican.active {
+  background: #D9042B;
+}
+
+.slidee li.democrat {
+  background: #011C26;
+}
+
+.slidee li.democrat.active {
+  background: #588C8C;
+}
 
 .slidee li.active {
   -ms-transform: scale(1.1, 1.1); /* IE 9 */
   -webkit-transform: scale(1.1, 1.1); /* Chrome, Safari, Opera */
   transform: scale(1.1, 1.1);
-  -webkit-box-shadow: 0 0 22px 10px #444;
-  color: white;
+  -webkit-box-shadow: 0 0 11px 5px #444;
   background-color: #B7C11E;
+  z-index: 5;
 }
+
 
 .scrollbar {
   margin: 0 0 1em 0;
