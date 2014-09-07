@@ -34,48 +34,88 @@ function generateMap(response) {
         }
       }
     },
-    legend : {
-      area : {
-        display : true,
-        title :"Political Leaning",
-        slices : [
+    legend: {
+      area: {
+        display: true,
+        title:"Political Leaning",
+        slices: [
           {
-            max: -5,
-            attrs : {
-              fill : "#6B0C22"
+            max: 10,
+            attrs: {
+              fill: "#67001f"
             },
-            label :"Less than de 300 000 inhabitants"
+            label: "90% Republican"
           },
           {
-            min: -5,
-            max: -1,
-            attrs : {
-              fill : "#D9042B"
+            min: 10,
+            max: 20,
+            attrs: {
+              fill: "#b2182b"
             },
-            label :"Between 100 000 and 500 000 inhabitants"
+            label: "80% Republican"
           },
           {
-            min: -1,
-            max: 2,
-            attrs : {
-              fill : "#FFF"
+            min: 20,
+            max: 30,
+            attrs: {
+              fill: "#d6604d"
             },
-            label :"Between 500 000 and 1 000 000 inhabitants"
+            label: "70% Republican"
           },
           {
-            min :2,
-            max :6,
+            min: 30,
+            max: 40,
             attrs : {
-              fill : "#588C8C"
+              fill : "#f4a582"
             },
-            label :"More than 1 million inhabitants"
+            label: "60% Republican"
           },
           {
-            min: 6,
-            attrs : {
-              fill : "#00314C"
+            min: 40,
+            max: 50,
+            attrs: {
+              fill: "#fddbc7"
             },
-            label :"More than 1 million inhabitants"
+            label: "50% Republican"
+          },
+          {
+            min: 50,
+            max: 60,
+            attrs: {
+              fill: "#d1e5f0"
+            },
+            label: "Between 100 000 and 500 000 inhabitants"
+          },
+          {
+            min: 60,
+            max: 70,
+            attrs: {
+              fill: "#92c5de"
+            },
+            label: "Between 500 000 and 1 000 000 inhabitants"
+          },
+          {
+            min: 70,
+            max: 80,
+            attrs: {
+              fill: "#4393c3"
+            },
+            label: "Between 500 000 and 1 000 000 inhabitants"
+          },
+          {
+            min: 80,
+            max: 90,
+            attrs: {
+              fill: "#2166ac"
+            },
+            label: "More than 1 million inhabitants"
+          },
+          {
+            min: 90,
+            attrs: {
+              fill: "#053061"
+            },
+            label: "More than 1 million inhabitants"
           }
         ]
       }
@@ -93,40 +133,23 @@ function getRepubDemCount() {
   })
 }
 
-function stateNames(response) {
-  var states = [];
 
-  for (var i = 0; i < response.states.length; i++) {
-    var name = response.states[i].abbreviation;
-    var democratCount = response.democrats[i].length;
-    var republicanCount = response.republicans[i].length;
-    var politicalLeaning = democratCount - republicanCount;
-
-    states[i] = {
-      'name': name,
-      'politicalLeaning': politicalLeaning
-    }
-  }
-
-  return states
-}
-
-function colorizeStates(response) {
-  console.log(response)
-  var states = stateNames(response);
+function colorizeStates(states) {
   var areas = {};
 
-  for (var i = 0; i < response.states.length; i++) {
+  for (var i = 0; i < states.length; i++) {
     var name = states[i].name;
+
     areas[name] = {
-      value: states[i].politicalLeaning,
+      value: states[i].political_leaning,
       tooltip: {
         content : "<span style=\"font-weight:bold;\">" + name + "</span><br>" +
-        "<p>" + states[i].politicalLeaning + "</p>"
+        "<p>" + states[i].democrat_count + " Democrats</p>" +
+        "<p>" + states[i].republican_count + " Republicans</p>" +
+        "<p>" + Math.round(states[i].political_leaning) + "%</p>"
       }
     }
   }
 
   return areas
 }
-

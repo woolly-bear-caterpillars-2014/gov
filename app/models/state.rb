@@ -6,15 +6,15 @@ class State < ActiveRecord::Base
 	end
 
 	def republican_count
-		self.congress_people.select{ |a| a.party=="R"}.length
+		self.congress_people.select{ |a| a.party == "R"}.length
 	end
 
 	def democrat_count
-		self.congress_people.select{ |a| a.party=="D"}.length
+		self.congress_people.select{ |a| a.party == "D"}.length
 	end
 
 	def independent_count
-		self.congress_people.select{ |a| a.party =="I"}.length
+		self.congress_people.select{ |a| a.party == "I"}.length
 	end
 
 	def political_leaning
