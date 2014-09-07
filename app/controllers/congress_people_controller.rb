@@ -1,15 +1,12 @@
 class CongressPeopleController < ApplicationController
   before_action :set_congress_person, only: [:show, :edit, :update, :destroy]
 
-  # GET /congress_people
-  # GET /congress_people.json
   def index
     @congress_people = CongressPerson.all
   end
 
-  # GET /congress_people/1
-  # GET /congress_people/1.json
   def show
+    @congress_person = CongressPerson.find(params[:id])
   end
 
   # GET /congress_people/new

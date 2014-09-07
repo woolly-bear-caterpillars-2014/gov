@@ -31,7 +31,7 @@ $(document).ready(function() {
     scrollBar: $('.scrollbar'),
     dragHandle: 1,
     speed: 600,
-    startAt: 3,
+    startAt: 1,
     keyboardNavBy: 'horizontal'
   });
 
