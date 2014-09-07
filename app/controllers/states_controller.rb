@@ -4,7 +4,20 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     @states = State.all
-    TweetStreamHelper.tw_config
+    @states.each do |state|
+      @democrats = state.congress_people.where(party: "D")
+      @republicans = state.congress_people.where(party: "R")
+    end
+
+    # republicans = @states.
+    #   congress_people.where(party: "Congressperson")
+    # TweetStreamHelper.tw_config
+
+    if request.xhr?
+      render json: @states.to_json
+    else
+      render :index
+    end
 
     # @hash = Gmaps4rails.build_markers(@cities) do |city, marker|
     # marker.lat city.latitude
