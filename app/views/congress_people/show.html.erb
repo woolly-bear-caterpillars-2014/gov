@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<%= @congress_person.first_name %>
+<div class="container">
+  <div class="inner">
+    <h1><%= @congress_person.first_name %> <%= @congress_person.last_name %></h1>
+
+    <% @congress_person.articles.each do |article| %>
+      <div class='article'>
+        <%= link_to article.url do %>
+          <center><h1><%= article.title %></h1></center>
+          <p><%= article.first_paragraph %></p>
+        <% end %>
+        <p><small><%= article.source %> | <%= article.publication_date %></small></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
 
