@@ -84,7 +84,7 @@ function generateMap(response) {
             attrs: {
               fill: "#d1e5f0"
             },
-            label: "Between 100 000 and 500 000 inhabitants"
+            label: "50% Democrat"
           },
           {
             min: 60,
@@ -92,7 +92,7 @@ function generateMap(response) {
             attrs: {
               fill: "#92c5de"
             },
-            label: "Between 500 000 and 1 000 000 inhabitants"
+            label: "60% Democrat"
           },
           {
             min: 70,
@@ -100,7 +100,7 @@ function generateMap(response) {
             attrs: {
               fill: "#4393c3"
             },
-            label: "Between 500 000 and 1 000 000 inhabitants"
+            label: "70% Democrat"
           },
           {
             min: 80,
@@ -108,14 +108,14 @@ function generateMap(response) {
             attrs: {
               fill: "#2166ac"
             },
-            label: "More than 1 million inhabitants"
+            label: "80% Democrat"
           },
           {
             min: 90,
             attrs: {
               fill: "#053061"
             },
-            label: "More than 1 million inhabitants"
+            label: "90% Democrat"
           }
         ]
       }
@@ -139,6 +139,14 @@ function colorizeStates(states) {
 
   for (var i = 0; i < states.length; i++) {
     var name = states[i].name;
+    var politicalLeaning = Math.round(states[i].political_leaning);
+    var politicalLeaningDisplay = "<p>" + Math.round(states[i].political_leaning) + "% Democrat</p>";
+
+
+    if (politicalLeaning < 50) {
+      politicalLeaning = 100 - politicalLeaning;
+      politicalLeaningDisplay = "<p>" + politicalLeaning + "% Republican</p>"
+    }
 
     areas[name] = {
       value: states[i].political_leaning,
@@ -146,7 +154,7 @@ function colorizeStates(states) {
         content : "<span style=\"font-weight:bold;\">" + name + "</span><br>" +
         "<p>" + states[i].democrat_count + " Democrats</p>" +
         "<p>" + states[i].republican_count + " Republicans</p>" +
-        "<p>" + Math.round(states[i].political_leaning) + "%</p>"
+        politicalLeaningDisplay
       }
     }
   }
