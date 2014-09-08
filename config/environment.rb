@@ -44,3 +44,4 @@ end
 
 #Base.api_key = ENV['ARTICLE_SEARCH']
 
+
