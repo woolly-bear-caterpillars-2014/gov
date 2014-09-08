@@ -7,7 +7,7 @@ module NytimesHelper
 		attr_accessor :url, :parsed_reply
 		API_KEY = ENV['ARTICLE_SEARCH']
 		BASE_URI = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'
-		CONGRESS_KEY = ENV["CONGRESS"]
+		CONGRESS_KEY = ENV["CONGRESS_KEY"]
 
 		def get_url(string)
 			k = string.split(' ').each{ |a| a.gsub!(/[^0-9A-Za-z]/, '')}
@@ -37,6 +37,7 @@ module NytimesHelper
 		def fetch_house
 			url = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/113/house/members.json?api-key=#{CONGRESS_KEY}"
 			uri = URI(url)
+			p uri
 			reply = uri.read
 			parsed_reply = JSON.parse reply
 		end

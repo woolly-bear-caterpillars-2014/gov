@@ -32,4 +32,3 @@ class ArticlesController < ApplicationController
       params.require(:article).permit(:title, :first_paragraph, :publication_date, :url, :source)
     end
   end
-end
