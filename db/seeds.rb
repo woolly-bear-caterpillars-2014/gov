@@ -112,7 +112,7 @@ CongressPerson.all.each do |person|
 			url: article['web_url'],
 			source: 'New York Times'
 		)
-
+		
 		ArticleCongressPerson.create(
 			article: a,
 			congress_person: person
