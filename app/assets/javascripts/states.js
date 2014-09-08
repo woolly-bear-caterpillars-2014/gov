@@ -9,13 +9,13 @@ function generateMap(response) {
       },
       defaultArea: {
         attrs: {
-          fill: "#424342",
-          stroke: "#F5F2EB",
+          fill: "#F5F5BD",
+          stroke: "#fff",
           cursor: "pointer"
         },
         attrsHover: {
           animDuration: 100,
-          fill: "#88A6AF"
+          fill: "#ddd"
         },
         text: {
           attrs: {
@@ -79,7 +79,7 @@ function generateMap(response) {
             label: "50% Republican"
           },
           {
-            min: 50,
+            min: 51,
             max: 60,
             attrs: {
               fill: "#d1e5f0"
@@ -139,6 +139,7 @@ function colorizeStates(states) {
 
   for (var i = 0; i < states.length; i++) {
     var name = states[i].name;
+    var independents = ""
     var politicalLeaning = Math.round(states[i].political_leaning);
     var politicalLeaningDisplay = "<p>" + Math.round(states[i].political_leaning) + "% Democrat</p>";
 
@@ -148,12 +149,17 @@ function colorizeStates(states) {
       politicalLeaningDisplay = "<p>" + politicalLeaning + "% Republican</p>"
     }
 
+    if (states[i].independent_count) {
+      independents = "<p>Independents: <b>" + states[i].independent_count + "</b></p>";
+    }
+
     areas[name] = {
       value: states[i].political_leaning,
       tooltip: {
         content : "<span style=\"font-weight:bold;\">" + name + "</span><br>" +
-        "<p>" + states[i].democrat_count + " Democrats</p>" +
-        "<p>" + states[i].republican_count + " Republicans</p>" +
+        "<p>Democrats: <b>" + states[i].democrat_count + "</b></p>" +
+        "<p>Republicans: <b>" + states[i].republican_count + "</b></p>" +
+        independents +
         politicalLeaningDisplay
       }
     }
