@@ -15,7 +15,7 @@ function generateMap(response) {
         },
         attrsHover: {
           animDuration: 100,
-          fill: "#ddd"
+          fill: "#38B25A"
         },
         text: {
           attrs: {
