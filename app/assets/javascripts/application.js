@@ -4,7 +4,7 @@
 //= require underscore
 //= require states
 //= require gmaps/google
-//= require gmaps
+
 $(document).ready(function() {
 
 	$('grab-states').hasClass("map-area", getRepubDemCount());
