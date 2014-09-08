@@ -50,7 +50,9 @@
 
             <div class="article democrat">
             <% congress_person.articles.each do |article| %>
-              <h2><%= article.title %></h2>
+            <div class="senator-card-democrat">
+              <h3><%= article.title %></h3>
+            </div>
             <% end %>
         </div>
 
@@ -68,7 +70,9 @@
 
           <div class="article republican">
           <% congress_person.articles.each do |article| %>
+           <div class="senator-card-republican">
             <h2><%= article.title %></h2>
+            </div>
           <% end %>
         </div>
         <% end %>

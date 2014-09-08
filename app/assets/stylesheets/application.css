@@ -232,7 +232,7 @@ nav li {
 
 #frame {
   z-index: 0;
-  height: 900px;
+  height: 600px;
   overflow: none;
   width: 100%;
   margin: 0px 0px;
@@ -255,7 +255,7 @@ nav li {
 .article {
   position: fixed;
   padding: 20px;
-  width: 500px;
+  width: 900px;
   top: 170px;
   margin-left: -100px;
   display: none;
