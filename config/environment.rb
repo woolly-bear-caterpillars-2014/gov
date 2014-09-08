@@ -4,7 +4,6 @@ require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
 Rails.application.initialize!
 
-
 #Twitter configuration
 
 twitter_config = YAML.load_file('config/twitter.yml')
