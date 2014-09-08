@@ -14,13 +14,10 @@ class GmapsController < ApplicationController
 
   def run
     Thread.new do
-      puts "in thread"
-      STREAMINGCLIENT.filter(:locations => '-74,40,-73,41') do |tweet|
+      STREAMINGCLIENT.filter(:location => '-74,40,-73,41') do |tweet|
           File.open("public/data/data.json","w") do |f|
             f.write(tweet.to_json)
-            end
-        puts tweet.text
-        puts tweet.geo.coordinates
+        end
       end 
     end
   end

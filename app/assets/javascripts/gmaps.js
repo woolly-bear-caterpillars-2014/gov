@@ -1,5 +1,7 @@
 
+  function generateTweetMap(){
   map = void 0;
+  console.log('set map');
 
   $(document).ready(function() {
     var mapOptions;
@@ -8,18 +10,16 @@
       zoom: 3,
       center: new google.maps.LatLng(30.297018, 0.851440),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      disableDefaultUI: true,
-      disableDoubleClickZoom: true,
       zoomControl: true
     };
     return map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   });
 
   $(function() {
-    return setInterval(retreiveBombs, 100);
+    return setInterval(retrieveTweets, 1000);
   });
 
-  retreiveBombs = function() {
+  retrieveTweets = function() {
     console.log("retrieving");
     return $.getJSON("/data/data.json", function(data) {
       return $.each(data, function(key, val) {
@@ -36,7 +36,8 @@
           title: text
         });
         return marker.setMap(map);
+        $('.tweet-sidebar').append(text);
       });
     });
   };
-
+};

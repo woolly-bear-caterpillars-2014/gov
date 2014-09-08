@@ -1,14 +1,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require underscore
+//= require states
 //= require gmaps/google
-
+//= require gmaps
 $(document).ready(function() {
-  // generate_map();
-  generate_sly();
-  getRepubDemCount();
-  // $form = $
-
+	$('grab-states').hasClass("map-area", getRepubDemCount());
+	$('grab-states').hasClass("gmap-area"), generateTweetMap();
 });
