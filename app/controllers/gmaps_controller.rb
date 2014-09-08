@@ -1,16 +1,31 @@
 class GmapsController < ApplicationController
-  before_action :set_gmap, only: [:show, :edit, :update, :destroy]
 
   # GET /gmaps
   # GET /gmaps.json
+   require 'twitter'
+  respond_to :html, :json, :js
   def index
-    @articles = Article.all
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-        marker.lat user.latitude
-        marker.lng user.longitude
+    run
+  end
+
+#copy and paste the above into the rails console
+#this will print the coordinates as an array of two strings like [ 'long', 'lat']
+#we need to pass these coordinates to the api and plot them
+
+  def run
+    Thread.new do
+      puts "in thread"
+      STREAMINGCLIENT.filter(:locations => '-74,40,-73,41') do |tweet|
+          File.open("public/data/data.json","w") do |f|
+            f.write(tweet.to_json)
+            end
+        puts tweet.text
+        puts tweet.geo.coordinates
+      end 
     end
   end
 end
+
 
 #   # GET /gmaps/1
 #   # GET /gmaps/1.json

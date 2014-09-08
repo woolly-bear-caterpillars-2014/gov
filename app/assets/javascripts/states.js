@@ -1,3 +1,8 @@
+$(document).ready(function() {
+  generate_map();
+  generate_sly();
+});
+
 function generate_map() {
   var $mapArea = $(".map-area");
 
