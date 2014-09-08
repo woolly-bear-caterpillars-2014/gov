@@ -27,27 +27,17 @@ module SunlightCongressHelper
 
 		def filter_bill(bill_hash)
 			bill = Hash.new
-			bill[:number] = parsed_reply["results"].first["number"]
-			bill[:bill_id] = parsed_reply["results"].first["last_version"]["bill_version_id"]
-			bill[:pdf_url] = parsed_reply["results"].first["last_version"]["urls"]["pdf"]
-			bill[:introduced_on] = parsed_reply["results"].first["introduced_on"]
-			bill[:last_version_on] = parsed_reply["results"].first["last_version_on"]
-			bill[:official_title] = parsed_reply["results"].first["official_title"]
-			bill[:short_title] = parsed_reply["results"].first["short_title"]
-
+			bill[:number] = bill_hash["number"]
+			bill[:bill_id] = bill_hash["last_version"]["bill_version_id"]
+			bill[:pdf_url] = bill_hash["last_version"]["urls"]["pdf"]
+			bill[:introduced_on] = bill_hash["introduced_on"]
+			bill[:last_version_on] = bill_hash["last_version_on"]
+			bill[:official_title] = bill_hash["official_title"]
+			bill[:short_title] = bill_hash["short_title"]
+			bill
 		end
-
-		
-    
-    
-    
-    
-    
-    
-
-		
-
 	end
 end
-
-
+# sponsor_id = CongressPerson.first.bioguide_id
+# bills = SunlightCongressHelper.get_bills(sponsor_id)
+# bills.each do |bill| puts bill[:title] end
