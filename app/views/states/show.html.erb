@@ -7,30 +7,25 @@
 
       <% @senators.each do |senator| %>
         <% if senator.party == "D" %>
-        <%= link_to congress_person_path(senator) do %>
-          <div class="senator-democrat">
-            <img src="<%=senator.picture_id%>">
-            <h3>
-              <%= senator.first_name %> <%= senator.last_name %>
-            </h3>
-            <p>Votes with party <%= senator.votes_with_party_pct %>%
-              Missed Votes <%= senator.missed_votes_pct %>%
-            </p>
-          <% end %>
+          <div class="senator-card-democrat">
+            <div class="democrat">
+              <%= image_tag(senator.picture_id) %>
+            </div>
+            <div class="politician-data">
+              <h2><%= senator.first_name %> <%= senator.last_name %></h2>
+              <p><%= senator.votes_with_party_pct %> %</p>
+            </div>
           </div>
         <% else %>
-          <%= link_to congress_person_path(senator) do %>
-          <div class="senator-republican">
-            <img src="<%=senator.picture_id%>">
-            <h3>
-              <%= senator.first_name %> <%= senator.last_name %>
-            </h3>
-            <p>Votes with party <%= senator.votes_with_party_pct %>%
-              Missed Votes <%= senator.missed_votes_pct %>%
-            </p>
-             <%= link_to 'Select', congress_person_path(senator), {class: 'btn'} %>
+          <div class="senator-card-republican">
+            <div class="republican">
+              <%= image_tag(senator.picture_id) %>
+            </div>
+            <div class="politician-data">
+              <h2><%= senator.first_name %> <%= senator.last_name %></h2>
+              <p><%= senator.votes_with_party_pct %> %</p>
+            </div>
           </div>
-          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -41,27 +36,7 @@
     <ul class="slidee">
       <% @congress_people.each do |congress_person| %>
         <% if congress_person.party == "D" %>
-          <li class="democrat">
-            <img src="<%=congress_person.picture_id%>">
-            <h3>
-              <%= congress_person.first_name %> <%= congress_person.last_name %>
-            </h3>
-            <p>Votes with party <%= congress_person.votes_with_party_pct %>%
-              Missed Votes <%= congress_person.missed_votes_pct %>%
-            </p>
-            <%= link_to 'Select', congress_person_path(congress_person), {class: 'btn'} %>
-          </li>
         <% else %>
-          <li class="republican">
-            <img src="<%=congress_person.picture_id%>">
-            <h3>
-              <%= congress_person.first_name %> <%= congress_person.last_name %>
-            </h3>
-            <p>Votes with party <%= congress_person.votes_with_party_pct %>%
-              Missed Votes <%= congress_person.missed_votes_pct %>%
-            </p>
-            <%= link_to 'Select', congress_person_path(congress_person), {class: 'btn'} %>
-          </li>
         <% end %>
       <% end %>
     </ul>
