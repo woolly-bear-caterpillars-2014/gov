@@ -12,16 +12,20 @@ class GmapsController < ApplicationController
 #this will print the coordinates as an array of two strings like [ 'long', 'lat']
 #we need to pass these coordinates to the api and plot them
 
-  def run
+def run
     Thread.new do
-      STREAMINGCLIENT.filter(:location => '-74,40,-73,41') do |tweet|
+      puts "in thread"
+      STREAMINGCLIENT.filter(:locations => '-74,40,-73,41') do |tweet|
           File.open("public/data/data.json","w") do |f|
             f.write(tweet.to_json)
-        end
+            end
+        puts tweet.text
+        puts tweet.geo.coordinates
       end 
     end
   end
 end
+
 
 
 #   # GET /gmaps/1
