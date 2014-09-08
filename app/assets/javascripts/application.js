@@ -5,3 +5,10 @@
 //= require underscore
 //= require gmaps/google
 
+$(document).ready(function() {
+  // generate_map();
+  generate_sly();
+  getRepubDemCount();
+  // $form = $
+
+});
