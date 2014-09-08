@@ -33,6 +33,8 @@ gem 'unicorn'
 
 gem 'd3-rails'
 
+gem 'alchemy-api-rb'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
