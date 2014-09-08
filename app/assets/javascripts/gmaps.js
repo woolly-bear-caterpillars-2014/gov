@@ -1,4 +1,3 @@
-
   function generateTweetMap(){
   map = void 0;
   console.log('set map');

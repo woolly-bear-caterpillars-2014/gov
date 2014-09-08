@@ -1,4 +1,3 @@
-
 function generateMap(response) {
   var $mapArea = $(".map-area");
   console.log(response);
