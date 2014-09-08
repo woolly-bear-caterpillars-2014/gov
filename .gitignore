@@ -17,4 +17,4 @@
 
 # Ignore all API keys
 # /config/nyt.yml
-# /config/other_nyt.yml
+# /config/other_nyt.yml.env
