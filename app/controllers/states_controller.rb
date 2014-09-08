@@ -4,17 +4,10 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     @states = State.all
-    @states.each do |state|
-      @democrats = state.congress_people.where(party: "D")
-      @republicans = state.congress_people.where(party: "R")
-    end
-
-    # republicans = @states.
-    #   congress_people.where(party: "Congressperson")
-    # TweetStreamHelper.tw_config
+    state_hash = @states.map { |state| state.generate_hash }
 
     if request.xhr?
-      render json: @states.to_json
+      render json: state_hash.to_json
     else
       render :index
     end
