@@ -1,10 +1,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require underscore
+//= require states
 //= require gmaps/google
-
+//= require gmaps
 $(document).ready(function() {
   var $buttonSubmit = $('button[name=submit_feedback]'),
       $submit = $('#submitFeedback');
@@ -21,8 +21,9 @@ $(document).ready(function() {
     submit.fadeIn('fast');
   });
 
-  generate_sly();
-  getRepubDemCount();
+
+	$('grab-states').hasClass("map-area", getRepubDemCount());
+	$('grab-states').hasClass("gmap-area"), generateTweetMap();
 });
 
 // function generateArticles() {

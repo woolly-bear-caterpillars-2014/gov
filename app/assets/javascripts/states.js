@@ -1,6 +1,7 @@
+
 function generateMap(response) {
   var $mapArea = $(".map-area");
-
+  console.log(response);
   $mapArea.mapael({
     map: {
       name: "usa_states",
@@ -125,6 +126,7 @@ function generateMap(response) {
 }
 
 function getRepubDemCount() {
+  console.log("Hello from getRepubDemCount");
   $.ajax('/states', {
     type: 'GET',
     dataType: 'json'
