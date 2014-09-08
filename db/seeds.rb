@@ -121,17 +121,17 @@ CongressPerson.all.each do |person|
 end
 
 
-CongressPerson.all.each do |congressperson|
-	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
-		a = Article.create(
-			title: article['headline']['main'],
-			first_paragraph: article['lead_paragraph'],
-			publication_date: article['pub_date'],
-			url: article['web_url'],
-			source: 'New York Times')
-		ArticlesLegislation.create(
-			article: a,
-			legislation: leg)
-	end
-end
+# CongressPerson.all.each do |congressperson|
+# 	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
+# 		a = Article.create(
+# 			title: article['headline']['main'],
+# 			first_paragraph: article['lead_paragraph'],
+# 			publication_date: article['pub_date'],
+# 			url: article['web_url'],
+# 			source: 'New York Times')
+# 		ArticlesLegislation.create(
+# 			article: a,
+# 			legislation: leg)
+# 	end
+# end
 
