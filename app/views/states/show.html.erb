@@ -1,6 +1,4 @@
-
-
-<div class="container">
+<div class="container" id="state">
   <div class="inner">
     <center><h1><%= @state.name %></h1></center>
     <div id="senator-list">
@@ -34,49 +32,56 @@
     </div>
   </div>
 
-  <div id="frame" data-no-turbolink>
+  <div id="frame">
     <ul class="slidee">
       <% @congress_people.each do |congress_person| %>
-
         <li>
         <% if congress_person.party == "D" %>
             <div class="senator-card-democrat">
+              <div class="democrat">
                 <%= image_tag(congress_person.picture_id) %>
+              </div>
+              <div class="politician-data">
                 <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
                 <p>Democrat</p>
                 <p><%= congress_person.title %></p>
+              </div>
             </div>
+
+            <div class="article democrat">
+            <% congress_person.articles.each do |article| %>
+              <h2><%= article.title %></h2>
+            <% end %>
+        </div>
+
         <% else %>
           <div class="senator-card-republican">
-            <%= link_to congress_person do %>
+            <div class="republican">
               <%= image_tag(congress_person.picture_id) %>
+            </div>
+            <div class="politician-data">
               <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
               <p>Republican</p>
               <p><%= congress_person.title %></p>
-            <% end %>
+            </div>
           </div>
+
+          <div class="article republican">
+          <% congress_person.articles.each do |article| %>
+            <h2><%= article.title %></h2>
+          <% end %>
+        </div>
         <% end %>
-      </li>
+
+
+
+
+        </li>
       <% end %>
     </ul>
   </div>
 
-  <div class="congress-articles" id="submitFeedback" style="display: none;">
-    <% @congress_people.first.articles.each do |article| %>
-      <h1><%= article.title %></h1>
-    <% end %>
-  </div>
+
 </div>
-
-
-
-
-<!-- Hidden Submit -->
-
-
-
-
-
-
 
 

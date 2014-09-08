@@ -5,32 +5,59 @@
 //= require states
 //= require gmaps/google
 //= require gmaps
+//= require sly
+
 $(document).ready(function() {
-  var $buttonSubmit = $('button[name=submit_feedback]'),
-      $submit = $('#submitFeedback');
+  $('.slidee li').on('click', '.senator-card-democrat', function() {
+    if (event.target.nodeName != 'BUTTON') {
+      $(this).next().slideToggle('fast');
+      $(".article").not($(this).next()).slideUp('fast');
+    }
+  })
 
-  $('button[name=submit_feedback]').on('submit', function(e) {
-    $.ajax($(this).attr('action'), {
-      method: 'post',
-      dataType: 'json',
-      data: $(this).serialize()
-    }).done(function(response) {
-      console.log(response);
-    });
+  $('.slidee li').on('click', '.senator-card-republican', function() {
+    if (event.target.nodeName != 'BUTTON') {
+      $(this).next().slideToggle('fast');
+      $(".article").not($(this).next()).slideUp('fast');
+    }
+  })
 
-    submit.fadeIn('fast');
-  });
-
+  generate_sly();
 
 	$('grab-states').hasClass("map-area", getRepubDemCount());
-	$('grab-states').hasClass("gmap-area"), generateTweetMap();
+	$('grab-states').hasClass("gmap-area", generateTweetMap());
 });
 
-// function generateArticles() {
-//   e.preventDefault;
+function generate_sly() {
+  $('#frame').sly({
+    horizontal: 1,
+    itemNav: 'centered',
+    smart: 1,
+    activateOn: 'click',
+    scrollBy: 1,
+    mouseDragging: 1,
+    swingSpeed: 0.2,
+    scrollBar: $('.scrollbar'),
+    dragHandle: 1,
+    speed: 600,
+    startAt: 1,
+    keyboardNavBy: 'horizontal'
+  });
+}
 
 
-// }
 
-//     buttonSubmit = $('button[name=submit_feedback]'),
-//     submit = $('#submitFeedback'),
+
+  // var $buttonSubmit = $('button[name=submit_feedback]'),
+  //     $submit = $('#submitFeedback');
+  // var $form = $('form');
+  // $form.on('submit', function(e) {
+  //   e.preventDefault();
+  //   $.ajax('/states', {
+  //     method: 'post',
+  //     dataType: 'json',
+  //     data: $form.serialize()
+  //   }).done(function(response) {
+  //     console.log(response);
+  //   });
+  // });

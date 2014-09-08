@@ -16,7 +16,7 @@
  */
 
 body {
-  background-color: #F6F6EF;
+  background-image: url('cream_dust.png');
   font-family: 'Myriad Pro';
   margin: 0px 0px;
   padding: 0px 0px;
@@ -35,19 +35,29 @@ img {
   height: 100px;
 }
 
-
-.senator-card-democrat img {
+.senator-republican img {
   border-style: solid;
   border-width: 5px;
-  border-color: #6B0C22;;
+  border-color: red;
 }
 
-.senator-card-republican img {
+.republican img {
   border-style: solid;
   border-width: 5px;
-  border-color: #053061;
+  border-color: red;
 }
 
+.senator-democrat img {
+  border-style: solid;
+  border-width: 5px;
+  border-color: blue;
+}
+
+.democrat img {
+  border-style: solid;
+  border-width: 5px;
+  border-color: blue;
+}
 
 a {
   text-decoration: none;
@@ -97,8 +107,45 @@ nav li {
   border-color: #6B0C22;
 }
 
+.article .democrat {
+  text-align: justify;
+  color: #333;
+  float: left;
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.9);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.article .republican {
+  text-align: justify;
+  background-image: url('handmadepaper.png');
+  color: #333;
+  float: left;
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.1);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
 .senator-card-democrat {
-/*  background-image: url('handmadepaper.png');*/
+  background-image: url('handmadepaper.png');
   color: #333;
   float: left;
   width: 300px;
@@ -106,7 +153,7 @@ nav li {
   padding: 10px;
   border: 1px solid;
   border-color: #999;
-  background: rgba(33, 102, 172, 0.2);
+  background: rgba(33, 102, 172, 0.1);
   -webkit-box-shadow: 0 0 11px 1px #aaa;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -124,7 +171,7 @@ nav li {
   padding: 10px;
   border: 1px solid;
   border-color: #999;
-  background: rgba(107, 12, 34, 0.2);
+  background: rgba(107, 12, 34, 0.1);
   -webkit-box-shadow: 0 0 11px 1px #aaa;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -144,17 +191,13 @@ nav li {
 
 
 .senator-card-republican:hover {
-  background: rgba(107, 12, 34, 0.6);
+  background: rgba(107, 12, 34, 0.2);
 }
 
 .senator-card-democrat:hover {
-  background: rgba(33, 102, 172, 0.6);
+  background: rgba(33, 102, 172, 0.2);
 }
 
-
-.congress-card {
-
-}
 
 .politician-data {
   float: left;
@@ -188,11 +231,14 @@ nav li {
 }
 
 #frame {
-  height: 270px;
+  z-index: 0;
+  height: 900px;
+  overflow: none;
   width: 100%;
   margin: 0px 0px;
   padding: 0px 0px;
   float: left;
+  background-color: rgba(0,0,0,0);
   background-image: url('handmadepaper.png');
   border-bottom: 1px solid;
   border-top: 1px solid;
@@ -207,13 +253,12 @@ nav li {
 }
 
 .article {
+  position: fixed;
   padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  margin: 10px;
-  margin-bottom: 0px;
   width: 500px;
-  background-color: red;
+  top: 170px;
+  margin-left: -100px;
+  display: none;
 }
 
 .slidee li {
@@ -231,59 +276,6 @@ nav li {
 }
 
 
-.slidee li .republican {
-  background: #6B0C22;
-}
-
-.slidee li.republican.active {
-  background: #D9042B;
-}
-
-.slidee li.democrat {
-  background: #011C26;
-}
-
-
-.slidee li.democrat.active {
-  background: #588C8C;
-}
-
-/*#scrollbar {
-    width: 100%;
-    height: 100px;
-    background: #f00;
-    margin-top: 10px;
-    line-height: 0;
-}
-#scrollbar .handle {
-    width: 50px;
-    height: 100px;
-    background: #00f;
-    position: absolute;
-}*/
-
-
-/*.scrollbar {
-  margin: 0 0 1em 0;
-  height: 2px;
-  background: #ccc;
-  line-height: 0;
-}
-
-.scrollbar .handle {
-  width: 100px;
-  height: 100%;
-  background: #292a33;
-  cursor: pointer;
-}
-*/
-/*.scrollbar .handle .mousearea {
-  position: absolute;
-  top: -9px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-}*/
 nav {
   width: 100%;
   position: fixed;
@@ -327,26 +319,24 @@ nav .session_panel {
 
 #map-canvas {
   height: 100%;
-  position: absolute; 
-  top: 0; 
-  bottom: -200px; 
-  left: 0; 
-  right: 0; 
+  position: absolute;
+  top: 0;
+  bottom: -200px;
+  left: 0;
+  right: 0;
   z-index: 0;
 }
+
 #title-bar {
    z-index:100;
    position:relative;
-   color:#fff;"
+   color:#fff;
 }
 #title-close {
   color:#fff;
   opacity:1;
-  
+
 }
 #title-close:hover {
   opacity:.5;
 }
-
-
-
