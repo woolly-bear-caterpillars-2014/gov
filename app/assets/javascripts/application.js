@@ -6,6 +6,8 @@
 //= require gmaps/google
 //= require gmaps
 $(document).ready(function() {
+
 	$('grab-states').hasClass("map-area", getRepubDemCount());
 	$('grab-states').hasClass("gmap-area"), generateTweetMap();
+
 });
