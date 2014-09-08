@@ -43,63 +43,95 @@ NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
 	)
 end
 
-# CongressPerson.all.each do |person|
-# 	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
-# 		a = Article.create(
-# 			title: article['headline']['main'],
-# 			first_paragraph: article['lead_paragraph'],
-# 			publication_date: article['pub_date'],
-# 			url: article['web_url'],
-# 			source: 'New York Times'
-# 		)
+state_list = {
+	'AL' => "Alabama",
+	'AK' => "Alaska",
+	'AZ' => "Arizona",
+	'AR' => "Arkansas",
+	'CA' => "California",
+	'CO' => "Colorado",
+	'CT' => "Connecticut",
+	'DE' => "Delaware",
+	'DC' => "District Of Columbia",
+	'FL' => "Florida",
+	'GA' => "Georgia",
+	'HI' => "Hawaii",
+	'ID' => "Idaho",
+	'IL' => "Illinois",
+	'IN' => "Indiana",
+	'IA' => "Iowa",
+	'KS' => "Kansas",
+	'KY' => "Kentucky",
+	'LA' => "Louisiana",
+	'ME' => "Maine",
+	'MD' => "Maryland",
+	'MA' => "Massachusetts",
+	'MI' => "Michigan",
+	'MN' => "Minnesota",
+	'MS' => "Mississippi",
+	'MO' => "Missouri",
+	'MT' => "Montana",
+	'NE' => "Nebraska",
+	'NV' => "Nevada",
+	'NH' => "New Hampshire",
+	'NJ' => "New Jersey",
+	'NM' => "New Mexico",
+	'NY' => "New York",
+	'NC' => "North Carolina",
+	'ND' => "North Dakota",
+	'OH' => "Ohio",
+	'OK' => "Oklahoma",
+	'OR' => "Oregon",
+	'PA' => "Pennsylvania",
+	'RI' => "Rhode Island",
+	'SC' => "South Carolina",
+	'SD' => "South Dakota",
+	'TN' => "Tennessee",
+	'TX' => "Texas",
+	'UT' => "Utah",
+	'VT' => "Vermont",
+	'VA' => "Virginia",
+	'WA' => "Washington",
+	'WV' => "West Virginia",
+	'WI' => "Wisconsin",
+	'WY' => "Wyoming"
+}
 
-# 		ArticleCongressPerson.create(
-# 			article: a,
-# 			congress_person: person
-# 		)
-# 	end
-# end
+state_list.each do |state_abrev, state_full|
+	s = State.find_by(abbreviation: state_abrev)
+	s.name = state_full
+	s.save
+end
 
-# CongressPerson.all.each do |person|
+CongressPerson.all.each do |person|
+	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
+		a = Article.create(
+			title: article['headline']['main'],
+			first_paragraph: article['lead_paragraph'],
+			publication_date: article['pub_date'],
+			url: article['web_url'],
+			source: 'New York Times'
+		)
 
-# 	person.photo_url = picture_id
-# end
-
-
-
-# CongressPerson.all.each do |congressperson|
-# 	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
-# # 		a = Article.create(
-# # 			title: article['headline']['main'],
-# # 			first_paragraph: article['lead_paragraph'],
-# # 			publication_date: article['pub_date'],
-# # 			url: article['web_url'],
-# 			source: 'New York Times')
-# 		ArticlesLegislation.create(
-# 			article: a,
-# 			legislation: leg)
-# 	end
-# end
-
-# keywords_to_fetch.each do |legislation|
-# 	k = NytimesHelper.query_by_keywords(legislation.title)
-# 	k.each do |article|
-# 		article[]
-# end
-
-#   t.string :title
-#       t.text :first_paragraph
-#       t.date :publication_date
-#       t.string :url
-#       t.string :source
+		ArticleCongressPerson.create(
+			article: a,
+			congress_person: person
+		)
+	end
+end
 
 
-
-
-#  headline = @parsed_reply["response"]["docs"].first["headline"]["main"]
-# 			 snippet = @parsed_reply["response"]["docs"].first["snippet"]
-# 			 url = @parsed_reply["response"]["docs"].first["web_url"]
-
-
-
+CongressPerson.all.each do |congressperson|
+	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
+		a = Article.create(
+			title: article['headline']['main'],
+			first_paragraph: article['lead_paragraph'],
+			publication_date: article['pub_date'],
+			url: article['web_url'],
+			source: 'New York Times')
+		ArticlesLegislation.create(
+			article: a,
+			legislation: leg)
+	end
+end
 

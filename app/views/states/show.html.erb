@@ -1,45 +1,74 @@
 <div class="container">
   <div class="inner">
-    <h1><%= @state.abbreviation %></h1>
+    <center><h1><%= @state.name %></h1></center>
 
     <div id="senator-list">
-      <center><h2>Senators</h2></center>
-
       <% @senators.each do |senator| %>
-        <% if senator.party == "D" %>
-          <div class="senator-card-democrat">
-            <div class="democrat">
-              <%= image_tag(senator.picture_id) %>
+        <%= link_to senator do %>
+          <% if senator.party == "D" %>
+            <div class="senator-card-democrat">
+              <div class="democrat">
+                <%= image_tag(senator.picture_id) %>
+              </div>
+              <div class="politician-data">
+                <h2><%= senator.first_name %> <%= senator.last_name %></h2>
+                <p>Democrat</p>
+                <p><%= senator.title %></p>
+              </div>
             </div>
-            <div class="politician-data">
-              <h2><%= senator.first_name %> <%= senator.last_name %></h2>
-              <p><%= senator.votes_with_party_pct %> %</p>
+          <% else %>
+            <div class="senator-card-republican">
+              <div class="republican">
+                <%= image_tag(senator.picture_id) %>
+              </div>
+              <div class="politician-data">
+                <h2><%= senator.first_name %> <%= senator.last_name %></h2>
+                <p>Republican</p>
+                <p><%= senator.title %></p>
+              </div>
             </div>
-          </div>
-        <% else %>
-          <div class="senator-card-republican">
-            <div class="republican">
-              <%= image_tag(senator.picture_id) %>
-            </div>
-            <div class="politician-data">
-              <h2><%= senator.first_name %> <%= senator.last_name %></h2>
-              <p><%= senator.votes_with_party_pct %> %</p>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
-    <center><h2>Congress People</h2></center>
   </div>
 
   <div id="frame" data-no-turbolink>
     <ul class="slidee">
       <% @congress_people.each do |congress_person| %>
+        <li>
         <% if congress_person.party == "D" %>
+          <%= link_to congress_person do %>
+            <div class="senator-card-democrat">
+              <div class="democrat">
+                <%= image_tag(congress_person.picture_id) %>
+              </div>
+              <div class="politician-data">
+                <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
+                <p>Democrat</p>
+                <p><%= congress_person.title %></p>
+              </div>
+            </div>
+          <% end %>
         <% else %>
+          <div class="senator-card-republican">
+            <%= link_to congress_person do %>
+              <div class="republican">
+                <%= image_tag(congress_person.picture_id) %>
+              </div>
+              <div class="politician-data">
+                <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
+                <p>Republican</p>
+                <p><%= congress_person.title %></p>
+              </div>
+            <% end %>
+          </div>
         <% end %>
+      </li>
       <% end %>
     </ul>
   </div>
 </div>
+
+
 
