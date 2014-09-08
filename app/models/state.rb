@@ -24,17 +24,12 @@ class State < ActiveRecord::Base
 	end
 
 	def generate_hash
-		# s = self.map do |state|
-      {
-        name: self.abbreviation,
-        democrat_count: self.democrat_count,
-        republican_count: self.republican_count,
-        independent_count: self.independent_count,
-        political_leaning: self.political_leaning
-      }
-    # end
+    {
+      name: self.abbreviation,
+      democrat_count: self.democrat_count,
+      republican_count: self.republican_count,
+      independent_count: self.independent_count,
+      political_leaning: self.political_leaning
+    }
 	end
-
-
-
 end

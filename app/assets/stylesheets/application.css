@@ -16,7 +16,7 @@
  */
 
 body {
-  background-color: #F5F2EB;
+  background-image: url('cream_dust.png');
   margin: 0px 0px;
   padding: 0px 0px;
 }
@@ -26,18 +26,37 @@ ul {
   padding: 0px 0px;
 }
 
-a {
-/*  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition:.5s;*/
-  text-decoration: none;
+img {
+  height: 100px;
 }
 
-/*a:hover {
-  color: #435A66;
-}*/
+.senator-republican img {
+  border-style: solid;
+  border-width: 5px;
+  border-color: red;
+}
+
+.republican img {
+  border-style: solid;
+  border-width: 5px;
+  border-color: red;
+}
+
+.senator-democrat img {
+  border-style: solid;
+  border-width: 5px;
+  border-color: blue;
+}
+
+.democrat img {
+  border-style: solid;
+  border-width: 5px;
+  border-color: blue;
+}
+
+a {
+  text-decoration: none;
+}
 
 nav li {
   display:inline-block;
