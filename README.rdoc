@@ -1,13 +1,18 @@
-Gov
-===
-
-A new way of viewing legislation, news, and reaction. 
+Gov: A new way of viewing legislation, news, and reaction. 
 
 Team members:
-- Audrey Mcgowan
-- Bruno Pasini
-- Chase Blokker
-- Eric Shemtov
-- Max Lock
+- Audrey Mcgowan: https://github.com/abcm1989 
+- Bruno Pasini: https://github.com/bmpasini
+- Chase Blokker: https://github.com/cblokker
+- Eric Shemtov: https://github.com/eshem
+- Max Lock: https://github.com/mediaspork
 
 Trello: https://trello.com/b/6dZ7iia4/the-governors
+
+Integrating the following API's:
+
+- GovTrack
+- Federal Register
+- Twitter
+- The New York Times (Article search and Congressional)
+- Google Maps
