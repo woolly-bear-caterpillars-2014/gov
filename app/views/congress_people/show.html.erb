@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
 <div class="inner">
 <div id="senator-list">
   <% if @congress_person.party == "D" %>
@@ -36,19 +37,35 @@
 <br>
 <br>
 
-
-<div class="container">
-  <div class="inner">
-    <% @congress_person.articles.each do |article| %>
-      <div class='senator-card-republican'>
-        <%= link_to article.url do %>
-          <center><h1><%= article.title %></h1></center>
-          <p><%= article.first_paragraph %></p>
+  <% if @congress_person.party == "D" %>
+    <div class="container">
+      <div class="inner">
+        <% @congress_person.articles.each do |article| %>
+          <div class='senator-card-democrat'>
+            <%= link_to article.url do %>
+              <center><h1><%= article.title %></h1></center>
+              <p><%= article.first_paragraph %></p>
+            <% end %>
+            <p><small><%= article.source %> | <%= article.publication_date %></small></p>
+          </div>
         <% end %>
-        <p><small><%= article.source %> | <%= article.publication_date %></small></p>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div class="container">
+      <div class="inner">
+        <% @congress_person.articles.each do |article| %>
+          <div class='senator-card-republican'>
+            <%= link_to article.url do %>
+              <center><h1><%= article.title %></h1></center>
+              <p><%= article.first_paragraph %></p>
+            <% end %>
+            <p><small><%= article.source %> | <%= article.publication_date %></small></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 

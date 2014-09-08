@@ -143,6 +143,16 @@ nav li {
   transition:.5s;
 }
 
+.senator-card-republican p {
+  text-align: justify;
+}
+
+.senator-card-democrat p {
+  text-align: justify;
+}
+
+
+
 .senator-card-republican:hover {
   background: rgba(107, 12, 34, 0.2);
 }
@@ -201,6 +211,7 @@ nav li {
 }
 
 .container {
+  padding-top: 150px;
   margin: 10px auto;
   width: 100%;
 }
@@ -283,16 +294,33 @@ nav li {
   width: 100%;
   height: 20px;
 }*/
+nav {
+  width: 100%;
+  position: fixed;
+  margin-top: -20px;
+  padding: 30px;
+  -webkit-box-shadow: 0 0 11px 1px #111;
+  background-color: white;
+  z-index: 10;
+}
+
+nav .session_panel {
+  margin-right: px;
+  float: right;
+}
 
 .btn {
-  border: 1px solid rgba(0,0,0,0);
-  background-color: #20272D;
+/*  border: 1px solid rgba(0,0,0,0);
+  background-color: #20272D;*/
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 10px;
-  color: #fff;
+/*  color: #fff;*/
   padding: 10px;
   font-size: 18px;
+  background-color: #FFF;
+  color: #20272D;
+  border: 1px solid #20272D;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
