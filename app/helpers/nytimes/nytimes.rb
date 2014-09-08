@@ -1,5 +1,3 @@
-
-require 'pry'
 require 'net/http'
 require 'json'
 require 'open-uri'
@@ -35,6 +33,3 @@ module NYTimes
 		end
 	end
 end
-
-
-binding.pry
