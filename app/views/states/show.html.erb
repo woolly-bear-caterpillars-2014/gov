@@ -37,31 +37,22 @@
   <div id="frame" data-no-turbolink>
     <ul class="slidee">
       <% @congress_people.each do |congress_person| %>
+
         <li>
         <% if congress_person.party == "D" %>
-          <%= link_to congress_person do %>
             <div class="senator-card-democrat">
-              <div class="democrat">
                 <%= image_tag(congress_person.picture_id) %>
-              </div>
-              <div class="politician-data">
                 <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
                 <p>Democrat</p>
                 <p><%= congress_person.title %></p>
-              </div>
             </div>
-          <% end %>
         <% else %>
           <div class="senator-card-republican">
             <%= link_to congress_person do %>
-              <div class="republican">
-                <%= image_tag(congress_person.picture_id) %>
-              </div>
-              <div class="politician-data">
-                <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
-                <p>Republican</p>
-                <p><%= congress_person.title %></p>
-              </div>
+              <%= image_tag(congress_person.picture_id) %>
+              <h2><%= congress_person.first_name %> <%= congress_person.last_name %></h2>
+              <p>Republican</p>
+              <p><%= congress_person.title %></p>
             <% end %>
           </div>
         <% end %>
@@ -69,7 +60,23 @@
       <% end %>
     </ul>
   </div>
+
+  <div class="congress-articles" id="submitFeedback" style="display: none;">
+    <% @congress_people.first.articles.each do |article| %>
+      <h1><%= article.title %></h1>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+<!-- Hidden Submit -->
+
+
+
+
+
 
 
 

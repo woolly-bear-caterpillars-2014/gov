@@ -16,7 +16,7 @@
  */
 
 body {
-  background-image: url('cream_dust.png');
+  background-color: #F6F6EF;
   font-family: 'Myriad Pro';
   margin: 0px 0px;
   padding: 0px 0px;
@@ -35,29 +35,19 @@ img {
   height: 100px;
 }
 
-.senator-republican img {
+
+.senator-card-democrat img {
   border-style: solid;
   border-width: 5px;
-  border-color: red;
+  border-color: #6B0C22;;
 }
 
-.republican img {
+.senator-card-republican img {
   border-style: solid;
   border-width: 5px;
-  border-color: red;
+  border-color: #053061;
 }
 
-.senator-democrat img {
-  border-style: solid;
-  border-width: 5px;
-  border-color: blue;
-}
-
-.democrat img {
-  border-style: solid;
-  border-width: 5px;
-  border-color: blue;
-}
 
 a {
   text-decoration: none;
@@ -108,7 +98,7 @@ nav li {
 }
 
 .senator-card-democrat {
-  background-image: url('handmadepaper.png');
+/*  background-image: url('handmadepaper.png');*/
   color: #333;
   float: left;
   width: 300px;
@@ -116,7 +106,7 @@ nav li {
   padding: 10px;
   border: 1px solid;
   border-color: #999;
-  background: rgba(33, 102, 172, 0.1);
+  background: rgba(33, 102, 172, 0.2);
   -webkit-box-shadow: 0 0 11px 1px #aaa;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -134,7 +124,7 @@ nav li {
   padding: 10px;
   border: 1px solid;
   border-color: #999;
-  background: rgba(107, 12, 34, 0.1);
+  background: rgba(107, 12, 34, 0.2);
   -webkit-box-shadow: 0 0 11px 1px #aaa;
   -o-transition:.5s;
   -ms-transition:.5s;
@@ -154,11 +144,11 @@ nav li {
 
 
 .senator-card-republican:hover {
-  background: rgba(107, 12, 34, 0.2);
+  background: rgba(107, 12, 34, 0.6);
 }
 
 .senator-card-democrat:hover {
-  background: rgba(33, 102, 172, 0.2);
+  background: rgba(33, 102, 172, 0.6);
 }
 
 
@@ -198,7 +188,7 @@ nav li {
 }
 
 #frame {
-  height: 160px;
+  height: 270px;
   width: 100%;
   margin: 0px 0px;
   padding: 0px 0px;
@@ -211,7 +201,7 @@ nav li {
 }
 
 .container {
-  padding-top: 150px;
+  padding-top: 80px;
   margin: 10px auto;
   width: 100%;
 }

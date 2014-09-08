@@ -16,4 +16,8 @@ class StatesController < ApplicationController
     @congress_people = @state.congress_people.where(title: "Congressperson")
     @senators = @state.congress_people.where(title: "Senator")
   end
+
+  def create
+    p params
+  end
 end
