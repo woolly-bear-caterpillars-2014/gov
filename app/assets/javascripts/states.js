@@ -5,17 +5,17 @@ function generateMap(response) {
     map: {
       name: "usa_states",
       zoom: {
-        enabled: true
+        enabled: false
       },
       defaultArea: {
         attrs: {
-          fill: "#F5F5BD",
+          fill: "#D7D7D7",
           stroke: "#fff",
           cursor: "pointer"
         },
         attrsHover: {
           animDuration: 100,
-          fill: "#ddd"
+          fill: "#38B25A"
         },
         text: {
           attrs: {
@@ -36,13 +36,13 @@ function generateMap(response) {
     },
     legend: {
       area: {
-        display: true,
+        display: false,
         title:"Political Leaning",
         slices: [
           {
             max: 10,
             attrs: {
-              fill: "#67001f"
+              fill: "#7F2626"
             },
             label: "90% Republican"
           },
@@ -50,7 +50,7 @@ function generateMap(response) {
             min: 10,
             max: 20,
             attrs: {
-              fill: "#b2182b"
+              fill: "#7F0000"
             },
             label: "80% Republican"
           },
@@ -58,7 +58,7 @@ function generateMap(response) {
             min: 20,
             max: 30,
             attrs: {
-              fill: "#d6604d"
+              fill: "#CC0000"
             },
             label: "70% Republican"
           },
@@ -66,7 +66,7 @@ function generateMap(response) {
             min: 30,
             max: 40,
             attrs : {
-              fill : "#f4a582"
+              fill : "#FF0000"
             },
             label: "60% Republican"
           },
@@ -74,7 +74,7 @@ function generateMap(response) {
             min: 40,
             max: 50,
             attrs: {
-              fill: "#fddbc7"
+              fill: "#FF4C4C"
             },
             label: "50% Republican"
           },
@@ -82,7 +82,7 @@ function generateMap(response) {
             min: 51,
             max: 60,
             attrs: {
-              fill: "#d1e5f0"
+              fill: "#3059FF"
             },
             label: "50% Democrat"
           },
@@ -90,7 +90,7 @@ function generateMap(response) {
             min: 60,
             max: 70,
             attrs: {
-              fill: "#92c5de"
+              fill: "#2B26FF"
             },
             label: "60% Democrat"
           },
@@ -98,7 +98,7 @@ function generateMap(response) {
             min: 70,
             max: 80,
             attrs: {
-              fill: "#4393c3"
+              fill: "#0003D6"
             },
             label: "70% Democrat"
           },
@@ -106,14 +106,14 @@ function generateMap(response) {
             min: 80,
             max: 90,
             attrs: {
-              fill: "#2166ac"
+              fill: "#0F2096"
             },
             label: "80% Democrat"
           },
           {
             min: 90,
             attrs: {
-              fill: "#053061"
+              fill: "#020570"
             },
             label: "90% Democrat"
           }

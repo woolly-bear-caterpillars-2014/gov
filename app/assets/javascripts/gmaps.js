@@ -7,8 +7,8 @@
     var mapOptions;
     mapOptions = void 0;
     mapOptions = {
-      zoom: 4,
-    center: new google.maps.LatLng(41.850033, -87.6500523),
+      zoom: 5,
+    center: new google.maps.LatLng(38.850033, -95.6500523),
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: false,
     disableDoubleClickZoom: false,
@@ -19,16 +19,13 @@
   });
 
   $(function() {
-    return setInterval(retrieveTweets, 1000);
+    return setInterval(retrieveTweets, 2000);
   });
 
   retrieveTweets = function() {
-    console.log("retrieving");
     return $.getJSON("/data/data.json", function(data) {
       return $.each(data, function(key, val) {
         var lat, latlng, lng, marker, text;
-        console.log(data);
-        console.log(data.geo);
         lat = data.geo.coordinates[0];
         lng = data.geo.coordinates[1];
         text = data.text;
