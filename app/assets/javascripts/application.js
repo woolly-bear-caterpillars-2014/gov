@@ -5,6 +5,7 @@
 //= require states
 //= require gmaps/google
 //= require gmaps
+//= require d3
 $(document).ready(function() {
 
 	$('grab-states').hasClass("map-area"), getRepubDemCount();
