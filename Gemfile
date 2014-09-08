@@ -31,6 +31,8 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'd3-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
