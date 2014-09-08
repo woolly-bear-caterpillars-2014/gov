@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140906190236) do
   end
 
   create_table "congress_people", force: true do |t|
+    t.text     "bioguide_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "title"
