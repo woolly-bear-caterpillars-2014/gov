@@ -134,7 +134,7 @@ function getSentimentAnalysis() {
       }))
       .padding(5)
       .rotate(function() { return ~~(Math.random() * 2) * 90; })
-      .font("Impact")
+      .font("Arial")
       .fontSize(function(d) { return d.size; })
       .on("end", draw)
       .start();
@@ -149,7 +149,7 @@ function getSentimentAnalysis() {
         .data(words)
       .enter().append("text")
         .style("font-size", function(d) { return d.size + "px"; })
-        .style("font-family", "Impact")
+        .style("font-family", "Arial")
         .style("fill", function(d, i) { return fill(i); })
         .attr("text-anchor", "middle")
         .attr("transform", function(d) {
