@@ -15,7 +15,11 @@
         <h3>
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
         </h3>
-
+        <% if @congress_person.party == 'D' %>
+          <h5>Democrat</h5>
+          <% else %>
+          <h5>Republican</h5>
+          <% end %>
         <% if @congress_person.phone_number %>
           <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
           <% end %>
@@ -34,24 +38,24 @@
         <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
         <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
         <p>Seniority: <%= @congress_person.seniority %></p>
-        <p>District: <%= @congress_person.district %></p>
+        <p>District: <%= link_to @congress_person.district, "https://www.govtrack.us/congress/members/map" %></p>
         <p>Next Election: <%= @congress_person.next_election %></p>
       </div>
     </div>
 
     <center>
-      <button type="submit" name="email" class="btn" >Send Email</button>
+      <button type="submit" name="email" class="btn" >Send them an Email</button>
 
 
-   <!--  <div class="congress-email" id="congress-email" style="display: none;">
-      <%# form_tag congress_person_path(@congress_person), method: 'put' do %>
-        <%# text_field_tag :to, nil, {placeholder: @congress_person.oc_email} %>
-        <%# text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
-        <br><br>
-        <%# text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-        <%# submit_tag "Send Email", :class => 'btn' %>
-      <# end %>
-    </div> -->
+   <div class="congress-email" id="congress-email" style="display: none;">
+      <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
+        From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
+        To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
+        <br>
+        <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
+        <%= submit_tag "Send!", :class => 'btn' %>
+      <% end %>
+    </div>
   </center>
 
     <div class="congress-content">
