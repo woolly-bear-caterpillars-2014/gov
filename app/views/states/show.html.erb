@@ -2,6 +2,7 @@
   <div class="inner">
     <center><h1><%= @state.name %></h1></center>
     <div id="senator-list">
+      <center><h3>Senators</h3></center>
       <% @senators.each do |senator| %>
         <%= link_to senator do %>
           <% if senator.party == "D" %>
@@ -32,11 +33,8 @@
     </div>
   </div>
 
-<!--   <div id="frame">
-    <ul class="slidee"> -->
-      <% @congress_people.each do |congress_person| %>
+    <% @congress_people.each do |congress_person| %>
       <%= link_to congress_person do %>
-<!--         <li> -->
         <% if congress_person.party == "D" %>
             <div class="senator-card-democrat">
               <div class="democrat">
@@ -78,15 +76,10 @@
             </div>
           <% end %>
         </div>
-        <% end %>
-        <% end %>
-
-<!--         </li> -->
       <% end %>
-<!--     </ul>
-  </div> -->
-
-
+    <% end %>
+  <% end %>
 </div>
+  <center><h3>Congress People</h3></center>
 
 

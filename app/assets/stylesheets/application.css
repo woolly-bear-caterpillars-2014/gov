@@ -38,6 +38,8 @@ a {
 color: #0C5C60;}
 }
 
+
+
 .container {
   padding-top: 50px;
   margin: 10px auto;
@@ -191,6 +193,7 @@ a:hover {
   width: 400px;
   margin: 10px;
   padding: 30px;
+  text-align: justify;
   border: 1px solid;
   border-color: #999;
   background: rgba(33, 102, 172, 0.1);
@@ -200,7 +203,6 @@ a:hover {
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s;
-
 }
 
 .senator-card-republican p {
@@ -211,8 +213,6 @@ a:hover {
   text-align: justify;
 }
 
-
-
 .senator-card-republican:hover {
   background: rgba(107, 12, 34, 0.2);
 }
@@ -221,18 +221,11 @@ a:hover {
   background: rgba(33, 102, 172, 0.2);
 }
 
-
 .politician-data {
   overflow: ellipsis;
   float: left;
   margin-left: 20px;
 }
-
-.politician-data h3 {
-  text-align: justify;
-}
-
-
 
 #senator-list {
   margin: 0 auto;
@@ -257,6 +250,7 @@ a:hover {
 .inner {
   margin: 0 auto;
   width: 800px;
+  height: 100%;
 }
 
 #frame {
@@ -296,7 +290,6 @@ a:hover {
   float: left;
 }
 
-
 .slidee .senator-card-republican {
   float: left;
 }
@@ -304,7 +297,6 @@ a:hover {
 .slidee .senator-card-democrat {
    float: left;
 }
-
 
 nav {
   width: 100%;
@@ -339,14 +331,14 @@ footer {
 }
 
 .btn {
-/*  border: 1px solid rgba(0,0,0,0);
-  background-color: #20272D;*/
-  vertical-align: middle;
+  background-color: #20272D;
+  color: #F6F6EF;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 10px;
   padding: 6px;
   font-size: 18px;
+  border: 1px solid #20272D;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
@@ -354,9 +346,6 @@ footer {
   transition:.5s;
 }
 
-.btn a {
-  color:white;
-}
 
 .btn:hover {
   background-color: #F6F6EF;
@@ -394,8 +383,48 @@ footer {
   font-size: 14;
 }
 
-.boo {
-  position: fixed;
-  top: 600px;
-  z-index: 100px;
+
+.congress-about {
+  background: rgba(33, 102, 172, 0.3);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333;
+  overflow: hidden;
+}
+
+.block-left {
+  float: left;
+  margin: 20px;
+}
+
+.block-right {
+  float: right;
+  width: 200px;
+  margin: 20px;
+}
+
+
+.congress-email {
+  background: rgba(33, 102, 172, 0.3);
+  padding: 20px;
+/*  padding: center;*/
+}
+
+.congress-content {
+/*  background-color: blue;*/
+}
+
+
+input {
+  font-size: 18px;
+  padding: 10px;
+
+}
+
+textarea {
+  font-size: 18px;
+  padding: 10px;
+  width: 600px;
+  height: 200px;
+  resize: none;
 }
