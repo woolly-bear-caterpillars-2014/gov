@@ -40,8 +40,10 @@ $(document).ready(function() {
       $articles = $('#congress-articles'),
       $bills = $('#congress-bills');
 
-  $('body').on('click', 'button[name=articles]', articleButtonToggle)
-  $('body').on('click', 'button[name=bills]', billButtonToggle)
+
+  $buttonArticle.on('click', articleButtonToggle)
+  $buttonBill.on('click', billButtonToggle)
+
 
   function articleButtonToggle() {
     console.log('hi');
@@ -54,7 +56,6 @@ $(document).ready(function() {
     $articles.fadeOut('fast');
     $bills.fadeIn('fast');
   }
-
 
   generate_sly();
 
