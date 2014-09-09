@@ -396,7 +396,7 @@ path {
         stroke-width: 1;
         fill: none;
       }
-      
+
       .axis {
         shape-rendering: crispEdges;
       }
@@ -456,7 +456,7 @@ path {
 input {
   font-size: 18px;
   padding: 10px;
-
+  width: 300px;
 }
 
 textarea {

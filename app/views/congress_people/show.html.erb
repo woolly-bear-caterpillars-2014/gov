@@ -34,24 +34,25 @@
       </div>
     </div>
 
-    <button type="submit" name="email" class="btn" >Send Email</button>
+    <center>
+      <button type="submit" name="email" class="btn" >Send Email</button>
+
 
     <div class="congress-email" id="congress-email" style="display: none;">
       <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-        <center>
-          <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
-          <%= submit_tag "Send Email", :class => 'btn' %>
-
-
+        <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
         <br><br>
         <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-        </center>
+        <%= submit_tag "Send Email", :class => 'btn' %>
       <% end %>
     </div>
+  </center>
 
     <div class="congress-content">
-      <button type="submit" name="bills" class="btn" >Bills</button>
-      <button type="submit" name="articles" class="btn" >Articles</button>
+      <center>
+        <button type="submit" name="bills" class="btn" >Bills</button>
+        <button type="submit" name="articles" class="btn" >Articles</button>
+      </center>
 
   <!-- Hidden Bills -->
     <div class="row-submit" id="congress-bills" style="display: none;">
