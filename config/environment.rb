@@ -42,5 +42,3 @@ end
 # Sunlight::Base.api_key = ENV['SUNLIGHT_KEY']
 
 #Base.api_key = ENV['ARTICLE_SEARCH']
-
-
