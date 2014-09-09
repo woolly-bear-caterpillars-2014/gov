@@ -1,68 +1,9 @@
 congress_people = NytimesHelper.get_congress
-puts "fetched"
 congress_people.each do |congressperson|
-	CongressPerson.create(
-		bioguide_id: congressperson[:bioguide_id],
-		first_name: congressperson[:first_name],
-		last_name: congressperson[:last_name],
-		title: congressperson[:title],
-		party: congressperson[:party],
-		twitter_account: congressperson[:twitter_account],
-		facebook_account: congressperson[:facebook_account],
-		votes_with_party_pct: congressperson[:votes_with_party_pct],
-		website_url: congressperson[:website_url],
-		missed_votes_pct: congressperson[:missed_votes_pct],
-		seniority: congressperson[:seniority],
-		district: congressperson[:district],
-		next_election: congressperson[:next_election],
-		picture_id: congressperson[:picture_id],
-		state: congressperson[:state]
-	)
+	person = CongressPerson.create(congressperson)
+	sunlight_updates = SunlightCongressHelper.updated_legislator_info(person.bioguide_id)
+	person.update(sunlight_updates)
 end
-
-# NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
-# 	person = CongressPerson.create(
-# 		bioguide_id: congressperson["id"],
-# 		first_name: congressperson["first_name"],
-# 		last_name: congressperson["last_name"],
-# 		title: "Senator",
-# 		party: congressperson["party"],
-# 		twitter_account: congressperson["twitter_account"],
-# 		facebook_account: congressperson["facebook_account"],
-# 		votes_with_party_pct: congressperson["votes_with_party_pct"],
-# 		website_url: congressperson["url"],
-# 		missed_votes_pct: congressperson["missed_votes_pct"],
-# 		seniority: congressperson["seniority"],
-# 		district: congressperson["district"],
-# 		next_election: congressperson["next_election"],
-# 		picture_id: "http://theunitedstates.io/images/congress/225x275/#{congressperson["id"]}.jpg",
-# 		state: State.find_or_create_by(
-# 			abbreviation: congressperson["state"]
-# 		)
-# 	)
-# end
-
-# NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
-# 	person = CongressPerson.create(
-# 		bioguide_id: congressperson["id"],
-# 		first_name: congressperson["first_name"],
-# 		last_name: congressperson["last_name"],
-# 		title: "Senator",
-# 		party: congressperson["party"],
-# 		twitter_account: congressperson["twitter_account"],
-# 		facebook_account: congressperson["facebook_account"],
-# 		votes_with_party_pct: congressperson["votes_with_party_pct"],
-# 		website_url: congressperson["url"],
-# 		missed_votes_pct: congressperson["missed_votes_pct"],
-# 		seniority: congressperson["seniority"],
-# 		district: congressperson["district"],
-# 		next_election: congressperson["next_election"],
-# 		picture_id: "http://theunitedstates.io/images/congress/225x275/#{congressperson["id"]}.jpg",
-# 		state: State.find_or_create_by(
-# 			abbreviation: congressperson["state"]
-# 		)
-# 	)
-# end
 
 state_list = {
 	'AL' => "Alabama",
@@ -160,20 +101,12 @@ CongressPerson.all.each do |person|
 	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
 
 	bills.each do |bill|
-		l = Legislation.create(
-			number: bill[:number],
-      bill_id: bill[:bill_id],
-      pdf_url: bill[:pdf_url],
-      introduced_on: bill[:introduced_on],
-      last_version_on: bill[:last_version_on],
-      official_title: bill[:official_title],
-      short_title: bill[:short_title]
-		)
-		
+		l = Legislation.create(bill)		
 		LegislationCongressPerson.create(
 			legislation: l,
 			congress_person: person
 		)
 	end
+
 end
 

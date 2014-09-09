@@ -1,7 +1,8 @@
 class CreateCongressPeople < ActiveRecord::Migration
   def change
     create_table :congress_people do |t|
-      t.text :bioguide_id
+      t.text :bioguide_id,
+             :oc_email
     	t.string :first_name,
                :last_name,
                :title,
@@ -16,7 +17,6 @@ class CreateCongressPeople < ActiveRecord::Migration
                :seniority,
                :district,
                :next_election,
-               :oc_email, # from sunlight
                :office_adress,
                :contact_form
       t.date :term_start,

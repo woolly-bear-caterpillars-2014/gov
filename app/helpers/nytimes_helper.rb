@@ -101,16 +101,5 @@ module NytimesHelper
 			person
 		end
 
-
-
-
-		:oc_email,
-    :office_adress,
-    :contact_form
-      t.date :term_start,
-             :term_end,
-             :birthday
 	end
 end
-
-

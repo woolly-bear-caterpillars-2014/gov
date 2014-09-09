@@ -7,7 +7,7 @@ module SunlightCongressHelper
 		attr_accessor :url, :parsed_reply
 
 		BILL_URI = 'http://congress.api.sunlightfoundation.com/bills?'
-		LEGISLATORS_URI = 'congress.api.sunlightfoundation.com/legislators?'
+		LEGISLATORS_URI = 'http://congress.api.sunlightfoundation.com/legislators?'
 		API_KEY = ENV['SUNLIGHT_KEY']
 
 		def get_bills(sponsor_id)
@@ -19,13 +19,13 @@ module SunlightCongressHelper
 			bills = get_filtered_bills(parsed_reply)
 		end
 
-		def get_legislators(sponsor_id)
-			url = ("#{LEGISLATORS_URI}" + "apikey=#{API_KEY}")
+		def updated_legislator_info(bioguide_id)
+			url = ("#{LEGISLATORS_URI}" + "bioguide_id=#{bioguide_id}" + "&apikey=#{API_KEY}")
 			p url
 			uri = URI(url)
 			reply = uri.read
 			parsed_reply = JSON.parse reply
-			legislators = get_filtered_legislators(parsed_reply)
+			legislators = filter_legislator(parsed_reply)
 		end
 
 		private
@@ -55,23 +55,17 @@ module SunlightCongressHelper
 			bill
 		end
 
-		def get_filtered_legislators(parsed_reply)
-			legislators = Array.new
-			parsed_reply["results"].each do |legislator_hash|
-				legislators << filter_legislator(legislator_hash)
-			end
-			legislators
-		end
-
-		def filter_legislator(bill_hash)
+		def filter_legislator(person_hash)
 			person = Hash.new
-			person[:bioguide_id] = person_hash["bioguide_id"]
-			person[:oc_email] = person_hash["oc_email"]
-			person[:office_adress] = person_hash["first_name"]
-			person[:contact_form] = person_hash["last_name"]
-			person[:term_start] = parse_date(person_hash["term_start"])
-			person[:term_end] = parse_date(person_hash["term_end"])
-			person[:birthday] = parse_date(person_hash["birthday"])
+			unless person_hash["results"].empty?
+				person[:bioguide_id] = person_hash["results"].first["bioguide_id"]
+				person[:oc_email] = person_hash["results"].first["oc_email"]
+				person[:office_adress] = person_hash["results"].first["first_name"]
+				person[:contact_form] = person_hash["results"].first["last_name"]
+				person[:term_start] = parse_date(person_hash["results"].first["term_start"])
+				person[:term_end] = parse_date(person_hash["results"].first["term_end"])
+				person[:birthday] = parse_date(person_hash["results"].first["birthday"])
+			end
 			person
 		end
 
@@ -87,3 +81,4 @@ end
 # sponsor_id = CongressPerson.first.bioguide_id
 # bills = SunlightCongressHelper.get_bills(sponsor_id)
 # bills.each do |bill| puts bill[:title] end
+
