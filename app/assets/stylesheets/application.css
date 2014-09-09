@@ -77,9 +77,7 @@ a:hover {
   color: black;
 }
 
-nav li {
-  display: inline-block;
-}
+
 
 .mapTooltip {
   position: fixed;
@@ -309,7 +307,7 @@ nav {
   margin-top: -20px;
   padding: 20px;
   -webkit-box-shadow: 0 0 11px 1px #111;
-  background-color: #0B3137;
+  background-color: #2A3A48;
   z-index: 10;
 }
 
@@ -320,6 +318,16 @@ nav a {
 nav .session_panel {
   margin-right: px;
   float: right;
+}
+
+nav li {
+  display: inline-block;
+}
+
+footer {
+  text-align: center;
+  font-size: 8px;
+  color; #2A3A48;
 }
 
 .btn {

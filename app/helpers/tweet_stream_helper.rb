@@ -26,16 +26,3 @@ module TweetStreamHelper
 	  end
 	end
 end
-
-
-# def run
-# 	    Thread.new do
-# 	      STREAMINGCLIENT.filter(:locations => '-124.7625, 24.5210, -66.9326, 49.3845') do |tweet|
-# 	        File.open("public/data/data.json","w") do |f|
-# 	          f.write(tweet.to_json)
-#           end
-# 	      end 
-# 	    end
-# 	  end
-# 	end
-# end
