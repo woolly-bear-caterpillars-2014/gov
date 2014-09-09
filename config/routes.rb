@@ -13,5 +13,4 @@ Rails.application.routes.draw do
 
   get 'congress_people/:id/articles' => 'congress_people#show_articles', as: 'show_articles'
   get 'congress_people/:id/bills' => 'congress_people#show_bills', as: 'show_bills'
-
 end
