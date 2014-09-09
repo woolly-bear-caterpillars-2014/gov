@@ -5,6 +5,18 @@ class CongressPeopleController < ApplicationController
 
   def show
     @congress_person = CongressPerson.find(params[:id])
+    @articles = @congress_person.articles
+    @bills = @congress_person.legislations
+  end
+
+  def show_bills
+    @congress_person = CongressPerson.find(params[:id])
+    @bills = @congress_person.articles
+  end
+
+  def show_articles
+    @congress_person = CongressPerson.find(params[:id])
+    @articles = @congress_person.articles
   end
 
   def new
@@ -21,8 +33,10 @@ class CongressPeopleController < ApplicationController
   end
 
   def update
-    CongressPerson.find(params[:id])
-    send_email_to_congress_member(params[:email])
+    person = CongressPerson.find(params[:id])
+    p person
+
+    # send_email_to_congress_member(params[:email])
 
     redirect_to root_url
   end

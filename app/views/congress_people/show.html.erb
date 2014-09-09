@@ -10,19 +10,27 @@
 
     <div class="congress-email">
       <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-        <%= text_area_tag(:email) %><br>
-        <%= submit_tag("Search") %>
+        <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %><br>
+        <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
+        <%= submit_tag("Email") %>
       <% end %>
-
-
     </div>
+    <button type="submit" name="bills">Bills</button>
+    <button type="submit" name="Articles">Articles</button>
 
-    <div class="congress-content">
+<!-- Hidden Bills -->
+  <div class="row-submit" id="congress-bills" style="display: none;">
+    HI
+  </div>
 
-    </div>
+  <!-- Hidden Articles -->
+  <div class="row-submit" id="congress-articles" style="display: none;">
+    THERE
+  </div>
 
   </div>
 </div>
+
 
 
 

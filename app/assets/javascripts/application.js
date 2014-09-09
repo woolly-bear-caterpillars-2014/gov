@@ -34,6 +34,29 @@ $(document).ready(function() {
     }
   })
 
+  var $buttonArticle = $('button[name=article]'),
+      $buttonBill = $('form[name=bill]'),
+
+      $articles = $('#congress-articles'),
+      $bills = $('#congress-bills');
+
+
+  $buttonArticle.on('click', articleButtonToggle)
+  $buttonBill.on('click', billButtonToggle)
+
+  function articleButtonToggle() {
+    $articles.fadeIn('fast');
+    $bills.fadeOut('fast');
+  }
+
+  function articleButtonToggle() {
+    $articles.fadeOut('fast');
+    $bills.fadeIn('fast');
+  }
+
+
+
+
 
   generate_sly();
 
