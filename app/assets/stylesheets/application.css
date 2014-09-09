@@ -34,14 +34,9 @@ img {
   height: 100px;
 }
 
-<<<<<<< HEAD
-a { 
-color: #0C5C60;
-}
-=======
 a {
 color: #0C5C60;}
->>>>>>> ee404e655ad693fd629e1a26056d8c5a2f4208f2
+}
 
 .container {
   padding-top: 50px;
@@ -368,18 +363,13 @@ footer {
   opacity:.5;
 }
 
-<<<<<<< HEAD
 #smalllink {
   float: right;
   font-size: 14;
 }
 
-
-
-=======
 .boo {
   position: fixed;
   top: 600px;
   z-index: 100px;
 }
->>>>>>> ee404e655ad693fd629e1a26056d8c5a2f4208f2
