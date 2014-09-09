@@ -33,7 +33,6 @@ article_config.each do |key, value|
 	ENV[key] = value
 end
 
-<<<<<<< HEAD
 alchemy = YAML.load_file('config/alchemy.yml')
 
 alchemy.each do |key, value|
@@ -43,10 +42,7 @@ end
 # sunlight_config = YAML.load_file('config/sunlight.yml')
 
 # sunlight_config.each do |key, value|
-=======
-# bing_config = YAML.load_file('config/bing.yml')
-# bing_config.each do |key, value|
->>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
+
 #   ENV[key] = value
 # end
 

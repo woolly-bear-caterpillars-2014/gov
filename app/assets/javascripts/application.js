@@ -8,12 +8,10 @@
 //= require usa_states
 //= require gmaps/google
 //= require gmaps
-<<<<<<< HEAD
 //= require d3
 //= require congress_people
-=======
+
 //= require sly
->>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
 
 $(document).ready(function() {
   var $frame = $("#frame")
