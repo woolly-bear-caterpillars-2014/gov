@@ -34,7 +34,7 @@ img {
   height: 100px;
 }
 
-a { 
+a {
 color: #0C5C60;}
 
 .container {
@@ -257,11 +257,7 @@ nav li {
 }
 
 .container {
-<<<<<<< HEAD
-  padding-top: 80px;
-=======
   padding-top: 50px;
->>>>>>> 5e2156e103b72e97add9fe38d3a5f42de21f6369
   margin: 10px auto;
   width: 100%;
 }

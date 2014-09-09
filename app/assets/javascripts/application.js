@@ -13,11 +13,8 @@
 $(document).ready(function() {
   var $frame = $("#frame")
   $('.slidee li').on('click', '.senator-card-democrat', function() {
-    // console.log();
-
     if ( $frame.css("height") == "160px") {
       $(this).next().fadeIn('fast');
-      // $(".article").not($(this).next()).fadeOut('fast');
       $("#frame").animate({ height: '400px' });
 
     } else {
@@ -27,10 +24,13 @@ $(document).ready(function() {
   })
 
   $('.slidee li').on('click', '.senator-card-republican', function() {
-    // console.log('hi');
-    if (event.target.nodeName != 'BUTTON') {
-      $(this).next().slideToggle('fast');
-      $(".boo").html('<p>What is going on</p>');
+    if ( $frame.css("height") == "160px") {
+      $(this).next().fadeIn('fast');
+      $("#frame").animate({ height: '400px' });
+
+    } else {
+      $(".article").fadeOut('fast');
+      $("#frame").animate({ height: '160px' });
     }
   })
 
