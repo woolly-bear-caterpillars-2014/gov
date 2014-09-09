@@ -103,7 +103,21 @@ state_list.each do |state_abrev, state_full|
 	s.save
 end
 
-CongressPerson.all.each do |person|
+# CongressPerson.all.each do |person|
+# 	BingHelper.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
+# 		bing = Article.new(
+# 			title: art[:Title],
+# 			first_paragraph: art[:Description],
+# 			publication_date: art[:Date],
+# 			url: art[:Url],
+# 			source: art[:Source]
+# 		)
+
+# 		ArticleCongressPerson.new(
+# 			article: bing,
+# 			congress_person: person
+# 		)
+# 	end
 	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
 		a = Article.create(
 			title: article['headline']['main'],
@@ -119,6 +133,7 @@ CongressPerson.all.each do |person|
 		)
 	end
 end
+
 
 
 # CongressPerson.all.each do |congressperson|
