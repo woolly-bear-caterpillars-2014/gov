@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906190236) do
+ActiveRecord::Schema.define(version: 20140908233535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,14 +60,30 @@ ActiveRecord::Schema.define(version: 20140906190236) do
     t.datetime "updated_at"
   end
 
-  create_table "legislations", force: true do |t|
-    t.text     "title"
-    t.date     "proposal_date"
-    t.text     "abstract"
-    t.text     "url"
+  create_table "legislation_congress_people", force: true do |t|
+    t.integer  "legislation_id"
+    t.integer  "congress_person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "legislation_congress_people", ["congress_person_id"], name: "index_legislation_congress_people_on_congress_person_id", using: :btree
+  add_index "legislation_congress_people", ["legislation_id"], name: "index_legislation_congress_people_on_legislation_id", using: :btree
+
+  create_table "legislations", force: true do |t|
+    t.integer  "number"
+    t.string   "bill_id"
+    t.string   "pdf_url"
+    t.string   "introduced_on"
+    t.string   "last_version_on"
+    t.text     "official_title"
+    t.text     "short_title"
+    t.integer  "congress_person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "legislations", ["congress_person_id"], name: "index_legislations_on_congress_person_id", using: :btree
 
   create_table "states", force: true do |t|
     t.string   "name"

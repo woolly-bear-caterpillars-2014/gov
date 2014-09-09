@@ -104,7 +104,8 @@ state_list.each do |state_abrev, state_full|
 end
 
 CongressPerson.all.each do |person|
-	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
+	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
+	articles.each do |article|
 		a = Article.create(
 			title: article['headline']['main'],
 			first_paragraph: article['lead_paragraph'],
@@ -116,6 +117,24 @@ CongressPerson.all.each do |person|
 		ArticleCongressPerson.create(
 			article: a,
 			congress_person: person
+		)
+	end
+
+	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
+	bills.each do |bill|
+		l = Legislation.create(
+			number: bill[:number],
+      bill_id: bill[:number],
+      pdf_url: bill[:number],
+      introduced_on: bill[:number],
+      last_version_on: bill[:number],
+      official_title: bill[:number],
+      short_title: bill[:number]
+		)
+		
+		LegislationCongressPerson.create(
+			legislation: l,
+			congress_person: person	
 		)
 	end
 end

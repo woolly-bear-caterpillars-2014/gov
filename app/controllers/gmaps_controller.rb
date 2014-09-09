@@ -1,7 +1,7 @@
 class GmapsController < ApplicationController
   respond_to :html, :json, :js
   def index
-    run
+    TwitterHelper.run
   end
 
 #copy and paste the above into the rails console
