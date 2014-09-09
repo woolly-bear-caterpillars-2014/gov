@@ -57,15 +57,23 @@
   			graph.append("svg:path").attr("d", line(data));
 			
 
+
 function getSentimentAnalysis() {
   console.log("Hello from Sentiment Analysis!");
   $.ajax('sentiment_visualization', {
     type: 'GET',
     data: 'json',
   }).done(function(response) {
+  	var tweets = [];
     for( var i=0, l=response.length; i<l; i++) {
     	data.push(response[i].sentiment_score);
-    };
+    	tweets.push(response[i].tweet)
+
+    }
+    var flattened = tweets.reduce(function(a,b){
+    	return a.concat(b);
+    });
+     console.log(flattened);
     	var m = [80, 80, 80, 80]; // margins
 		var w = 1000 - m[1] - m[3]; // width
 		var h = 400 - m[0] - m[2]; // height
@@ -84,13 +92,11 @@ function getSentimentAnalysis() {
 			// assign the X function to plot our line as we wish
 			.x(function(d,i) { 
 				// verbose logging to show what's actually being done
-				console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
 				// return the X coordinate where we want to plot this datapoint
 				return x(i); 
 			})
 			.y(function(d) { 
 				// verbose logging to show what's actually being done
-				console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
 				// return the Y coordinate where we want to plot this datapoint
 				return y(d); 
 			})
@@ -118,5 +124,40 @@ function getSentimentAnalysis() {
 			      .attr("transform", "translate(-25,0)")
 			      .call(yAxisLeft);
     graph.append("svg:path").attr("d", line(data));
+    
+    var fill = d3.scale.category20();
+    console.log(flattened)
+
+    d3.layout.cloud().size([5000, 5000])
+      .words(flattened.map(function(d) {
+        return {text: d, size: 10 + Math.random() * 90};
+      }))
+      .padding(5)
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+
+  function draw(words) {
+    d3.select("#wordmap").append("svg")
+        .attr("width", 600)
+        .attr("height", 600)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+
   });
+
 };

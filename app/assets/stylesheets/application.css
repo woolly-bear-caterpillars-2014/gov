@@ -245,6 +245,20 @@ nav li {
   -webkit-box-shadow: 0 0 11px 1px #666;
 }
 
+#graph{
+  padding-top: 100px;
+}
+
+path { 
+  stroke: steelblue;
+        stroke-width: 1;
+        fill: none;
+}
+#wordmap{
+  margin-left: 40px;
+  padding-top: 400px;
+}
+
 .senator-republican {
   margin: 20px;
   padding: 20px;
