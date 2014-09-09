@@ -31,7 +31,7 @@ class CongressPerson < ActiveRecord::Base
 	def preserve_alchemy_map
 		sentiments = []
 		self.relevant_tweets.each do |tweet|
-			sentiments << {text: tweet.text, sentiment_score: rand(10), uri: tweet.uri}
+			sentiments << {tweet: tweet.text.split(" "), sentiment_score: rand(10), uri: tweet.uri}
 		end	
 		sentiments
 	end
@@ -42,7 +42,7 @@ class CongressPerson < ActiveRecord::Base
 		alchemy = AlchemyApi.new
 		sentiments = []
 		self.relevant_tweets.each do |tweet|
-			sentiments << {text: tweet.text, sentiment_score: alchemy.sentiment('text', tweet.text)['docSentiment']['score'], uri: tweet.uri}
+			sentiments << {tweet: tweet.text, sentiment_score: ((alchemy.sentiment('text', tweet.text)['docSentiment']['score']) * 10), uri: tweet.uri}
 		end	
 		sentiments
 	end
