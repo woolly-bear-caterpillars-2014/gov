@@ -19,7 +19,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-class AlchemyAPI
+class AlchemyApi
 
 	#Setup the endpoints
 	@@ENDPOINTS = {}

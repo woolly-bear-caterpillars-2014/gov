@@ -35,6 +35,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    alchemy-api-rb (0.4.0)
+      excon (~> 0.28.x)
+      faraday (~> 0.8.x)
     arel (5.0.1.20140414130214)
     buftok (0.2.0)
     builder (3.2.2)
@@ -46,6 +49,8 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     cookiejar (0.3.2)
+    d3-rails (3.4.4)
+      railties (>= 3.1)
     daemons (1.1.9)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
@@ -63,6 +68,7 @@ GEM
     equalizer (0.0.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    excon (0.39.5)
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -191,7 +197,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alchemy-api-rb
   coffee-rails (~> 4.0.0)
+  d3-rails
   federal_register
   font-awesome-rails
   gmaps4rails

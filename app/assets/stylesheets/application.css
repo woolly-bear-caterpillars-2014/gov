@@ -69,7 +69,7 @@ a:hover {
 }
 
 nav li {
-  display: inline-block;
+  display: inline;
 }
 
 .mapTooltip {
@@ -82,7 +82,7 @@ nav li {
   padding : 10px;
   z-index: 1000;
   max-width: 200px;
-  display: none;
+  display: inline-block;
   color: #424342;
 }
 
