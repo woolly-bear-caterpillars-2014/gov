@@ -36,43 +36,43 @@
     <% @congress_people.each do |congress_person| %>
       <%= link_to congress_person do %>
         <% if congress_person.party == "D" %>
-            <div class="senator-card-democrat">
-              <div class="democrat">
-                <%= image_tag(congress_person.picture_id) %>
-              </div>
-              <div class="politician-data">
-                <h3><%= congress_person.first_name %> <%= congress_person.last_name %></h3>
-                <p>Democrat</p>
-                <p><%= congress_person.title %></p>
-              </div>
-            </div>
-
-            <div class="article democrat">
-            <% congress_person.articles.each do |article| %>
-            <div class="senator-card-democrat">
-              <h2><%= article.title %></h2>
-            </div>
-            <% end %>
-        </div>
-
-        <% else %>
-          <div class="senator-card-republican">
-            <div class="republican">
+          <div class="senator-card-democrat">
+            <div class="democrat">
               <%= image_tag(congress_person.picture_id) %>
             </div>
             <div class="politician-data">
               <h3><%= congress_person.first_name %> <%= congress_person.last_name %></h3>
-              <p>Republican</p>
+              <p>Democrat</p>
               <p><%= congress_person.title %></p>
             </div>
           </div>
 
-          <div class="article republican">
-          <% congress_person.articles.each do |article| %>
-           <div class="senator-card-republican">
-            <div class="republican">
-            <h2><%= article.title %></h2>
+          <div class="article democrat">
+            <% congress_person.articles.each do |article| %>
+              <div class="senator-card-democrat">
+                <h2><%= article.title %></h2>
+              </div>
+            <% end %>
           </div>
+
+          <% else %>
+            <div class="senator-card-republican">
+              <div class="republican">
+                <%= image_tag(congress_person.picture_id) %>
+              </div>
+              <div class="politician-data">
+                <h3><%= congress_person.first_name %> <%= congress_person.last_name %></h3>
+                <p>Republican</p>
+                <p><%= congress_person.title %></p>
+              </div>
+            </div>
+
+            <div class="article republican">
+              <% congress_person.articles.each do |article| %>
+               <div class="senator-card-republican">
+                <div class="republican">
+                <h2><%= article.title %></h2>
+              </div>
             </div>
           <% end %>
         </div>
@@ -80,6 +80,5 @@
     <% end %>
   <% end %>
 </div>
-  <center><h3>Congress People</h3></center>
 
 
