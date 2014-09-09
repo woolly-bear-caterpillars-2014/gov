@@ -12,7 +12,9 @@
       <p>Phone Number: <%= @congress_person.phone_number %></p>
       <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
       <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
-      <p>Youtube ID:<%= @congress_person.youtube_id %></p>
+      <% if @congress_person.youtube_id %>
+        <p>Youtube ID:<%= @congress_person.youtube_id %></p>
+        <% end %>
       <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
       <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
       <p>Seniority: <%= @congress_person.seniority %></p>
@@ -24,7 +26,7 @@
       <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
         <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %><br>
         <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-        <%= submit_tag("Email") %>
+        <%= submit_tag("Send Email") %>
       <% end %>
     </div>
     <button type="submit" name="bills">Bills</button>
