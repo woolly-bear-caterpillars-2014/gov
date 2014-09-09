@@ -105,6 +105,7 @@ end
 
 CongressPerson.all.each do |person|
 	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
+
 	articles.each do |article|
 		a = Article.create(
 			title: article['headline']['main'],
@@ -121,36 +122,25 @@ CongressPerson.all.each do |person|
 	end
 
 	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
+
 	bills.each do |bill|
-		l = Legislation.create(
-			number: bill[:number],
-      bill_id: bill[:number],
-      pdf_url: bill[:number],
-      introduced_on: bill[:number],
-      last_version_on: bill[:number],
-      official_title: bill[:number],
-      short_title: bill[:number]
-		)
-		
+		p bill
+		if bill[:number]
+			l = Legislation.create(
+				number: bill[:number],
+	      bill_id: bill[:bill_id],
+	      pdf_url: bill[:pdf_url],
+	      introduced_on: bill[:introduced_on],
+	      last_version_on: bill[:last_version_on],
+	      official_title: bill[:official_title],
+	      short_title: bill[:short_title]
+			)
+	  end
+
 		LegislationCongressPerson.create(
 			legislation: l,
-			congress_person: person	
+			congress_person: person
 		)
 	end
 end
-
-
-# CongressPerson.all.each do |congressperson|
-# 	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
-# 		a = Article.create(
-# 			title: article['headline']['main'],
-# 			first_paragraph: article['lead_paragraph'],
-# 			publication_date: article['pub_date'],
-# 			url: article['web_url'],
-# 			source: 'New York Times')
-# 		ArticlesLegislation.create(
-# 			article: a,
-# 			legislation: leg)
-# 	end
-# end
 
