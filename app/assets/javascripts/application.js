@@ -59,9 +59,6 @@ $(document).ready(function() {
   }
 
 
-
-
-
   generate_sly();
 
 	$('grab-states').hasClass("map-area", getRepubDemCount());

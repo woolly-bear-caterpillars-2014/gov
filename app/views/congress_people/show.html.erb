@@ -6,6 +6,18 @@
       <p>
         <%= @congress_person.first_name %> <%= @congress_person.last_name %>
       </p>
+
+      <p><%= @congress_person.title %></p>
+      <p><%= @congress_person.party %></p>
+      <p>Phone Number: <%= @congress_person.phone_number %></p>
+      <p>Twitter Account: <%= @congress_person.twitter_account %></p>
+      <p>Website: <%= @congress_person.website_url %></p>
+      <p>Youtube ID:<%= @congress_person.youtube_id %></p>
+      <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
+      <p>Votes with party: <%= @congress_person.votes_with_party_pct %>&</p>
+      <p>Seniority: <%= @congress_person.seniority %></p>
+      <p>District: <%= @congress_person.district %></p>
+      <p>Next Election: <%= @congress_person.next_election %></p>
     </div>
 
     <div class="congress-email">
@@ -21,14 +33,26 @@
 <!-- Hidden Bills -->
   <div class="row-submit" id="congress-bills" style="display: none;">
     <% @bills.each do |bill| %>
-      <h3><%= bill.bill_id %></h3>
+      <div class="congress-content-democrat">
+        <center>
+          <p><i><%= bill.bill_id %></i></p>
+          <h3><%= bill.official_title %></h3>
+          <p><%= bill.short_title %></p>
+        </center>
+        <p>Introduced on: <b><%= bill.introduced_on %></b></p>
+        <p>Last Version: <b><%= bill.last_version_on %></b></p>
+      </div>
     <% end %>
   </div>
 
   <!-- Hidden Articles -->
   <div class="row-submit" id="congress-articles" style="display: none;">
     <% @articles.each do |article| %>
-      <h3><%= article.title %></h3>
+      <div class="congress-content-democrat">
+        <h3><%= article.title %></h3>
+        <p><%= article.first_paragraph %></p>
+        <p><%= article.publication_date %></p>
+      </div>
     <% end %>
   </div>
 

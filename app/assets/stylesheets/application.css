@@ -185,6 +185,24 @@ a:hover {
   transition:.5s;
 }
 
+.congress-content-democrat {
+  background-image: url('handmadepaper.png');
+  color: #333;
+  width: 400px;
+  margin: 10px;
+  padding: 30px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.1);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+
+}
+
 .senator-card-republican p {
   text-align: justify;
 }
