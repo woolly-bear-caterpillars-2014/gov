@@ -200,6 +200,7 @@ nav li {
 
 
 .politician-data {
+  overflow: ellipsis;
   float: left;
   margin-left: 20px;
 }
@@ -232,7 +233,7 @@ nav li {
 
 #frame {
   z-index: 0;
-  height: 600px;
+  height: 160px;
   overflow: none;
   width: 100%;
   margin: 0px 0px;
@@ -259,6 +260,7 @@ nav li {
   top: 170px;
   margin-left: -100px;
   display: none;
+  z-index: 100px;
 }
 
 .slidee li {
@@ -332,6 +334,7 @@ nav .session_panel {
    position:relative;
    color:#fff;
 }
+
 #title-close {
   color:#fff;
   opacity:1;
@@ -339,4 +342,10 @@ nav .session_panel {
 }
 #title-close:hover {
   opacity:.5;
+}
+
+.boo {
+  position: fixed;
+  top: 600px;
+  z-index: 100px;
 }
