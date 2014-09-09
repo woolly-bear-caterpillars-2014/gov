@@ -35,13 +35,13 @@ img {
 }
 
 a { 
-color: #0C5C60;}
+color: #0C5C60;
+}
 
 .container {
   padding-top: 50px;
   margin: 10px auto;
   width: 100%;
-
 }
 
 .senator-republican img {
@@ -76,8 +76,6 @@ a:hover {
   text-decoration: none;
   color: black;
 }
-
-
 
 .mapTooltip {
   position: fixed;
@@ -356,10 +354,6 @@ footer {
   border: 1px solid #20272D;
 }
 
-#areaLegend svg{
-  display:inline-block;
-}
-
 #map-canvas {
   height: 100%;
   position: absolute; 
@@ -381,6 +375,11 @@ footer {
 }
 #title-close:hover {
   opacity:.5;
+}
+
+#smalllink {
+  float: right;
+  font-size: 14;
 }
 
 

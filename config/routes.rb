@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
   root 'states#index'
-  resources :states, only: [:index, :show] do
-    resources :congress_people, only: [:index, :show]
-  end
-
-    resources :gmaps
-
-  resources :congress_people
+  resources :states, only: [:index, :show]
+  resources :congress_people, only: [:index, :show]
+	resources :gmaps, only: [:index]
+	resources :articles, only: [:index]
 end
