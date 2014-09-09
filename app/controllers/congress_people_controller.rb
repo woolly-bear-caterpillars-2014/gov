@@ -1,7 +1,5 @@
 class CongressPeopleController < ApplicationController
 
-  before_action :set_congress_person, only: [:show, :edit, :update, :destroy]
-
   def sentiment_visualization
     @congressperson = CongressPerson.find(params[:id])
     @congressperson.relevant_tweets
