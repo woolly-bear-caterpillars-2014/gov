@@ -4,6 +4,7 @@ require 'open-uri'
 require 'forwardable'
 
 module NYTimes
+	
 	API_KEY = ENV['ARTICLE_SEARCH']
 	BASE_URI = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'
 

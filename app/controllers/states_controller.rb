@@ -16,4 +16,15 @@ class StatesController < ApplicationController
     @congress_people = @state.congress_people.where(title: "Congressperson")
     @senators = @state.congress_people.where(title: "Senator")
   end
+
+  def create
+    p params[:congress]
+    congress_member = params[:congress]
+
+    if request.xhr?
+      render json: congress_member.to_json
+    else
+      render :index
+    end
+  end
 end

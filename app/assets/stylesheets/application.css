@@ -14,10 +14,9 @@
  *= require_self
  *= require font-awesome
  */
-
 body {
   background-image: url('cream_dust.png');
-  font-family: 'Myriad Pro';
+  font-family: 'Lato', sans-serif;
   margin: 0px 0px;
   padding: 0px 0px;
 }
@@ -33,6 +32,16 @@ ul {
 
 img {
   height: 100px;
+}
+
+a {
+color: #0C5C60;}
+}
+
+.container {
+  padding-top: 50px;
+  margin: 10px auto;
+  width: 100%;
 }
 
 .senator-republican img {
@@ -68,10 +77,6 @@ a:hover {
   color: black;
 }
 
-nav li {
-  display: inline-block;
-}
-
 .mapTooltip {
   position: fixed;
   background-color: #fff;
@@ -105,6 +110,43 @@ nav li {
   border-style: solid;
   border-width: 5px;
   border-color: #6B0C22;
+}
+
+.article .democrat {
+  text-align: justify;
+  color: #333;
+  float: left;
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.9);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.article .republican {
+  text-align: justify;
+  background-image: url('handmadepaper.png');
+  color: #333;
+  float: left;
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.1);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
 }
 
 .senator-card-democrat {
@@ -162,11 +204,8 @@ nav li {
 }
 
 
-.congress-card {
-
-}
-
 .politician-data {
+  overflow: ellipsis;
   float: left;
   margin-left: 20px;
 }
@@ -198,11 +237,14 @@ nav li {
 }
 
 #frame {
+  z-index: 0;
   height: 160px;
+  overflow: none;
   width: 100%;
   margin: 0px 0px;
   padding: 0px 0px;
   float: left;
+  background-color: rgba(0,0,0,0);
   background-image: url('handmadepaper.png');
   border-bottom: 1px solid;
   border-top: 1px solid;
@@ -211,19 +253,19 @@ nav li {
 }
 
 .container {
-  padding-top: 150px;
+  padding-top: 50px;
   margin: 10px auto;
   width: 100%;
 }
 
 .article {
+  position: fixed;
   padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  margin: 10px;
-  margin-bottom: 0px;
-  width: 500px;
-  background-color: red;
+  width: 900px;
+  top: 170px;
+  margin-left: -100px;
+  display: none;
+  z-index: 100px;
 }
 
 .slidee li {
@@ -241,67 +283,18 @@ nav li {
 }
 
 
-.slidee li .republican {
-  background: #6B0C22;
-}
-
-.slidee li.republican.active {
-  background: #D9042B;
-}
-
-.slidee li.democrat {
-  background: #011C26;
-}
-
-
-.slidee li.democrat.active {
-  background: #588C8C;
-}
-
-/*#scrollbar {
-    width: 100%;
-    height: 100px;
-    background: #f00;
-    margin-top: 10px;
-    line-height: 0;
-}
-#scrollbar .handle {
-    width: 50px;
-    height: 100px;
-    background: #00f;
-    position: absolute;
-}*/
-
-
-/*.scrollbar {
-  margin: 0 0 1em 0;
-  height: 2px;
-  background: #ccc;
-  line-height: 0;
-}
-
-.scrollbar .handle {
-  width: 100px;
-  height: 100%;
-  background: #292a33;
-  cursor: pointer;
-}
-*/
-/*.scrollbar .handle .mousearea {
-  position: absolute;
-  top: -9px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-}*/
 nav {
   width: 100%;
   position: fixed;
   margin-top: -20px;
-  padding: 30px;
+  padding: 20px;
   -webkit-box-shadow: 0 0 11px 1px #111;
-  background-color: white;
+  background-color: #2A3A48;
   z-index: 10;
+}
+
+nav a {
+  color: white;
 }
 
 nav .session_panel {
@@ -309,23 +302,34 @@ nav .session_panel {
   float: right;
 }
 
+nav li {
+  display: inline-block;
+}
+
+footer {
+  text-align: center;
+  font-size: 8px;
+  color: #2A3A48;
+}
+
 .btn {
 /*  border: 1px solid rgba(0,0,0,0);
   background-color: #20272D;*/
+  vertical-align: middle;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 10px;
-/*  color: #fff;*/
-  padding: 10px;
+  padding: 6px;
   font-size: 18px;
-  background-color: #FFF;
-  color: #20272D;
-  border: 1px solid #20272D;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s;
+}
+
+.btn a {
+  color:white;
 }
 
 .btn:hover {
@@ -334,29 +338,38 @@ nav .session_panel {
   border: 1px solid #20272D;
 }
 
-
 #map-canvas {
   height: 100%;
-  position: absolute; 
-  top: 0; 
-  bottom: -200px; 
-  left: 0; 
-  right: 0; 
+  position: absolute;
+  top: 0;
+  bottom: -200px;
+  left: 0;
+  right: 0;
   z-index: 0;
 }
+
 #title-bar {
    z-index:100;
    position:relative;
    color:#fff;
 }
+
 #title-close {
   color:#fff;
   opacity:1;
-  
+
 }
 #title-close:hover {
   opacity:.5;
 }
 
+#smalllink {
+  float: right;
+  font-size: 14;
+}
 
-
+.boo {
+  position: fixed;
+  top: 600px;
+  z-index: 100px;
+}

@@ -43,8 +43,9 @@ gem 'rails_12factor', group: :production
 gem 'twitter'
 gem 'gmaps4rails'
 gem 'federal_register'
+gem 'sunlight'
 gem 'govtrack', git: "git://github.com/eshem/govtrack"
 gem 'pp-colour'
 gem 'font-awesome-rails'
 gem 'sunlight'
-gem 'tweetstream'
+gem 'searchbing'

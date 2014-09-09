@@ -13,7 +13,6 @@ module NytimesHelper
 			k = string.split(' ').each{ |a| a.gsub!(/[^0-9A-Za-z]/, '')}
 			params = k.join("+")
 			@url = ("#{BASE_URI}" + "q=%22#{params}%22" + "&api-key=#{API_KEY}")
-			p @url
 		end
 
 		#returns ten articles that match that keyword
@@ -28,10 +27,6 @@ module NytimesHelper
 			 headline = @parsed_reply["response"]["docs"].first["headline"]["main"]
 			 snippet = @parsed_reply["response"]["docs"].first["snippet"]
 			 url = @parsed_reply["response"]["docs"].first["web_url"]
-			 
-			 p snippet
-			 p headline
-			 p url
 		end
 
 		def fetch_house
