@@ -2,8 +2,12 @@ class CongressPeopleController < ApplicationController
   before_action :set_congress_person, only: [:show, :edit, :update, :destroy]
 
   def sentiment_visualization
-    @congress_person = CongressPerson.find(params[:id])
-    @sentiments = @congress_person.sentiment_map
+    @congressperson = CongressPerson.find(params[:id])
+    @congressperson.relevant_tweets
+    @sentiment_array = @congressperson.preserve_alchemy_map
+    if request.xhr?
+      render json: @sentiment_array.to_json
+    end
   end
 
   def index
@@ -13,7 +17,7 @@ class CongressPeopleController < ApplicationController
   def show
     @congress_person = CongressPerson.find(params[:id])
     # @congress_person_articles = @congress_person.articles
-    @tweets = @congress_person.get_relevant_tweets
+   
   end
 
   # GET /congress_people/new

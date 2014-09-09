@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :gmaps
 
   resources :congress_people
+
+  get 'congress_people/:id/sentiment_visualization'=> 'congress_people#sentiment_visualization'
 end
