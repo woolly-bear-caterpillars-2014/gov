@@ -38,14 +38,15 @@
       <button type="submit" name="email" class="btn" >Send Email</button>
 
 
-    <div class="congress-email" id="congress-email" style="display: none;">
-      <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-        <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
+   <!--  <div class="congress-email" id="congress-email" style="display: none;">
+      <%# form_tag congress_person_path(@congress_person), method: 'put' do %>
+        <%# text_field_tag :to, nil, {placeholder: @congress_person.oc_email} %>
+        <%# text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
         <br><br>
-        <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-        <%= submit_tag "Send Email", :class => 'btn' %>
-      <% end %>
-    </div>
+        <%# text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
+        <%# submit_tag "Send Email", :class => 'btn' %>
+      <# end %>
+    </div> -->
   </center>
 
     <div class="congress-content">

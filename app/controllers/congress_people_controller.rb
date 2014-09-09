@@ -30,9 +30,14 @@ class CongressPeopleController < ApplicationController
   end
 
   def create
-    @congress_person = CongressPerson.new(congress_person_params)
+     congress_person = CongressPerson.find(params[:id])
+    p congress_person.oc_email
+    p params[:body]
+    p params[:oc_email] # check for valid email
 
-    redirect_to congess_person_path
+    CongressPeopleHelper.send_mail(params[:email])
+
+    redirect_to root_url
   end
 
   def update
