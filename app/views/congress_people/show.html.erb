@@ -5,16 +5,14 @@
     <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
   </h1></center>
 
-
-    <div id="border">
     <div class="congress-about">
       <div class="block-left">
         <%= image_tag(@congress_person.picture_id) %>
       </div>
       <div class="block-left">
-        <h3>
+        <h2>
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
-        </h3>
+        </h2>
 
         <p>Phone Number: <%= @congress_person.phone_number %></p>
         <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
@@ -53,7 +51,8 @@
         <button type="submit" name="bills" class="btn" >Bills</button>
         <button type="submit" name="articles" class="btn" >Articles</button>
       </center>
-  <center>
+    <center>
+
     <!-- Hidden Bills -->
       <div class="row-submit" id="congress-bills" style="display: none;">
         <% @bills.each do |bill| %>
@@ -86,7 +85,6 @@
       </div>
     </div>
   </center>
-  </div>
 </div>
 
 
