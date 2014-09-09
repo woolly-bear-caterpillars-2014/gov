@@ -9,7 +9,9 @@
 //= require gmaps/google
 //= require gmaps
 //= require d3
+//= require d3.layout.cloud
 //= require congress_people
+
 
 
 
