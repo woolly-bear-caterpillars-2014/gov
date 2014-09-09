@@ -12,36 +12,50 @@
       <div class="block-left">
         <h2>
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
+        </h3>
+        <% if @congress_person.party == 'D' %>
+          <h5>Democrat</h5>
+          <% else %>
+          <h5>Republican</h5>
+          <% end %>
+        <% if @congress_person.phone_number %>
+          <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
+          <% end %>
+        <p><i class="fa fa-twitter"></i>  <%= link_to @congress_person.twitter_account, "http: //twitter.com/#{@congress_person.twitter_account}" %></p>
+        <% if @congress_person.facebook_account %>
+          <p><i class="fa fa-facebook-square"></i>   <%= link_to @congress_person.facebook_account, "http://facebook.com/#{@congress_person.facebook_account}" %></p>
+          <% end %>
+        <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         </h2>
 
         <p>Phone Number: <%= @congress_person.phone_number %></p>
         <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
         <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         <% if @congress_person.youtube_id %>
-          <p>Youtube ID:<%= @congress_person.youtube_id %></p>
+          <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
         <% end %>
       </div>
-
 
       <div class="block-right">
         <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
         <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
         <p>Seniority: <%= @congress_person.seniority %></p>
-        <p>District: <%= @congress_person.district %></p>
+        <p>District: <%= link_to @congress_person.district, "https://www.govtrack.us/congress/members/map" %></p>
         <p>Next Election: <%= @congress_person.next_election %></p>
       </div>
     </div>
 
     <center>
-      <button type="submit" name="email" class="btn" >Send Email</button>
+      <button type="submit" name="email" class="btn" >Send them an Email</button>
 
 
-    <div class="congress-email" id="congress-email" style="display: none;">
+   <div class="congress-email" id="congress-email" style="display: none;">
       <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-        <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
-        <br><br>
-        <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-        <%= submit_tag "Send Email", :class => 'btn' %>
+        From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
+        To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
+        <br>
+        <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
+        <%= submit_tag "Send!", :class => 'btn' %>
       <% end %>
     </div>
   </center>
@@ -53,32 +67,30 @@
       </center>
     <center>
 
-    <!-- Hidden Bills -->
-      <div class="row-submit" id="congress-bills" style="display: none;">
-        <% @bills.each do |bill| %>
-          <%= link_to bill.pdf_url do %>
-            <div class="congress-content-democrat">
-              <center>
-                <p><i><%= bill.bill_id %></i></p>
-                <h3><%= bill.official_title %></h3>
-                <p><%= bill.short_title %></p>
-              </center>
-              <p>Introduced on: <b><%= bill.introduced_on %></b></p>
-              <p>Last Version: <b><%= bill.last_version_on %></b></p>
-            </div>
-          <% end %>
+  <!-- Hidden Bills -->
+    <div class="row-submit" id="congress-bills" style="display: none;">
+      <% @bills.each do |bill| %>
+        <%= link_to bill.pdf_url do %>
+          <div class="congress-content-democrat">
+            <center>
+              <p>Bill: <%= bill.bill_id %></i></p>
+              <h3><%= bill.official_title %></h3>
+              <p><%= bill.short_title %></p>
+            </center>
+            <p><i class="fa fa-calendar"></i>    <b><%= bill.introduced_on %></b></p>
+          </div>
         <% end %>
-      </div>
+      <% end %>
+    </div>
 
-        <!-- Hidden Articles -->
-        <div class="row-submit" id="congress-articles" style="display: none;">
-          <% @articles.each do |article| %>
-            <%= link_to article.url do %>
-              <div class="congress-content-democrat">
-                <h3><%= article.title %></h3>
-                <p><%= article.first_paragraph %></p>
-                <p><%= article.publication_date %></p>
-              </div>
+      <!-- Hidden Articles -->
+      <div class="row-submit" id="congress-articles" style="display: none;">
+        <% @articles.each do |article| %>
+          <%= link_to article.url do %>
+            <div class="congress-content-democrat">
+              <h3><%= article.title %></h3>
+              <p><%= article.first_paragraph %></p>
+              <p><i class="fa fa-calendar"></i>    <%= article.publication_date %></p>
             <% end %>
           <% end %>
         </div>
@@ -86,9 +98,3 @@
     </div>
   </center>
 </div>
-
-
-
-
-
-
