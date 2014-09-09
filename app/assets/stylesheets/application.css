@@ -371,8 +371,19 @@ footer {
   transition:.5s;
 }
 
-
 .btn:hover {
+  background-color: #F6F6EF;
+  color: #20272D;
+  border: 1px solid #20272D;
+}
+
+.btn:active {
+  background-color: #F6F6EF;
+  color: #20272D;
+  border: 1px solid #20272D;
+}
+
+.btnactive {
   background-color: #F6F6EF;
   color: #20272D;
   border: 1px solid #20272D;
@@ -397,19 +408,19 @@ footer {
 #title-close {
   color:#fff;
   opacity:1;
-
 }
+
 #title-close:hover {
   opacity:.5;
 }
 
-<<<<<<< HEAD
-path {
+
+/*path {
         stroke: steelblue;
         stroke-width: 1;
         fill: none;
       }
-      
+
       .axis {
         shape-rendering: crispEdges;
       }
@@ -429,9 +440,9 @@ path {
       .y.axis line, .y.axis path {
         fill: none;
         stroke: #000;
-      }
+      }*/
 
-=======
+
 #smalllink {
   float: right;
   font-size: 14;
@@ -439,6 +450,8 @@ path {
 
 
 .congress-about {
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  border: 1px solid #20272D;
   background: rgba(33, 102, 172, 0.3);
   overflow: hidden;
 }
@@ -456,9 +469,10 @@ path {
 
 
 .congress-email {
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
   background: rgba(33, 102, 172, 0.3);
   padding: 20px;
-/*  padding: center;*/
+  border: 1px solid #20272D;
 }
 
 .congress-content {
@@ -469,7 +483,7 @@ path {
 input {
   font-size: 18px;
   padding: 10px;
-
+  width: 300px;
 }
 
 textarea {
