@@ -19,7 +19,7 @@
 .env
 
 # Ignore API key files
-data/data.json
+/data/data.json
 /config/bing.yml
 /config/googlemaps.yml
 /config/nyt.yml

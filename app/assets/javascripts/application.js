@@ -8,33 +8,18 @@
 //= require usa_states
 //= require gmaps/google
 //= require gmaps
+//= require d3
+//= require congress_people
+
+
+
 //= require sly
 
 $(document).ready(function() {
-  var $frame = $("#frame")
-  $('.slidee li').on('click', '.senator-card-democrat', function() {
-    if ( $frame.css("height") == "160px") {
-      $(this).next().fadeIn('fast');
-      $("#frame").animate({ height: '400px' });
+  var $buttonEmail = $('button[name=email]'),
+      $email = $('congress-email'),
 
-    } else {
-      $(".article").fadeOut('fast');
-      $("#frame").animate({ height: '160px' });
-    }
-  })
-
-  $('.slidee li').on('click', '.senator-card-republican', function() {
-    if ( $frame.css("height") == "160px") {
-      $(this).next().fadeIn('fast');
-      $("#frame").animate({ height: '400px' });
-
-    } else {
-      $(".article").fadeOut('fast');
-      $("#frame").animate({ height: '160px' });
-    }
-  })
-
-  var $buttonArticle = $('button[name=articles]'),
+      $buttonArticle = $('button[name=articles]'),
       $buttonBill = $('button[name=bills]'),
 
       $articles = $('#congress-articles'),
@@ -43,7 +28,7 @@ $(document).ready(function() {
 
   $buttonArticle.on('click', articleButtonToggle)
   $buttonBill.on('click', billButtonToggle)
-
+  $buttonEmail.on('click', emalButtonAccordian)
 
   function articleButtonToggle() {
     console.log('hi');
@@ -57,10 +42,15 @@ $(document).ready(function() {
     $bills.fadeIn('fast');
   }
 
+  function emalButtonAccordian() {
+    $(this).next().slideToggle('fast');
+  }
+
   generate_sly();
 
 	$('grab-states').hasClass("map-area", getRepubDemCount());
 	$('grab-states').hasClass("gmap-area", generateTweetMap());
+	getSentimentAnalysis();
 });
 
 function generate_sly() {

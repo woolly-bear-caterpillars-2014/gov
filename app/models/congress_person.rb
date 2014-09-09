@@ -23,5 +23,29 @@ class CongressPerson < ActiveRecord::Base
 			true
 		end
 	end
+	
+	def relevant_tweets
+		RESTCLIENT.search("#{self.first_name}" + " " + "#{self.last_name}", :result_type => "recent").take(25)
+	end
+
+	def preserve_alchemy_map
+		sentiments = []
+		self.relevant_tweets.each do |tweet|
+			sentiments << {text: tweet.text, sentiment_score: rand(10), uri: tweet.uri}
+		end	
+		sentiments
+	end
+
+
+
+	def sentiment_map
+		alchemy = AlchemyApi.new
+		sentiments = []
+		self.relevant_tweets.each do |tweet|
+			sentiments << {text: tweet.text, sentiment_score: alchemy.sentiment('text', tweet.text)['docSentiment']['score'], uri: tweet.uri}
+		end	
+		sentiments
+	end
+
 
 end
