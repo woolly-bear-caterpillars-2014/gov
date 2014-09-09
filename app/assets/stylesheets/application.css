@@ -79,13 +79,12 @@ a:hover {
   color: black;
 }
 
-<<<<<<< HEAD
+
 nav li {
   display: inline;
 }
 
-=======
->>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
+
 .mapTooltip {
   position: fixed;
   background-color: #fff;
@@ -263,6 +262,20 @@ nav li {
   float: left;
   background-color: #588C8C;
   -webkit-box-shadow: 0 0 11px 1px #666;
+}
+
+#graph{
+  padding-top: 100px;
+}
+
+path {
+  stroke: steelblue;
+        stroke-width: 1;
+        fill: none;
+}
+#wordmap{
+  margin-left: 40px;
+  padding-top: 400px;
 }
 
 .senator-republican {
@@ -471,23 +484,23 @@ footer {
 
 .congress-email {
   -webkit-box-shadow: 0 0 11px 1px #aaa;
-  background: rgba(33, 102, 172, 0.3);
+  background: rgba(33, 102, 172, 0.2);
+  padding: 20px;
+  border: 1px solid #20272D;
+}
+
+.congress-email-democrat {
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  background: rgba(33, 102, 172, 0.2);
   padding: 20px;
   border: 1px solid #20272D;
 }
 
 .congress-email-republican {
   -webkit-box-shadow: 0 0 11px 1px #aaa;
-  background: rgba(33, 102, 172, 0.3);
   padding: 20px;
   border: 1px solid #20272D;
-}
-
-.congress-email-republican {
-  -webkit-box-shadow: 0 0 11px 1px #aaa;
-  padding: 20px;
-  border: 1px solid #20272D;
-  background: rgba(107, 12, 34, 0.3);
+  background: rgba(107, 12, 34, 0.1);
 }
 
 .block-left {
