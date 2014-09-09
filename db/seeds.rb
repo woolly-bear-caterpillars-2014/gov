@@ -125,9 +125,9 @@ state_list.each do |state_abrev, state_full|
 end
 
 CongressPerson.all.each do |person|
-	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
+	# articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
 
-	articles.each do |article|
+	# articles.each do |article|
 # 	BingHelper.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
 # 		bing = Article.new(
 # 			title: art[:Title],

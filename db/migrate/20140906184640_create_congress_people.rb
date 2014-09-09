@@ -15,7 +15,13 @@ class CreateCongressPeople < ActiveRecord::Migration
                :youtube_id,
                :seniority,
                :district,
-               :next_election
+               :next_election,
+               :oc_email, # from sunlight
+               :office_adress,
+               :contact_form
+      t.date :term_start,
+             :term_end,
+             :birthday
     	t.belongs_to :state
     	t.string :picture_id
       t.timestamps

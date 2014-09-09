@@ -6,16 +6,26 @@ module SunlightCongressHelper
 	class << self
 		attr_accessor :url, :parsed_reply
 
-		BASE_URI = 'http://congress.api.sunlightfoundation.com/bills?'
+		BILL_URI = 'http://congress.api.sunlightfoundation.com/bills?'
+		LEGISLATORS_URI = 'congress.api.sunlightfoundation.com/legislators?'
 		API_KEY = ENV['SUNLIGHT_KEY']
 
 		def get_bills(sponsor_id)
-			url = ("#{BASE_URI}" + "sponsor_id=#{sponsor_id}" + "&apikey=#{API_KEY}")
+			url = ("#{BILL_URI}" + "sponsor_id=#{sponsor_id}" + "&apikey=#{API_KEY}")
 			p url
 			uri = URI(url)
 			reply = uri.read
 			parsed_reply = JSON.parse reply
 			bills = get_filtered_bills(parsed_reply)
+		end
+
+		def get_legislators(sponsor_id)
+			url = ("#{LEGISLATORS_URI}" + "apikey=#{API_KEY}")
+			p url
+			uri = URI(url)
+			reply = uri.read
+			parsed_reply = JSON.parse reply
+			legislators = get_filtered_legislators(parsed_reply)
 		end
 
 		private
@@ -43,6 +53,26 @@ module SunlightCongressHelper
 			bill[:official_title] = bill_hash["official_title"]
 			bill[:short_title] = bill_hash["short_title"]
 			bill
+		end
+
+		def get_filtered_legislators(parsed_reply)
+			legislators = Array.new
+			parsed_reply["results"].each do |legislator_hash|
+				legislators << filter_legislator(legislator_hash)
+			end
+			legislators
+		end
+
+		def filter_legislator(bill_hash)
+			person = Hash.new
+			person[:bioguide_id] = person_hash["bioguide_id"]
+			person[:oc_email] = person_hash["oc_email"]
+			person[:office_adress] = person_hash["first_name"]
+			person[:contact_form] = person_hash["last_name"]
+			person[:term_start] = parse_date(person_hash["term_start"])
+			person[:term_end] = parse_date(person_hash["term_end"])
+			person[:birthday] = parse_date(person_hash["birthday"])
+			person
 		end
 
 		def parse_date(date_str)
