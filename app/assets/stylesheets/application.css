@@ -79,13 +79,12 @@ a:hover {
   color: black;
 }
 
-<<<<<<< HEAD
+
 nav li {
   display: inline;
 }
 
-=======
->>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
+
 .mapTooltip {
   position: fixed;
   background-color: #fff;
@@ -466,4 +465,3 @@ textarea {
   height: 200px;
   resize: none;
 }
->>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
