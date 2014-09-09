@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="inner">
+    <center><h1>
+    <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
+  </h1></center>
+
+
     <div id="border">
     <div class="congress-about">
       <div class="block-left">
