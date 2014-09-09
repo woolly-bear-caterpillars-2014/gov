@@ -119,8 +119,8 @@ CongressPerson.all.each do |person|
 			congress_person: person
 		)
 	end
-	
-	bills = SunlightCongressHelper.get_bills(sponsor_id)
+
+	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
 	bills.each do |bill|
 		l = Legislation.create(
 			number: bill[:number],
