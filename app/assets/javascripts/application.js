@@ -44,6 +44,7 @@ $(document).ready(function() {
   $buttonArticle.on('click', articleButtonToggle)
   $buttonBill.on('click', billButtonToggle)
 
+
   function articleButtonToggle() {
     console.log('hi');
     $bills.fadeOut('fast');
@@ -55,7 +56,6 @@ $(document).ready(function() {
     $articles.fadeOut('fast');
     $bills.fadeIn('fast');
   }
-
 
   generate_sly();
 
