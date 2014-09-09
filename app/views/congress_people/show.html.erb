@@ -16,8 +16,13 @@
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
         </h3>
 
-        <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
+        <% if @congress_person.phone_number %>
+          <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
+          <% end %>
         <p><i class="fa fa-twitter"></i>  <%= link_to @congress_person.twitter_account, "http: //twitter.com/#{@congress_person.twitter_account}" %></p>
+        <% if @congress_person.facebook_account %>
+          <p><i class="fa fa-facebook-square"></i>   <%= link_to @congress_person.facebook_account, "http://facebook.com/#{@congress_person.facebook_account}" %></p>
+          <% end %>
         <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         <% if @congress_person.youtube_id %>
           <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
@@ -61,12 +66,11 @@
         <%= link_to bill.pdf_url do %>
           <div class="congress-content-democrat">
             <center>
-              <p><i><i class="fa fa-file-text-o"></i>   </i> <%= bill.bill_id %></i></p>
+              <p>Bill: <%= bill.bill_id %></i></p>
               <h3><%= bill.official_title %></h3>
               <p><%= bill.short_title %></p>
             </center>
-            <p>Introduced on: <b><%= bill.introduced_on %></b></p>
-            <p>Last Version: <b><%= bill.last_version_on %></b></p>
+            <p><i class="fa fa-calendar"></i>    <b><%= bill.introduced_on %></b></p>
           </div>
         <% end %>
       <% end %>
@@ -77,9 +81,9 @@
         <% @articles.each do |article| %>
           <%= link_to article.url do %>
             <div class="congress-content-democrat">
-              <h3><i class="fa fa-newspaper-o"></i>    <%= article.title %></h3>
+              <h3><%= article.title %></h3>
               <p><%= article.first_paragraph %></p>
-              <p><%= article.publication_date %></p>
+              <p><i class="fa fa-calendar"></i>    <%= article.publication_date %></p>
             </div>
           <% end %>
         <% end %>
