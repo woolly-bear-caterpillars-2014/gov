@@ -34,22 +34,26 @@ $(document).ready(function() {
     }
   })
 
-  var $buttonArticle = $('button[name=article]'),
-      $buttonBill = $('form[name=bill]'),
+  var $buttonArticle = $('button[name=articles]'),
+      $buttonBill = $('button[name=bills]'),
 
       $articles = $('#congress-articles'),
       $bills = $('#congress-bills');
+
+  console.log()
 
 
   $buttonArticle.on('click', articleButtonToggle)
   $buttonBill.on('click', billButtonToggle)
 
   function articleButtonToggle() {
-    $articles.fadeIn('fast');
+    console.log('hi');
     $bills.fadeOut('fast');
+    $articles.fadeIn('fast');
   }
 
-  function articleButtonToggle() {
+  function billButtonToggle() {
+    console.log('there');
     $articles.fadeOut('fast');
     $bills.fadeIn('fast');
   }

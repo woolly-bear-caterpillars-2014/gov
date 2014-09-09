@@ -16,16 +16,20 @@
       <% end %>
     </div>
     <button type="submit" name="bills">Bills</button>
-    <button type="submit" name="Articles">Articles</button>
+    <button type="submit" name="articles">Articles</button>
 
 <!-- Hidden Bills -->
   <div class="row-submit" id="congress-bills" style="display: none;">
-    HI
+    <% @bills.each do |bill| %>
+      <h3><%= bill.bill_id %></h3>
+    <% end %>
   </div>
 
   <!-- Hidden Articles -->
   <div class="row-submit" id="congress-articles" style="display: none;">
-    THERE
+    <% @articles.each do |article| %>
+      <h3><%= article.title %></h3>
+    <% end %>
   </div>
 
   </div>
