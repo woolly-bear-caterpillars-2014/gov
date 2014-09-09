@@ -15,7 +15,14 @@
 /log/*.log
 /tmp
 
+# Unicorn config file
 .env
 
 # Ignore API key files
+data/data.json
 /config/bing.yml
+/config/googlemaps.yml
+/config/nyt.yml
+/config/other_nyt.yml
+/config/sunlight.yml
+/config/twitter.yml

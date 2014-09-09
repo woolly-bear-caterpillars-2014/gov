@@ -125,6 +125,9 @@ state_list.each do |state_abrev, state_full|
 end
 
 CongressPerson.all.each do |person|
+	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
+
+	articles.each do |article|
 # 	BingHelper.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
 # 		bing = Article.new(
 # 			title: art[:Title],
@@ -155,6 +158,7 @@ CongressPerson.all.each do |person|
 	end
 
 	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
+
 	bills.each do |bill|
 		l = Legislation.create(
 			number: bill[:number],
@@ -168,24 +172,8 @@ CongressPerson.all.each do |person|
 		
 		LegislationCongressPerson.create(
 			legislation: l,
-			congress_person: person	
+			congress_person: person
 		)
 	end
 end
-
-
-
-# CongressPerson.all.each do |congressperson|
-# 	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
-# 		a = Article.create(
-# 			title: article['headline']['main'],
-# 			first_paragraph: article['lead_paragraph'],
-# 			publication_date: article['pub_date'],
-# 			url: article['web_url'],
-# 			source: 'New York Times')
-# 		ArticlesLegislation.create(
-# 			article: a,
-# 			legislation: leg)
-# 	end
-# end
 
