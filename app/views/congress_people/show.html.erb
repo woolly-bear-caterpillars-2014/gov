@@ -1,71 +1,27 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-<div class="inner">
-<div id="senator-list">
-  <% if @congress_person.party == "D" %>
-    <div class="senator-card-democrat">
-      <div class="democrat">
-        <%= image_tag(@congress_person.picture_id) %>
-      </div>
-      <div class="politician-data">
-        <h2><%= @congress_person.first_name %> <%= @congress_person.last_name %></h2>
-        <p>Democrat</p>
-        <p><%= @congress_person.title %></p>
-      </div>
+  <div class="inner">
+    <div class="congress-about">
+      <%= image_tag(@congress_person.picture_id) %>
+      <p>
+        <%= @congress_person.first_name %> <%= @congress_person.last_name %>
+      </p>
     </div>
-  <% else %>
-    <div class="senator-card-republican">
-      <div class="republican">
-        <%= image_tag(@congress_person.picture_id) %>
-      </div>
-      <div class="politician-data">
-        <h2><%= @congress_person.first_name %> <%= @congress_person.last_name %></h2>
-        <p>Republican</p>
-        <p><%= @congress_person.title %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-  <% if @congress_person.party == "D" %>
-    <div class="container">
-      <div class="inner">
-        <% @congress_person.articles.each do |article| %>
-          <div class='senator-card-democrat'>
-            <%= link_to article.url do %>
-              <center><h1><%= article.title %></h1></center>
-              <p><%= article.first_paragraph %></p>
-            <% end %>
-            <p><small><%= article.source %> | <%= article.publication_date %></small></p>
-          </div>
-        <% end %>
-      </div>
+    <div class="congress-email">
+      <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
+        <%= text_area_tag(:email) %><br>
+        <%= submit_tag("Search") %>
+      <% end %>
+
+
     </div>
-  <% else %>
-    <div class="container">
-      <div class="inner">
-        <% @congress_person.articles.each do |article| %>
-          <div class='senator-card-republican'>
-            <%= link_to article.url do %>
-              <center><h1><%= article.title %></h1></center>
-              <p><%= article.first_paragraph %></p>
-            <% end %>
-            <p><small><%= article.source %> | <%= article.publication_date %></small></p>
-          </div>
-        <% end %>
-      </div>
+
+    <div class="congress-content">
+
     </div>
-  <% end %>
+
+  </div>
 </div>
 
 
