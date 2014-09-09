@@ -5,14 +5,12 @@
     <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
   </h1></center>
 
-
-    <div id="border">
     <div class="congress-about">
       <div class="block-left">
         <%= image_tag(@congress_person.picture_id) %>
       </div>
       <div class="block-left">
-        <h3>
+        <h2>
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
         </h3>
         <% if @congress_person.party == 'D' %>
@@ -28,11 +26,15 @@
           <p><i class="fa fa-facebook-square"></i>   <%= link_to @congress_person.facebook_account, "http://facebook.com/#{@congress_person.facebook_account}" %></p>
           <% end %>
         <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
+        </h2>
+
+        <p>Phone Number: <%= @congress_person.phone_number %></p>
+        <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
+        <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         <% if @congress_person.youtube_id %>
           <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
         <% end %>
       </div>
-
 
       <div class="block-right">
         <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
@@ -63,6 +65,7 @@
         <button type="submit" name="bills" class="btn" >Bills</button>
         <button type="submit" name="articles" class="btn" >Articles</button>
       </center>
+    <center>
 
   <!-- Hidden Bills -->
     <div class="row-submit" id="congress-bills" style="display: none;">
@@ -88,17 +91,10 @@
               <h3><%= article.title %></h3>
               <p><%= article.first_paragraph %></p>
               <p><i class="fa fa-calendar"></i>    <%= article.publication_date %></p>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
+  </center>
 </div>
-
-
-
-
-
-
