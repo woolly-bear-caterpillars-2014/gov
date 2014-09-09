@@ -3,6 +3,9 @@
 //= require turbolinks
 //= require underscore
 //= require states
+//= require raphael-min
+//= require jquery-mapael
+//= require usa_states
 //= require gmaps/google
 //= require gmaps
 //= require sly
@@ -15,26 +18,12 @@ $(document).ready(function() {
     if ( $frame.css("height") == "160px") {
       $(this).next().fadeIn('fast');
       // $(".article").not($(this).next()).fadeOut('fast');
-
       $("#frame").animate({ height: '400px' });
 
     } else {
       $(".article").fadeOut('fast');
-
       $("#frame").animate({ height: '160px' });
     }
-
-
-
-    // if ($frame.css("height") == "678px") {
-
-    // } else {
-    //   $("#frame").animate({
-    //     height: '400px'
-    //   });
-    // }
-
-
   })
 
   $('.slidee li').on('click', '.senator-card-republican', function() {

@@ -1,8 +1,4 @@
 class GmapsController < ApplicationController
-
-  # GET /gmaps
-  # GET /gmaps.json
-   require 'twitter'
   respond_to :html, :json, :js
   def index
     run

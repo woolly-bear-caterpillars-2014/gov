@@ -14,10 +14,9 @@
  *= require_self
  *= require font-awesome
  */
-
 body {
   background-image: url('cream_dust.png');
-  font-family: 'Myriad Pro';
+  font-family: 'Lato', sans-serif;
   margin: 0px 0px;
   padding: 0px 0px;
 }
@@ -33,6 +32,16 @@ ul {
 
 img {
   height: 100px;
+}
+
+a { 
+color: #0C5C60;}
+
+.container {
+  padding-top: 50px;
+  margin: 10px auto;
+  width: 100%;
+
 }
 
 .senator-republican img {
@@ -248,7 +257,11 @@ nav li {
 }
 
 .container {
+<<<<<<< HEAD
   padding-top: 80px;
+=======
+  padding-top: 50px;
+>>>>>>> 5e2156e103b72e97add9fe38d3a5f42de21f6369
   margin: 10px auto;
   width: 100%;
 }
@@ -282,10 +295,14 @@ nav {
   width: 100%;
   position: fixed;
   margin-top: -20px;
-  padding: 30px;
+  padding: 20px;
   -webkit-box-shadow: 0 0 11px 1px #111;
-  background-color: white;
+  background-color: #0B3137;
   z-index: 10;
+}
+
+nav a {
+  color: white;
 }
 
 nav .session_panel {
@@ -296,20 +313,21 @@ nav .session_panel {
 .btn {
 /*  border: 1px solid rgba(0,0,0,0);
   background-color: #20272D;*/
+  vertical-align: middle;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 10px;
-/*  color: #fff;*/
-  padding: 10px;
+  padding: 6px;
   font-size: 18px;
-  background-color: #FFF;
-  color: #20272D;
-  border: 1px solid #20272D;
   -o-transition:.5s;
   -ms-transition:.5s;
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s;
+}
+
+.btn a {
+  color:white;
 }
 
 .btn:hover {
@@ -318,6 +336,9 @@ nav .session_panel {
   border: 1px solid #20272D;
 }
 
+#areaLegend svg{
+  display:inline-block;
+}
 
 #map-canvas {
   height: 100%;
