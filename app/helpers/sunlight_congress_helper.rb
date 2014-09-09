@@ -38,16 +38,21 @@ module SunlightCongressHelper
 				bill[:bill_id] = "invalid"
 				bill[:pdf_url] = "invalid"
 			end
-			bill[:introduced_on] = bill_hash["introduced_on"]
-			bill[:last_version_on] = bill_hash["last_version_on"]
+			bill[:introduced_on] = parse_date(bill_hash["introduced_on"])
+			bill[:last_version_on] = parse_date(bill_hash["last_version_on"])
 			bill[:official_title] = bill_hash["official_title"]
 			bill[:short_title] = bill_hash["short_title"]
 			bill
 		end
+
+		def parse_date(date_str)
+			Date.strptime(date_str, "%Y-%m-%d")
+		end
 	end
 end
-sponsor_id = "L000575"
-bills = SunlightCongressHelper.get_bills(sponsor_id)
+
+# sponsor_id = "L000575"
+# bills = SunlightCongressHelper.get_bills(sponsor_id)
 
 # sponsor_id = CongressPerson.first.bioguide_id
 # bills = SunlightCongressHelper.get_bills(sponsor_id)

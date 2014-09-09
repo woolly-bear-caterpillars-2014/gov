@@ -47,5 +47,4 @@ gem 'sunlight'
 gem 'govtrack', git: "git://github.com/eshem/govtrack"
 gem 'pp-colour'
 gem 'font-awesome-rails'
-gem 'sunlight'
 gem 'searchbing'

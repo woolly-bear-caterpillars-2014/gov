@@ -4,8 +4,8 @@ class CreateLegislations < ActiveRecord::Migration
     	t.integer :number
       t.string :bill_id
       t.string :pdf_url
-      t.string :introduced_on
-      t.string :last_version_on
+      t.date :introduced_on
+      t.date :last_version_on
       t.text :official_title
       t.text :short_title
 
