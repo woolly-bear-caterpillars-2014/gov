@@ -1,4 +1,4 @@
-module TweetStreamHelper
+module TwitterHelper
 	class << self
 		TWITTER_KEY = ENV["TWITTER_KEY"]
 		TWITTER_SECRET = ENV["TWITTER_SECRET"]
@@ -10,12 +10,12 @@ module TweetStreamHelper
 			CongressPerson.all.each do |c|
 				last_names << c.last_name
 			end
-			return last_names.take(299)
+			return last_names.take(299).join(',')
 		end
 
 	def run
 	    Thread.new do
-	     	STREAMINGCLIENT.filter(:track => last_arr.join(',')) do |tweet|
+	     	STREAMINGCLIENT.filter(:track => last_arr) do |tweet|
 	      	if !tweet.geo.coordinates.nil?
 		        File.open("public/data/data.json","w") do |f|
 		          f.write(tweet.to_json)

@@ -1,7 +1,7 @@
 class GmapsController < ApplicationController
   respond_to :html, :json, :js
   def index
-    TweetStreamHelper.run
+    TwitterHelper.run
   end
 end
 
