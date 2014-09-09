@@ -153,7 +153,7 @@ a:hover {
   background-image: url('handmadepaper.png');
   color: #333;
   float: left;
-  width: 300px;
+  width: 327px;
   margin: 10px;
   padding: 10px;
   border: 1px solid;
@@ -171,7 +171,7 @@ a:hover {
   background-image: url('handmadepaper.png');
   color: #333;
   float: left;
-  width: 300px;
+  width: 327px;
   margin: 10px;
   padding: 10px;
   border: 1px solid;
@@ -227,6 +227,11 @@ a:hover {
   float: left;
   margin-left: 20px;
 }
+
+.politician-data h3 {
+  text-align: justify;
+}
+
 
 
 #senator-list {
