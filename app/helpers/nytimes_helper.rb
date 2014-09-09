@@ -55,14 +55,14 @@ module NytimesHelper
 		# object oriented
 		def get_congress
 			congress_people = Array.new
-			congress_people.concat(congress_nyt("house"))
-			congress_people.concat(congress_nyt("senate"))
+			congress_people.concat(congress("house"))
+			congress_people.concat(congress("senate"))
 			congress_people
 		end
 
 		private
 
-		def congress_nyt(chamber)
+		def congress(chamber)
 			url = "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/113/#{chamber}/members.json?api-key=#{CONGRESS_KEY}"
 			uri = URI(url)
 			p uri
@@ -70,20 +70,18 @@ module NytimesHelper
 			parsed_reply = JSON.parse reply
 			title = "Congressperson" if chamber == "house"
 			title = "Senator" if chamber == "senate"
-			people_from_chamber = get_filtered_legislators_nyt(parsed_reply, title)
+			people_from_chamber = get_filtered_legislators(parsed_reply, title)
 		end
 
-		def get_filtered_legislators_nyt(parsed_reply, title)
+		def get_filtered_legislators(parsed_reply, title)
 			people = Array.new
 			parsed_reply["results"].first["members"].each do |person_hash|
-				people << filter_legislator_nyt(person_hash, title)
+				people << filter_legislator(person_hash, title)
 			end
 			people
 		end
 
-
-
-		def filter_legislator_nyt(person_hash, title)
+		def filter_legislator(person_hash, title)
 			person = Hash.new
 			person[:bioguide_id] = person_hash["id"]
 			person[:first_name] = person_hash["first_name"]
@@ -102,7 +100,6 @@ module NytimesHelper
 			person[:state] = State.find_or_create_by(abbreviation: person_hash["state"])
 			person
 		end
+
 	end
 end
-
-
