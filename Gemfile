@@ -31,6 +31,10 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'd3-rails'
+
+gem 'alchemy-api-rb'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -47,5 +51,4 @@ gem 'sunlight'
 gem 'govtrack', git: "git://github.com/eshem/govtrack"
 gem 'pp-colour'
 gem 'font-awesome-rails'
-gem 'sunlight'
 gem 'searchbing'
