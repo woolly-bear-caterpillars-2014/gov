@@ -32,10 +32,11 @@
     </div>
   </div>
 
-  <div id="frame">
-    <ul class="slidee">
+<!--   <div id="frame">
+    <ul class="slidee"> -->
       <% @congress_people.each do |congress_person| %>
-        <li>
+      <%= link_to congress_person do %>
+<!--         <li> -->
         <% if congress_person.party == "D" %>
             <div class="senator-card-democrat">
               <div class="democrat">
@@ -78,11 +79,12 @@
           <% end %>
         </div>
         <% end %>
+        <% end %>
 
-        </li>
+<!--         </li> -->
       <% end %>
-    </ul>
-  </div>
+<!--     </ul>
+  </div> -->
 
 
 </div>
