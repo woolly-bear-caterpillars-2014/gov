@@ -126,7 +126,7 @@ function getSentimentAnalysis() {
     graph.append("svg:path").attr("d", line(data));
     
     var fill = d3.scale.category20();
-    console.log(flattened)
+   
 
     d3.layout.cloud().size([5000, 5000])
       .words(flattened.map(function(d) {
@@ -141,8 +141,8 @@ function getSentimentAnalysis() {
 
   function draw(words) {
     d3.select("#wordmap").append("svg")
-        .attr("width", 600)
-        .attr("height", 600)
+        .attr("width", 1400)
+        .attr("height", 1400)
       .append("g")
         .attr("transform", "translate(150,150)")
       .selectAll("text")
