@@ -16,4 +16,6 @@
 /tmp
 
 .env
-bing.yml
+
+# Ignore API key files
+/config/bing.yml
