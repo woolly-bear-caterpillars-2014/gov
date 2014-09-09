@@ -16,11 +16,11 @@
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
         </h3>
 
-        <p>Phone Number: <%= @congress_person.phone_number %></p>
-        <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
-        <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
+        <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
+        <p><i class="fa fa-twitter"></i>  <%= link_to @congress_person.twitter_account, "http: //twitter.com/#{@congress_person.twitter_account}" %></p>
+        <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         <% if @congress_person.youtube_id %>
-          <p>Youtube ID:<%= @congress_person.youtube_id %></p>
+          <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
         <% end %>
       </div>
 
@@ -61,7 +61,7 @@
         <%= link_to bill.pdf_url do %>
           <div class="congress-content-democrat">
             <center>
-              <p><i><%= bill.bill_id %></i></p>
+              <p><i><i class="fa fa-file-text-o"></i>   </i> <%= bill.bill_id %></i></p>
               <h3><%= bill.official_title %></h3>
               <p><%= bill.short_title %></p>
             </center>
@@ -77,7 +77,7 @@
         <% @articles.each do |article| %>
           <%= link_to article.url do %>
             <div class="congress-content-democrat">
-              <h3><%= article.title %></h3>
+              <h3><i class="fa fa-newspaper-o"></i>    <%= article.title %></h3>
               <p><%= article.first_paragraph %></p>
               <p><%= article.publication_date %></p>
             </div>
