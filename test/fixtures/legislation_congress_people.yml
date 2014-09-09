@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  legislation_id: 
+  congress_person: MyString
+  references: MyString
+
+two:
+  legislation_id: 
+  congress_person: MyString
+  references: MyString

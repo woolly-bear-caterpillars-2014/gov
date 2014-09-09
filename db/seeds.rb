@@ -1,47 +1,68 @@
-
-NytimesHelper.fetch_house["results"].first["members"].each do |congressperson|
-	person = CongressPerson.create(
-		bioguide_id: congressperson["id"],
-		first_name: congressperson["first_name"],
-		last_name: congressperson["last_name"],
-		title: "Congressperson",
-		party: congressperson["party"],
-		twitter_account: congressperson["twitter_account"],
-		facebook_account: congressperson["facebook_account"],
-		votes_with_party_pct: congressperson["votes_with_party_pct"],
-		website_url: congressperson["url"],
-		missed_votes_pct: congressperson["missed_votes_pct"],
-		seniority: congressperson["seniority"],
-		district: congressperson["district"],
-		next_election: congressperson["next_election"],
-		picture_id: "http://theunitedstates.io/images/congress/225x275/#{congressperson["id"]}.jpg",
-		state: State.find_or_create_by(
-			abbreviation: congressperson["state"]
-		)
+congress_people = NytimesHelper.get_congress
+puts "fetched"
+congress_people.each do |congressperson|
+	CongressPerson.create(
+		bioguide_id: congressperson[:bioguide_id],
+		first_name: congressperson[:first_name],
+		last_name: congressperson[:last_name],
+		title: congressperson[:title],
+		party: congressperson[:party],
+		twitter_account: congressperson[:twitter_account],
+		facebook_account: congressperson[:facebook_account],
+		votes_with_party_pct: congressperson[:votes_with_party_pct],
+		website_url: congressperson[:website_url],
+		missed_votes_pct: congressperson[:missed_votes_pct],
+		seniority: congressperson[:seniority],
+		district: congressperson[:district],
+		next_election: congressperson[:next_election],
+		picture_id: congressperson[:picture_id],
+		state: congressperson[:state]
 	)
 end
 
-NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
-	person = CongressPerson.create(
-		bioguide_id: congressperson["id"],
-		first_name: congressperson["first_name"],
-		last_name: congressperson["last_name"],
-		title: "Senator",
-		party: congressperson["party"],
-		twitter_account: congressperson["twitter_account"],
-		facebook_account: congressperson["facebook_account"],
-		votes_with_party_pct: congressperson["votes_with_party_pct"],
-		website_url: congressperson["url"],
-		missed_votes_pct: congressperson["missed_votes_pct"],
-		seniority: congressperson["seniority"],
-		district: congressperson["district"],
-		next_election: congressperson["next_election"],
-		picture_id: "http://theunitedstates.io/images/congress/225x275/#{congressperson["id"]}.jpg",
-		state: State.find_or_create_by(
-			abbreviation: congressperson["state"]
-		)
-	)
-end
+# NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
+# 	person = CongressPerson.create(
+# 		bioguide_id: congressperson["id"],
+# 		first_name: congressperson["first_name"],
+# 		last_name: congressperson["last_name"],
+# 		title: "Senator",
+# 		party: congressperson["party"],
+# 		twitter_account: congressperson["twitter_account"],
+# 		facebook_account: congressperson["facebook_account"],
+# 		votes_with_party_pct: congressperson["votes_with_party_pct"],
+# 		website_url: congressperson["url"],
+# 		missed_votes_pct: congressperson["missed_votes_pct"],
+# 		seniority: congressperson["seniority"],
+# 		district: congressperson["district"],
+# 		next_election: congressperson["next_election"],
+# 		picture_id: "http://theunitedstates.io/images/congress/225x275/#{congressperson["id"]}.jpg",
+# 		state: State.find_or_create_by(
+# 			abbreviation: congressperson["state"]
+# 		)
+# 	)
+# end
+
+# NytimesHelper.fetch_senate["results"].first["members"].each do |congressperson|
+# 	person = CongressPerson.create(
+# 		bioguide_id: congressperson["id"],
+# 		first_name: congressperson["first_name"],
+# 		last_name: congressperson["last_name"],
+# 		title: "Senator",
+# 		party: congressperson["party"],
+# 		twitter_account: congressperson["twitter_account"],
+# 		facebook_account: congressperson["facebook_account"],
+# 		votes_with_party_pct: congressperson["votes_with_party_pct"],
+# 		website_url: congressperson["url"],
+# 		missed_votes_pct: congressperson["missed_votes_pct"],
+# 		seniority: congressperson["seniority"],
+# 		district: congressperson["district"],
+# 		next_election: congressperson["next_election"],
+# 		picture_id: "http://theunitedstates.io/images/congress/225x275/#{congressperson["id"]}.jpg",
+# 		state: State.find_or_create_by(
+# 			abbreviation: congressperson["state"]
+# 		)
+# 	)
+# end
 
 state_list = {
 	'AL' => "Alabama",
@@ -104,6 +125,23 @@ state_list.each do |state_abrev, state_full|
 end
 
 CongressPerson.all.each do |person|
+	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
+
+	articles.each do |article|
+# 	BingHelper.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
+# 		bing = Article.new(
+# 			title: art[:Title],
+# 			first_paragraph: art[:Description],
+# 			publication_date: art[:Date],
+# 			url: art[:Url],
+# 			source: art[:Source]
+# 		)
+
+# 		ArticleCongressPerson.new(
+# 			article: bing,
+# 			congress_person: person
+# 		)
+# 	end
 	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
 		a = Article.create(
 			title: article['headline']['main'],
@@ -118,20 +156,24 @@ CongressPerson.all.each do |person|
 			congress_person: person
 		)
 	end
+
+	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
+
+	bills.each do |bill|
+		l = Legislation.create(
+			number: bill[:number],
+      bill_id: bill[:bill_id],
+      pdf_url: bill[:pdf_url],
+      introduced_on: bill[:introduced_on],
+      last_version_on: bill[:last_version_on],
+      official_title: bill[:official_title],
+      short_title: bill[:short_title]
+		)
+		
+		LegislationCongressPerson.create(
+			legislation: l,
+			congress_person: person
+		)
+	end
 end
-
-
-# CongressPerson.all.each do |congressperson|
-# 	NytimesHelper.query_by_keywords(NytimesHelper.remove_stops(leg))['response']['docs'].each do |article|
-# 		a = Article.create(
-# 			title: article['headline']['main'],
-# 			first_paragraph: article['lead_paragraph'],
-# 			publication_date: article['pub_date'],
-# 			url: article['web_url'],
-# 			source: 'New York Times')
-# 		ArticlesLegislation.create(
-# 			article: a,
-# 			legislation: leg)
-# 	end
-# end
 
