@@ -40,8 +40,6 @@ $(document).ready(function() {
       $articles = $('#congress-articles'),
       $bills = $('#congress-bills');
 
-  console.log()
-
 
   $buttonArticle.on('click', articleButtonToggle)
   $buttonBill.on('click', billButtonToggle)

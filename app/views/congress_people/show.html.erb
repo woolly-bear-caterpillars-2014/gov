@@ -10,11 +10,11 @@
       <p><%= @congress_person.title %></p>
       <p><%= @congress_person.party %></p>
       <p>Phone Number: <%= @congress_person.phone_number %></p>
-      <p>Twitter Account: <%= @congress_person.twitter_account %></p>
-      <p>Website: <%= @congress_person.website_url %></p>
+      <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
+      <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
       <p>Youtube ID:<%= @congress_person.youtube_id %></p>
       <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
-      <p>Votes with party: <%= @congress_person.votes_with_party_pct %>&</p>
+      <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
       <p>Seniority: <%= @congress_person.seniority %></p>
       <p>District: <%= @congress_person.district %></p>
       <p>Next Election: <%= @congress_person.next_election %></p>
