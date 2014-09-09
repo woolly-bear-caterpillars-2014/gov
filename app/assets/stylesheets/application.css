@@ -330,6 +330,11 @@ footer {
   padding-top: 60px;
 }
 
+.border {
+  border: 1px solid #20272D;
+
+}
+
 .btn {
   background-color: #20272D;
   color: #F6F6EF;
@@ -386,9 +391,6 @@ footer {
 
 .congress-about {
   background: rgba(33, 102, 172, 0.3);
-  border-style: solid;
-  border-width: 1px;
-  border-color: #333;
   overflow: hidden;
 }
 
