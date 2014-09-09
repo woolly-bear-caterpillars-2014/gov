@@ -42,7 +42,7 @@ class CongressPerson < ActiveRecord::Base
 		alchemy = AlchemyApi.new
 		sentiments = []
 		self.relevant_tweets.each do |tweet|
-			sentiments << {text: tweet.text, sentiment_score: alchemy.sentiment('text', tweet.text)['docSentiment']['score'], uri: tweet.uri}
+			sentiments << {text: tweet.text, sentiment_score: ((alchemy.sentiment('text', tweet.text)['docSentiment']['score']) * 10), uri: tweet.uri}
 		end	
 		sentiments
 	end

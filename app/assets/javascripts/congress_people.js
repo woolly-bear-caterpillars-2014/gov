@@ -1,4 +1,4 @@
-	var m = [80, 80, 80, 80]; // margins
+	var m = [200, 200, 200, 200]; // margins
 		var w = 1000 - m[1] - m[3]; // width
 		var h = 400 - m[0] - m[2]; // height
 		
@@ -8,7 +8,7 @@
 		// X scale will fit all values from data[] within pixels 0-w
 		var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
 		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-		var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+		var y = d3.scale.linear().domain([-10, 10]).range([h, 0]);
 			// automatically determining max range can work something like this
 			// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
 
@@ -63,11 +63,9 @@ function getSentimentAnalysis() {
     type: 'GET',
     data: 'json',
   }).done(function(response) {
-  	console.log(response)
     for( var i=0, l=response.length; i<l; i++) {
     	data.push(response[i].sentiment_score);
     };
-    console.log(data);
     	var m = [80, 80, 80, 80]; // margins
 		var w = 1000 - m[1] - m[3]; // width
 		var h = 400 - m[0] - m[2]; // height
@@ -77,7 +75,7 @@ function getSentimentAnalysis() {
 		// X scale will fit all values from data[] within pixels 0-w
 		var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
 		// Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-		var y = d3.scale.linear().domain([0, 10]).range([h, 0]);
+		var y = d3.scale.linear().domain([-10, 10]).range([h, 0]);
 			// automatically determining max range can work something like this
 			// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
 
