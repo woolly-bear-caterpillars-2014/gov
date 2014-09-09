@@ -103,6 +103,7 @@ state_list.each do |state_abrev, state_full|
 	s.save
 end
 
+<<<<<<< HEAD
 # CongressPerson.all.each do |person|
 # 	BingHelper.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
 # 		bing = Article.new(
@@ -119,6 +120,11 @@ end
 # 		)
 # 	end
 	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
+=======
+CongressPerson.all.each do |person|
+	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
+	articles.each do |article|
+>>>>>>> ee404e655ad693fd629e1a26056d8c5a2f4208f2
 		a = Article.create(
 			title: article['headline']['main'],
 			first_paragraph: article['lead_paragraph'],
@@ -130,6 +136,24 @@ end
 		ArticleCongressPerson.create(
 			article: a,
 			congress_person: person
+		)
+	end
+
+	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
+	bills.each do |bill|
+		l = Legislation.create(
+			number: bill[:number],
+      bill_id: bill[:number],
+      pdf_url: bill[:number],
+      introduced_on: bill[:number],
+      last_version_on: bill[:number],
+      official_title: bill[:number],
+      short_title: bill[:number]
+		)
+		
+		LegislationCongressPerson.create(
+			legislation: l,
+			congress_person: person	
 		)
 	end
 end

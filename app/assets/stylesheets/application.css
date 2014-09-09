@@ -34,9 +34,14 @@ img {
   height: 100px;
 }
 
+<<<<<<< HEAD
 a { 
 color: #0C5C60;
 }
+=======
+a {
+color: #0C5C60;}
+>>>>>>> ee404e655ad693fd629e1a26056d8c5a2f4208f2
 
 .container {
   padding-top: 50px;
@@ -112,6 +117,43 @@ a:hover {
   border-color: #6B0C22;
 }
 
+.article .democrat {
+  text-align: justify;
+  color: #333;
+  float: left;
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.9);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.article .republican {
+  text-align: justify;
+  background-image: url('handmadepaper.png');
+  color: #333;
+  float: left;
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(33, 102, 172, 0.1);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
 .senator-card-democrat {
   background-image: url('handmadepaper.png');
   color: #333;
@@ -167,11 +209,8 @@ a:hover {
 }
 
 
-.congress-card {
-
-}
-
 .politician-data {
+  overflow: ellipsis;
   float: left;
   margin-left: 20px;
 }
@@ -203,11 +242,14 @@ a:hover {
 }
 
 #frame {
+  z-index: 0;
   height: 160px;
+  overflow: none;
   width: 100%;
   margin: 0px 0px;
   padding: 0px 0px;
   float: left;
+  background-color: rgba(0,0,0,0);
   background-image: url('handmadepaper.png');
   border-bottom: 1px solid;
   border-top: 1px solid;
@@ -222,13 +264,13 @@ a:hover {
 }
 
 .article {
+  position: fixed;
   padding: 20px;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  margin: 10px;
-  margin-bottom: 0px;
-  width: 500px;
-  background-color: red;
+  width: 900px;
+  top: 170px;
+  margin-left: -100px;
+  display: none;
+  z-index: 100px;
 }
 
 .slidee li {
@@ -246,59 +288,6 @@ a:hover {
 }
 
 
-.slidee li .republican {
-  background: #6B0C22;
-}
-
-.slidee li.republican.active {
-  background: #D9042B;
-}
-
-.slidee li.democrat {
-  background: #011C26;
-}
-
-
-.slidee li.democrat.active {
-  background: #588C8C;
-}
-
-/*#scrollbar {
-    width: 100%;
-    height: 100px;
-    background: #f00;
-    margin-top: 10px;
-    line-height: 0;
-}
-#scrollbar .handle {
-    width: 50px;
-    height: 100px;
-    background: #00f;
-    position: absolute;
-}*/
-
-
-/*.scrollbar {
-  margin: 0 0 1em 0;
-  height: 2px;
-  background: #ccc;
-  line-height: 0;
-}
-
-.scrollbar .handle {
-  width: 100px;
-  height: 100%;
-  background: #292a33;
-  cursor: pointer;
-}
-*/
-/*.scrollbar .handle .mousearea {
-  position: absolute;
-  top: -9px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-}*/
 nav {
   width: 100%;
   position: fixed;
@@ -325,7 +314,7 @@ nav li {
 footer {
   text-align: center;
   font-size: 8px;
-  color; #2A3A48;
+  color: #2A3A48;
 }
 
 .btn {
@@ -356,27 +345,30 @@ footer {
 
 #map-canvas {
   height: 100%;
-  position: absolute; 
-  top: 0; 
-  bottom: -200px; 
-  left: 0; 
-  right: 0; 
+  position: absolute;
+  top: 0;
+  bottom: -200px;
+  left: 0;
+  right: 0;
   z-index: 0;
 }
+
 #title-bar {
    z-index:100;
    position:relative;
    color:#fff;
 }
+
 #title-close {
   color:#fff;
   opacity:1;
-  
+
 }
 #title-close:hover {
   opacity:.5;
 }
 
+<<<<<<< HEAD
 #smalllink {
   float: right;
   font-size: 14;
@@ -384,3 +376,10 @@ footer {
 
 
 
+=======
+.boo {
+  position: fixed;
+  top: 600px;
+  z-index: 100px;
+}
+>>>>>>> ee404e655ad693fd629e1a26056d8c5a2f4208f2
