@@ -77,6 +77,13 @@ a:hover {
   color: black;
 }
 
+<<<<<<< HEAD
+nav li {
+  display: inline;
+}
+
+=======
+>>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
 .mapTooltip {
   position: fixed;
   background-color: #fff;
@@ -87,7 +94,7 @@ a:hover {
   padding : 10px;
   z-index: 1000;
   max-width: 200px;
-  display: none;
+  display: inline-block;
   color: #424342;
 }
 
@@ -384,6 +391,35 @@ footer {
   opacity:.5;
 }
 
+<<<<<<< HEAD
+path {
+        stroke: steelblue;
+        stroke-width: 1;
+        fill: none;
+      }
+      
+      .axis {
+        shape-rendering: crispEdges;
+      }
+
+      .x.axis line {
+        stroke: lightgrey;
+      }
+
+      .x.axis .minor {
+        stroke-opacity: .5;
+      }
+
+      .x.axis path {
+        display: none;
+      }
+
+      .y.axis line, .y.axis path {
+        fill: none;
+        stroke: #000;
+      }
+
+=======
 #smalllink {
   float: right;
   font-size: 14;
@@ -394,3 +430,4 @@ footer {
   top: 600px;
   z-index: 100px;
 }
+>>>>>>> 50ee0ec3528ddc40ecddf912729590a35391d430
