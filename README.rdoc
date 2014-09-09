@@ -1,4 +1,7 @@
 Gov: A new way of viewing legislation, news, and reaction. 
+- Trello: https://trello.com/b/6dZ7iia4/the-governors
+- Heroku: http://youhavetherighttoknow.herokuapp.com/
+
 
 Team members:
 - Audrey Mcgowan: https://github.com/abcm1989 
@@ -7,12 +10,12 @@ Team members:
 - Eric Shemtov: https://github.com/eshem
 - Max Lock: https://github.com/mediaspork
 
-Trello: https://trello.com/b/6dZ7iia4/the-governors
-
 Integrating the following API's:
 
 - GovTrack
 - Federal Register
+- Sunglight API
 - Twitter
 - The New York Times (Article search and Congressional)
+- Bing
 - Google Maps
