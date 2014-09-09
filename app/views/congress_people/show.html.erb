@@ -1,63 +1,82 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="inner">
+    <div id="border">
     <div class="congress-about">
-      <%= image_tag(@congress_person.picture_id) %>
-      <p>
-        <%= @congress_person.first_name %> <%= @congress_person.last_name %>
-      </p>
+      <div class="block-left">
+        <%= image_tag(@congress_person.picture_id) %>
+      </div>
+      <div class="block-left">
+        <h3>
+          <%= @congress_person.first_name %> <%= @congress_person.last_name %>
+        </h3>
 
-      <p><%= @congress_person.title %></p>
-      <p><%= @congress_person.party %></p>
-      <p>Phone Number: <%= @congress_person.phone_number %></p>
-      <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
-      <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
-      <% if @congress_person.youtube_id %>
-        <p>Youtube ID:<%= @congress_person.youtube_id %></p>
+        <p>Phone Number: <%= @congress_person.phone_number %></p>
+        <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
+        <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
+        <% if @congress_person.youtube_id %>
+          <p>Youtube ID:<%= @congress_person.youtube_id %></p>
         <% end %>
-      <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
-      <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
-      <p>Seniority: <%= @congress_person.seniority %></p>
-      <p>District: <%= @congress_person.district %></p>
-      <p>Next Election: <%= @congress_person.next_election %></p>
+      </div>
+
+
+      <div class="block-right">
+        <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
+        <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
+        <p>Seniority: <%= @congress_person.seniority %></p>
+        <p>District: <%= @congress_person.district %></p>
+        <p>Next Election: <%= @congress_person.next_election %></p>
+      </div>
     </div>
 
     <div class="congress-email">
       <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-        <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %><br>
+        <center>
+          <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
+          <%= submit_tag "Send Email", :class => 'btn' %>
+
+
+        <br><br>
         <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-        <%= submit_tag("Send Email") %>
+        </center>
       <% end %>
     </div>
-    <button type="submit" name="bills">Bills</button>
-    <button type="submit" name="articles">Articles</button>
 
-<!-- Hidden Bills -->
-  <div class="row-submit" id="congress-bills" style="display: none;">
-    <% @bills.each do |bill| %>
-      <div class="congress-content-democrat">
-        <center>
-          <p><i><%= bill.bill_id %></i></p>
-          <h3><%= bill.official_title %></h3>
-          <p><%= bill.short_title %></p>
-        </center>
-        <p>Introduced on: <b><%= bill.introduced_on %></b></p>
-        <p>Last Version: <b><%= bill.last_version_on %></b></p>
+    <div class="congress-content">
+      <button type="submit" name="bills" class="btn" >Bills</button>
+      <button type="submit" name="articles" class="btn" >Articles</button>
+
+  <!-- Hidden Bills -->
+    <div class="row-submit" id="congress-bills" style="display: none;">
+      <% @bills.each do |bill| %>
+        <%= link_to bill.pdf_url do %>
+          <div class="congress-content-democrat">
+            <center>
+              <p><i><%= bill.bill_id %></i></p>
+              <h3><%= bill.official_title %></h3>
+              <p><%= bill.short_title %></p>
+            </center>
+            <p>Introduced on: <b><%= bill.introduced_on %></b></p>
+            <p>Last Version: <b><%= bill.last_version_on %></b></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+      <!-- Hidden Articles -->
+      <div class="row-submit" id="congress-articles" style="display: none;">
+        <% @articles.each do |article| %>
+          <%= link_to article.url do %>
+            <div class="congress-content-democrat">
+              <h3><%= article.title %></h3>
+              <p><%= article.first_paragraph %></p>
+              <p><%= article.publication_date %></p>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
-
-  <!-- Hidden Articles -->
-  <div class="row-submit" id="congress-articles" style="display: none;">
-    <% @articles.each do |article| %>
-      <div class="congress-content-democrat">
-        <h3><%= article.title %></h3>
-        <p><%= article.first_paragraph %></p>
-        <p><%= article.publication_date %></p>
-      </div>
-    <% end %>
-  </div>
-
   </div>
 </div>
 
