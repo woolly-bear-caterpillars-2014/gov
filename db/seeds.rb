@@ -107,6 +107,21 @@ CongressPerson.all.each do |person|
 	articles = NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs']
 
 	articles.each do |article|
+# 	BingHelper.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
+# 		bing = Article.new(
+# 			title: art[:Title],
+# 			first_paragraph: art[:Description],
+# 			publication_date: art[:Date],
+# 			url: art[:Url],
+# 			source: art[:Source]
+# 		)
+
+# 		ArticleCongressPerson.new(
+# 			article: bing,
+# 			congress_person: person
+# 		)
+# 	end
+	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
 		a = Article.create(
 			title: article['headline']['main'],
 			first_paragraph: article['lead_paragraph'],
