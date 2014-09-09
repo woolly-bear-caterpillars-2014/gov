@@ -16,30 +16,10 @@
 //= require sly
 
 $(document).ready(function() {
-  var $frame = $("#frame")
-  $('.slidee li').on('click', '.senator-card-democrat', function() {
-    if ( $frame.css("height") == "160px") {
-      $(this).next().fadeIn('fast');
-      $("#frame").animate({ height: '400px' });
+  var $buttonEmail = $('button[name=email]'),
+      $email = $('congress-email'),
 
-    } else {
-      $(".article").fadeOut('fast');
-      $("#frame").animate({ height: '160px' });
-    }
-  })
-
-  $('.slidee li').on('click', '.senator-card-republican', function() {
-    if ( $frame.css("height") == "160px") {
-      $(this).next().fadeIn('fast');
-      $("#frame").animate({ height: '400px' });
-
-    } else {
-      $(".article").fadeOut('fast');
-      $("#frame").animate({ height: '160px' });
-    }
-  })
-
-  var $buttonArticle = $('button[name=articles]'),
+      $buttonArticle = $('button[name=articles]'),
       $buttonBill = $('button[name=bills]'),
 
       $articles = $('#congress-articles'),
@@ -48,7 +28,7 @@ $(document).ready(function() {
 
   $buttonArticle.on('click', articleButtonToggle)
   $buttonBill.on('click', billButtonToggle)
-
+  $buttonEmail.on('click', emalButtonAccordian)
 
   function articleButtonToggle() {
     console.log('hi');
@@ -60,6 +40,10 @@ $(document).ready(function() {
     console.log('there');
     $articles.fadeOut('fast');
     $bills.fadeIn('fast');
+  }
+
+  function emalButtonAccordian() {
+    $(this).next().slideToggle('fast');
   }
 
   generate_sly();
