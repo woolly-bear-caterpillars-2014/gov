@@ -5,7 +5,7 @@ class CongressPeopleController < ApplicationController
 
   def show
     @congress_person = CongressPerson.find(params[:id])
-    @articles = @congress_person.articles
+    @articles = @congress_person.articles.order('publication_date DESC')
     @bills = @congress_person.legislations
   end
 
