@@ -18,6 +18,8 @@ module SunlightCongressHelper
 			bills = get_filtered_bills(parsed_reply)
 		end
 
+		private
+
 		def get_filtered_bills(parsed_reply)
 			bills = Array.new
 			parsed_reply["results"].each do |bill_hash|
