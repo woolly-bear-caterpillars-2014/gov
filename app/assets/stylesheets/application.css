@@ -267,7 +267,11 @@ nav li {
   padding-top: 100px;
 }
 
+
 /*path {
+=======
+/*path {
+>>>>>>> 914d89bd59a5d29ff1dfd56d6332116b1be4ffdb
   stroke: steelblue;
         stroke-width: 1;
         fill: none;
@@ -539,4 +543,13 @@ textarea {
   width: 600px;
   height: 200px;
   resize: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 8px;
+  color: #2A3A48;
+  clear: both;
+  position: relative;
+  padding-top: 60px;
 }

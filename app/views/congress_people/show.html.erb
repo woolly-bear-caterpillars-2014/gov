@@ -41,6 +41,7 @@
           <% if @congress_person.youtube_id %>
             <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
           <% end %>
+
         </div>
 
         <div class="block-right">
@@ -50,6 +51,7 @@
           <p>District: <%= link_to @congress_person.district, "https://www.govtrack.us/congress/members/map" %></p>
           <p>Next Election: <%= @congress_person.next_election %></p>
         </div>
+
       </div>
 
       <center>
@@ -102,6 +104,7 @@
           </div>
         </center>
       </div>
+<<<<<<< HEAD
 
     <% else %>
 
@@ -149,6 +152,7 @@
           <p>Next Election: <%= @congress_person.next_election %></p>
         </div>
       </div>
+
 
       <center>
         <button type="submit" name="email" class="btn" >Send them an Email</button>
