@@ -18,7 +18,7 @@ class CongressPeopleController < ApplicationController
     @congress_person = CongressPerson.find(params[:id])
 
     @articles = @congress_person.articles.order('publication_date DESC')
-    @bills = @congress_person.legislations
+    p @bills = @congress_person.legislations.order('introduced_on DESC')
 
   end
 
