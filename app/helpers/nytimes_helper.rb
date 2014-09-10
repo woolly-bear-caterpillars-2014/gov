@@ -29,7 +29,7 @@ module NytimesHelper
 			articles
 		end
 
-		# private
+		private
 
 		def fetch_relevant_articles_by_keyword(person, word)
 			articles = Array.new

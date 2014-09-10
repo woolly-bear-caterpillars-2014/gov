@@ -11,24 +11,14 @@ state_list.each do |state_abrev, state_full|
 end
 
 CongressPerson.all.each do |person|
-	BingService.find_keyword("#{person.first_name}" + " " + "#{person.last_name}").each do |art|
-		bing = Article.create(
-			title: art[:Title],
-			first_paragraph: art[:Description],
-			publication_date: art[:Date],
-			url: art[:Url],
-			source: art[:Source]
-		)
-		p bing
-
-		ArticleCongressPerson.create(
-			article: bing,
-			congress_person: person
-		)
+	bing_articles = BingService.get_articles(person)
+	bing_articles.each do |article|
+		a = Article.create(article)
+		ArticleCongressPerson.create(article: a, congress_person: person)
 	end
 
-	articles = NytimesService.get_articles(person)
-	articles.each do |article|
+	nyt_articles = NytimesService.get_articles(person)
+	nyt_articles.each do |article|
 		a = Article.create(article)
 		ArticleCongressPerson.create(article: a, congress_person: person)
 	end
