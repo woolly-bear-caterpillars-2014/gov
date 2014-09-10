@@ -99,11 +99,7 @@ var getWordMap = function() {
       else
         {flattened.push(inbetween[i])};
     };
-    // var fill = d3.scale.category20c();
-
-    var fill = d3.scale.ordinal()
-      .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
-      .range(colorbewer.RdBu[9]);
+    var fill = d3.scale.category20c();
 
     d3.layout.cloud().size([1500, 1500])
       .words(flattened.map(function(d) {
