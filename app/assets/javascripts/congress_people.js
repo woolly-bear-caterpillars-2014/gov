@@ -89,9 +89,6 @@ var getWordMap = function() {
     var inbetween = tweets.reduce(function(a,b){
       return a.concat(b);
     });
-
-
-
     var flattened = []
     console.log(inbetween)
 
