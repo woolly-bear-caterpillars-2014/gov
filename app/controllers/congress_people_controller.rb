@@ -2,7 +2,7 @@ class CongressPeopleController < ApplicationController
 
   def sentiment_visualization
     @congressperson = CongressPerson.find(params[:id])
-    @congressperson.relevant_tweets 
+    @congressperson.relevant_tweets
     @tweets_to_render = @congressperson.relevant_tweets
     @sentiment_array = @congressperson.preserve_alchemy_map
     @sentiment_array.to_json
@@ -20,7 +20,7 @@ class CongressPeopleController < ApplicationController
     @congress_person = CongressPerson.find(params[:id])
 
     @articles = @congress_person.articles.order('publication_date DESC')
-    @bills = @congress_person.legislations
+    p @bills = @congress_person.legislations.order('introduced_on DESC')
 
   end
 
