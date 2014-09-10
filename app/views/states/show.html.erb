@@ -5,29 +5,16 @@
       <center><h3>Senators</h3></center>
       <% @senators.each do |senator| %>
         <%= link_to senator do %>
-          <% if senator.party == "D" %>
-            <div class="senator-card-democrat">
-              <div class="democrat">
+            <div class="#{card-class(senator)}">
+              <div class="#{party_name}">
                 <%= image_tag(senator.picture_id) %>
               </div>
               <div class="politician-data">
                 <h3><%= senator.first_name %> <%= senator.last_name %></h3>
-                <p>Democrat</p>
+                <p><%= party_name(senator).titleize %></p>
                 <p><%= senator.title %></p>
               </div>
             </div>
-          <% else %>
-            <div class="senator-card-republican">
-              <div class="republican">
-                <%= image_tag(senator.picture_id) %>
-              </div>
-              <div class="politician-data">
-                <h3><%= senator.first_name %> <%= senator.last_name %></h3>
-                <p>Republican</p>
-                <p><%= senator.title %></p>
-              </div>
-            </div>
-          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -47,7 +34,7 @@
             </div>
           </div>
 
-          <div class="article democrat">
+          <div class="article #{party_name(congress_person)}">
             <% congress_person.articles.each do |article| %>
               <div class="senator-card-democrat">
                 <h2><%= article.title %></h2>

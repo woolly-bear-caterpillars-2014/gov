@@ -81,6 +81,7 @@ CongressPerson.all.each do |person|
 			congress_person: person
 		)
 	end
+	
 	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
 		a = Article.create(
 			title: article['headline']['main'],
@@ -99,7 +100,7 @@ CongressPerson.all.each do |person|
 	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
 
 	bills.each do |bill|
-		l = Legislation.create(bill)
+		l = Legislation.create(bill)		
 		LegislationCongressPerson.create(
 			legislation: l,
 			congress_person: person
