@@ -14,6 +14,7 @@
  *= require_self
  *= require font-awesome
  */
+ 
 .palette {
   cursor: pointer;
   display: inline-block;
