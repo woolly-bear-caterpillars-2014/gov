@@ -11,10 +11,6 @@
 //= require d3
 //= require d3.layout.cloud
 //= require congress_people
-
-
-
-
 //= require sly
 
 $(document).ready(function() {
@@ -35,7 +31,6 @@ $(document).ready(function() {
   $buttonBill.on('click', billButtonToggle)
   $buttonEmail.on('click', emailButtonAccordian)
   $btn.on('click', toggleButtons);
-
 
   function toggleButtons() {
     $btn.not(this).removeClass('btnactive');

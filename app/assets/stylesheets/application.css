@@ -15,7 +15,7 @@
  *= require font-awesome
  */
 body {
-  background-image: url('cream_dust.png');
+/*  background-image: url('states/alaska.jpg');*/
   font-family: 'Lato', sans-serif;
   margin: 0px 0px;
   padding: 0px 0px;
@@ -333,7 +333,7 @@ nav li {
 }
 
 .slidee .senator-card-democrat {
-   float: left;
+  float: left;
 }
 
 nav {
@@ -507,17 +507,30 @@ footer {
   border-color: #053061;
 }
 
+.block-left-republican img {
+  float: left;
+  margin: 20px;
+  height: 160px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #6B0C22;
+}
+
 .block-right {
   float: right;
   width: 200px;
   margin: 20px
 }
 
+.rep-img {
+
+}
+
 
 input {
-  font-size: 18px;
+  font-size: 17px;
   padding: 10px;
-  width: 300px;
+  width: 290px;
 }
 
 textarea {

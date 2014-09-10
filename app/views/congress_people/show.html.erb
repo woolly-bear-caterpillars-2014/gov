@@ -27,10 +27,10 @@
             <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
           <% end %>
 
-          <p><i class="fa fa-twitter"></i><%= link_to @congress_person.twitter_account, "http: //twitter.com/#{@congress_person.twitter_account}" %></p>
+          <p><i class="fa fa-twitter"></i><%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
 
           <% if @congress_person.facebook_account %>
-            <p><i class="fa fa-facebook-square"></i>   <%= link_to @congress_person.facebook_account, "http://facebook.com/#{@congress_person.facebook_account}" %></p>
+            <p><i class="fa fa-facebook-square"></i> <%= link_to @congress_person.facebook_account, "http://facebook.com/#{@congress_person.facebook_account}" %></p>
           <% end %>
 
           <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
@@ -106,7 +106,7 @@
     <% else %>
 
       <div class="congress-about-republican">
-        <div class="block-left">
+        <div class="block-left-republican">
           <%= image_tag(@congress_person.picture_id) %>
         </div>
 
@@ -125,7 +125,7 @@
             <p><i class="fa fa-phone">  </i><%= @congress_person.phone_number %></p>
           <% end %>
 
-          <p><i class="fa fa-twitter"></i><%= link_to @congress_person.twitter_account, "http: //twitter.com/#{@congress_person.twitter_account}" %></p>
+          <p><i class="fa fa-twitter"></i><%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
 
           <% if @congress_person.facebook_account %>
             <p><i class="fa fa-facebook-square"></i>   <%= link_to @congress_person.facebook_account, "http://facebook.com/#{@congress_person.facebook_account}" %></p>
@@ -153,11 +153,10 @@
       <center>
         <button type="submit" name="email" class="btn" >Send them an Email</button>
 
-
         <div class="congress-email-republican" id="congress-email" style="display: none;">
           <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-            From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
-            To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
+            <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
+            <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
             <br>
             <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
             <%= submit_tag "Send!", :class => 'btn' %>
