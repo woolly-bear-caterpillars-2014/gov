@@ -21,7 +21,7 @@ module TwitterService
 		          f.write(tweet.to_json)
 		        end
           end
-	      end 
+	      end
 	    end
 	  end
 	end
