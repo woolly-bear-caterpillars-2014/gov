@@ -54,10 +54,15 @@ $(document).ready(function() {
   }
 
   generate_sly();
+  if ($('.state-map').size() > 0) {
+    getRepubDemCount();
+  }
 
-	$('grab-states').hasClass("map-area", getRepubDemCount());
-	$('grab-states').hasClass("gmap-area", generateTweetMap());
-	getSentimentAnalysis();
+  if ($('.gmap-area').size() > 0) {
+    generateTweetMap();
+  }
+
+  getSentimentAnalysis();
 });
 
 function generate_sly() {
@@ -77,19 +82,3 @@ function generate_sly() {
   });
 }
 
-
-
-
-  // var $buttonSubmit = $('button[name=submit_feedback]'),
-  //     $submit = $('#submitFeedback');
-  // var $form = $('form');
-  // $form.on('submit', function(e) {
-  //   e.preventDefault();
-  //   $.ajax('/states', {
-  //     method: 'post',
-  //     dataType: 'json',
-  //     data: $form.serialize()
-  //   }).done(function(response) {
-  //     console.log(response);
-  //   });
-  // });

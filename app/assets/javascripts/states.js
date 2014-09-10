@@ -1,6 +1,6 @@
 function generateMap(response) {
   var $mapArea = $(".map-area");
-  console.log(response);
+
   $mapArea.mapael({
     map: {
       name: "usa_states",
@@ -125,7 +125,6 @@ function generateMap(response) {
 }
 
 function getRepubDemCount() {
-  console.log("Hello from getRepubDemCount");
   $.ajax('/states', {
     type: 'GET',
     dataType: 'json'
@@ -139,11 +138,10 @@ function colorizeStates(states) {
   var areas = {};
 
   for (var i = 0; i < states.length; i++) {
-    var name = states[i].name;
-    var independents = ""
-    var politicalLeaning = Math.round(states[i].political_leaning);
-    var politicalLeaningDisplay = "<p>" + Math.round(states[i].political_leaning) + "% Democrat</p>";
-
+    var name = states[i].name,
+        independents = "",
+        politicalLeaning = Math.round(states[i].political_leaning),
+        politicalLeaningDisplay = "<p>" + Math.round(states[i].political_leaning) + "% Democrat</p>";
 
     if (politicalLeaning < 50) {
       politicalLeaning = 100 - politicalLeaning;
