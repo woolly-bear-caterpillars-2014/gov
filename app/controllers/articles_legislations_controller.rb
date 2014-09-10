@@ -1,2 +1,0 @@
-class ArticlesLegislationsController < ApplicationController
-end
