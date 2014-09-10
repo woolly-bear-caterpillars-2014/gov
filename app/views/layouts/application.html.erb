@@ -18,7 +18,7 @@
 		<br><br>
 		<footer>
 			<%= link_to 'DBC.WBC.2014', "http://github.com/woolly-bear-caterpillars-2014/gov"%>
-			<%= render partial: '/fb_like' %>
+			<%= render partial: '/fb_like' unless @skip_footer %>
 		</footer>
 	</body>
 </html>
