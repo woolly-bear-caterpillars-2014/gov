@@ -12,6 +12,7 @@
 //= require d3.layout.cloud
 //= require congress_people
 //= require congress_profile
+//= require fb
 
 $(document).ready(function() {
   if ($('.state-map').size() > 0) { getRepubDemCount(); }
