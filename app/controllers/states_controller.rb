@@ -20,7 +20,6 @@ class StatesController < ApplicationController
   end
 
   def create
-    p params[:congress]
     congress_member = params[:congress]
 
     if request.xhr?

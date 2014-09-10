@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+
 module LegislationsHelper
 	class << self
 	  def search_by_date_fedreg(date_as_string)
