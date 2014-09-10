@@ -2,8 +2,10 @@
 <div class="container">
   <div class="inner">
     <center><h1>
-      <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
-    </h1></center>
+    <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
+    <%= link_to 'Data Visualization',  data_visualization(@congress_person)%>
+  </h1></center>
+
 
     <% if @congress_person.party == "D" %>
 

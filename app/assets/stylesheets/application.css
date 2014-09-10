@@ -437,13 +437,15 @@ footer {
 }
 
 
-/*path {
-        stroke: steelblue;
-        stroke-width: 1;
-        fill: none;
-      }
 
-      .axis {
+.aGraph path {
+          stroke: steelblue;
+          stroke-width: 1;
+          fill: none;
+}
+
+
+/*      .axis {
         shape-rendering: crispEdges;
       }
 
@@ -462,8 +464,8 @@ footer {
       .y.axis line, .y.axis path {
         fill: none;
         stroke: #000;
-      }*/
-
+      }
+*/
 
 #smalllink {
   float: right;
