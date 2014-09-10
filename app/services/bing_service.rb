@@ -36,7 +36,6 @@ module BingService
 
 		def find_keyword(name)
 			bing_news1 = Bing.new("#{BING_KEY}",1,'News')
-			p bing_news1
 			bing_news = bing_news1.search(name).last
 			bing_news[:News]
 		end
