@@ -1,24 +1,58 @@
 <div class="container" id="state" data-no-turbolink>
   <div class="inner">
-    <center><h1><%= @state.name %></h1></center>
+    <center>
+      <div class="move-left">
+        <h1><%= @state.name %></h1>
+        <p><%= @republican_count %> Republicans | <%= @democrat_count %> Democrats</p>
+        <h3>Senators</h3>
+      </div>
+    </center>
     <div id="senator-list">
-      <center><h3>Senators</h3></center>
       <% @senators.each do |senator| %>
         <%= link_to senator do %>
-            <div class="#{card-class(senator)}">
-              <div class="#{party_name}">
+          <% if senator.party == "D" %>
+            <div class="senator-card-democrat">
+              <div class="democrat">
                 <%= image_tag(senator.picture_id) %>
               </div>
               <div class="politician-data">
                 <h3><%= senator.first_name %> <%= senator.last_name %></h3>
-                <p><%= party_name(senator).titleize %></p>
+                <p>Democrat</p>
                 <p><%= senator.title %></p>
               </div>
             </div>
+          <% else %>
+            <div class="senator-card-republican">
+              <div class="republican">
+                <%= image_tag(senator.picture_id) %>
+              </div>
+              <div class="politician-data">
+                <h3><%= senator.first_name %> <%= senator.last_name %></h3>
+                <p>Republican</p>
+                <p><%= senator.title %></p>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
+
+  <div class="inner-congress">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+      <div class="move-left">
+        <h3>Congress People</h3>
+      </div>
+    </center>
 
     <% @congress_people.each do |congress_person| %>
       <%= link_to congress_person do %>
@@ -34,7 +68,7 @@
             </div>
           </div>
 
-          <div class="article #{party_name(congress_person)}">
+          <div class="article democrat">
             <% congress_person.articles.each do |article| %>
               <div class="senator-card-democrat">
                 <h2><%= article.title %></h2>
@@ -67,5 +101,4 @@
     <% end %>
   <% end %>
 </div>
-
-
+</div>
