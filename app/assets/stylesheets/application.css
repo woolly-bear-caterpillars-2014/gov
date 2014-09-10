@@ -43,11 +43,12 @@ color: #0C5C60;
   margin-left: -50px;
 }
 
-.container {
+/*.container {
   padding-top: 50px;
   margin: 10px auto;
   width: 100%;
-}
+  max-width: 1300px;
+}*/
 
 .senator-republican img {
   border-style: solid;
@@ -312,6 +313,7 @@ nav li {
   padding-top: 50px;
   margin: 10px auto;
   width: 100%;
+  max-width: 1300px;
 }
 
 .article {
@@ -417,6 +419,7 @@ footer {
   right: 0;
   z-index: 0;
 }
+
 
 #title-bar {
    z-index:100;
