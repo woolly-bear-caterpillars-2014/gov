@@ -58,7 +58,7 @@ end
 
 fb_config = YAML.load_file('config/fb.yml')
 
-bing_config.each do |key, value|
+fb_config.each do |key, value|
   ENV[key] = value
 end
 

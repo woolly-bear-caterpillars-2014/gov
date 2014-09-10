@@ -3,11 +3,11 @@
 	<head>
 	  <title>Govreggator</title>
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	   <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBRb2m50gfiBRFC2ibKnUXEazcbBom2J3I">
+        src="https://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLEMAPS_API_KEY'] %>">
       </script>
-      <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -18,7 +18,7 @@
 		<br><br>
 		<footer>
 			<%= link_to 'DBC.WBC.2014', "http://github.com/woolly-bear-caterpillars-2014/gov"%>
-			<%= render partial: '/fb_like' %>
+			<%= render partial: '/fb_like' unless @skip_footer %>
 		</footer>
 	</body>
 </html>
