@@ -18,6 +18,13 @@
 //= require sly
 
 $(document).ready(function() {
+  $('button[name=wordmap]').on("click", function(){
+    getWordMap();
+  });
+  $('button[name=sentiment]').on("click", function(){
+    getSentiment();
+  });
+
   var $buttonEmail = $('button[name=email]'),
       $email = $('congress-email'),
 
@@ -62,7 +69,7 @@ $(document).ready(function() {
 
 	$('grab-states').hasClass("map-area", getRepubDemCount());
 	$('grab-states').hasClass("gmap-area", generateTweetMap());
-	getSentimentAnalysis();
+
 });
 
 function generate_sly() {
