@@ -2,9 +2,9 @@
 <html>
 	<head>
 	  <title>Govreggator</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
 	  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 	   <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLEMAPS_API_KEY'] %>">
       </script>

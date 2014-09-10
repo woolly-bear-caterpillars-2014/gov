@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
 
 
-  get 'congress_people/:id/sentiment_visualization'=> 'congress_people#sentiment_visualization', as: 'data_visualization'
+  match 'congress_people/:id/sentiment_visualization', to: 'congress_people#sentiment_visualization', via: [:get, :post], as: 'data_visualization'
+
 
 
 	resources :gmaps, only: [:index]
