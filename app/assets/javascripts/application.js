@@ -13,8 +13,8 @@
 //= require congress_profile
 //= require fb
 
-$(document).ready(function() {
 
+$(document).ready(function() {
 
 
   if ($('.state-map').size() > 0) { getRepubDemCount(); }

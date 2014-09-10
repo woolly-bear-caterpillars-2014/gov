@@ -15,7 +15,6 @@ class CongressPeopleController < ApplicationController
     @congressperson.relevant_tweets
     @tweets_to_render = @congressperson.relevant_tweets
     @sentiment_array = @congressperson.preserve_alchemy_map
-    @sentiment_array.to_json
     if request.xhr?
       render json: @sentiment_array.to_json
     end
