@@ -81,30 +81,17 @@ CongressPerson.all.each do |person|
 			congress_person: person
 		)
 	end
-	
-	NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
-		a = Article.create(
-			title: article['headline']['main'],
-			first_paragraph: article['lead_paragraph'],
-			publication_date: article['pub_date'],
-			url: article['web_url'],
-			source: 'New York Times'
-		)
 
-		ArticleCongressPerson.create(
-			article: a,
-			congress_person: person
-		)
+	articles = NytimesHelper.get_articles(person)
+	articles.each do |article|
+		a = Article.create(article)
+		ArticleCongressPerson.create(article: a, congress_person: person)
 	end
 
 	bills = SunlightCongressHelper.get_bills(person.bioguide_id)
-
 	bills.each do |bill|
 		l = Legislation.create(bill)		
-		LegislationCongressPerson.create(
-			legislation: l,
-			congress_person: person
-		)
+		LegislationCongressPerson.create(legislation: l, congress_person: person)
 	end
 end
 

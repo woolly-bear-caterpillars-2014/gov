@@ -20,25 +20,37 @@ module NytimesHelper
 			congress_people
 		end
 
-		def fetch_relevant_articles(person)
+		def get_articles(person)
 			articles = Array.new
 			words_to_search = words_to_search(person)
 			words_to_search.each do |word|
-				articles.concat(fetch_articles_by_keyword(word))
+				articles.concat(fetch_relevant_articles_by_keyword(person, word))
 			end
 			articles
 		end
 
 		# private
 
-		def fetch_articles_by_keyword(word)
+		def fetch_relevant_articles_by_keyword(person, word)
 			articles = Array.new
 			query_by_keywords(word)['response']['docs'].each do |article|
 				article['keywords'].each do |k|
-					articles << article if k['name'] == "persons" && k['value'].downcase.include?(person.last_name.downcase)
+					if k['name'] == "persons" && k['value'].downcase.include?(person.last_name.downcase)
+						articles << filter_article(article)
+					end
 				end
 			end
 			articles
+		end
+
+		def filter_article(article_hash)
+			filtered_article = Hash.new
+			filtered_article[:title] = article_hash['headline']['main']
+			filtered_article[:first_paragraph] = article_hash['lead_paragraph']
+			filtered_article[:publication_date] = article_hash['pub_date']
+			filtered_article[:url] = article_hash['web_url']
+			filtered_article[:source] = 'New York Times'
+			filtered_article
 		end
 		
 		def words_to_search(person)
@@ -51,7 +63,6 @@ module NytimesHelper
 			words_to_search << "#{person.state.name} #{person.last_name}" # 4
 			words_to_search << "#{title} #{person.last_name}" # 5
 			words_to_search << "Congresswoman #{person.last_name}" if title == "Congressman" # 5
-			words_to_search << "#{chamber} #{person.last_name}" # 6
 			words_to_search << "#{chamber} #{person.last_name}" # 6
 			words_to_search
 		end
