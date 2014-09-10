@@ -12,6 +12,7 @@
 //= require d3.layout.cloud
 //= require congress_people
 //= require sly
+//= require fb
 
 $(document).ready(function() {
   var $buttonEmail = $('button[name=email]'),
