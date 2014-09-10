@@ -1,8 +1,13 @@
 <div class="container" id="state" data-no-turbolink>
   <div class="inner">
-    <center><h1><%= @state.name %></h1></center>
+    <center>
+      <div class="move-left">
+        <h1><%= @state.name %></h1>
+        <p><%= @republican_count %> Republicans | <%= @democrat_count %> Democrats</p>
+        <h3>Senators</h3>
+      </div>
+    </center>
     <div id="senator-list">
-      <center><h3>Senators</h3></center>
       <% @senators.each do |senator| %>
         <%= link_to senator do %>
           <% if senator.party == "D" %>
@@ -32,6 +37,22 @@
       <% end %>
     </div>
   </div>
+
+  <div class="inner-congress">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <center>
+      <div class="move-left">
+        <h3>Congress People</h3>
+      </div>
+    </center>
 
     <% @congress_people.each do |congress_person| %>
       <%= link_to congress_person do %>
@@ -80,5 +101,4 @@
     <% end %>
   <% end %>
 </div>
-
-
+</div>

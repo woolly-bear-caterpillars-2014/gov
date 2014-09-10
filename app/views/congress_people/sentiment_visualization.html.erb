@@ -1,32 +1,27 @@
+<div class="container" data-no-turbolink>
+  <div class="sentiment">
+    <center><h2>How do people feel about <%=@congressperson.first_name%></h2></center>
+    <div id="graph" class="aGraph" style="position:absolute;top:0px;left:0; float:left;"></div>
 
 
-  <div class="container">
-  	<center><h2>How do people feel about <%=@congressperson.first_name%></h2></center>
-   
-  	<div id="graph" class="aGraph" style="position:absolute;top:0px;left:0; float:left;"
-  	</div>
   	
-  	<div id="wordmap">
-  		
+  	<div id="wordmap">		
   	</div>
 
+ 
 
-       <button name="wordmap">Wordmap</button>
 
-       <br>
-       <br>
+       <button name="wordmap" class="btn">Wordmap</button>
 
-        <button type="submit" name="sentiment">Sentiment</button>
+        <button type="submit" name="sentiment" class ='btn'>Sentiment</button>
 
-     <br>
 
     
 
   	<div id = "twitter_stuff">
-  	<%@tweets_to_render.each do |tweet|%>
-  	<%=tweet.text%>
-  	<%end%>
+  	  <%@tweets_to_render.each do |tweet|%>
+  	    <%=tweet.text%>
+  	  <%end%>
   	</div>
-
-
+  </div>
 </div>

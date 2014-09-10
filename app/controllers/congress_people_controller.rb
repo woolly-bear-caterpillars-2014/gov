@@ -37,7 +37,7 @@ class CongressPeopleController < ApplicationController
     p params[:body]
     p params[:oc_email] # check for valid email
 
-    CongressPeopleHelper.send_mail(params[:email])
+    CongressPeopleMailer.send_mail(params[:email])
 
     redirect_to root_url
   end

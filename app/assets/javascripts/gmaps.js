@@ -33,7 +33,7 @@ function generateTweetMap() {
         latlng = new google.maps.LatLng(lat, lng);
         marker = new google.maps.Marker({
           position: latlng,
-          icon: 'tweet.png',
+          icon: 'tweet1.png',
           animation: google.maps.Animation.DROP,
           draggable: false,
           title: text

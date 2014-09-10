@@ -1,6 +1,7 @@
 class GmapsController < ApplicationController
   respond_to :html, :json, :js
   def index
-    TwitterHelper.run
+  	@skip_footer = true
+    TwitterService.run
   end
 end

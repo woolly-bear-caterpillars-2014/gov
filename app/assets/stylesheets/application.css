@@ -16,7 +16,7 @@
  */
  
 body {
-  background-image: url('cream_dust.png');
+/*  background-image: url('states/alaska.jpg');*/
   font-family: 'Lato', sans-serif;
   margin: 0px 0px;
   padding: 0px 0px;
@@ -39,7 +39,9 @@ a {
 color: #0C5C60;
 }
 
-
+.move-left {
+  margin-left: -50px;
+}
 
 .container {
   padding-top: 50px;
@@ -212,6 +214,25 @@ nav li {
   transition:.5s;
 }
 
+.congress-content-republican {
+  background-image: url('handmadepaper.png');
+  color: #333;
+  width: 400px;
+  margin: 10px;
+  padding: 30px;
+  text-align: justify;
+  border: 1px solid;
+  border-color: #999;
+  background: rgba(107, 12, 34, 0.1);
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+
 .senator-card-republican p {
   text-align: justify;
 }
@@ -250,11 +271,8 @@ nav li {
   padding-top: 100px;
 }
 
-/*path { 
-  stroke: steelblue;
-        stroke-width: 1;
-        fill: none;
-}*/
+
+
 #wordmap{
   margin-left: 40px;
   padding-top: 400px;
@@ -316,7 +334,7 @@ nav li {
 }
 
 .slidee .senator-card-democrat {
-   float: left;
+  float: left;
 }
 
 nav {
@@ -424,27 +442,7 @@ footer {
 }
 
 
-/*      .axis {
-        shape-rendering: crispEdges;
-      }
 
-      .x.axis line {
-        stroke: lightgrey;
-      }
-
-      .x.axis .minor {
-        stroke-opacity: .5;
-      }
-
-      .x.axis path {
-        display: none;
-      }
-
-      .y.axis line, .y.axis path {
-        fill: none;
-        stroke: #000;
-      }
-*/
 
 #smalllink {
   float: right;
@@ -459,34 +457,65 @@ footer {
   overflow: hidden;
 }
 
+.congress-about-republican {
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  border: 1px solid #20272D;
+  overflow: hidden;
+  background: rgba(107, 12, 34, 0.2);
+}
+
+.congress-email {
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  background: rgba(33, 102, 172, 0.2);
+  padding: 20px;
+  border: 1px solid #20272D;
+}
+
+.congress-email-republican {
+  -webkit-box-shadow: 0 0 11px 1px #aaa;
+  padding: 20px;
+  border: 1px solid #20272D;
+  background: rgba(107, 12, 34, 0.1);
+}
+
 .block-left {
   float: left;
   margin: 20px;
 }
 
+.block-left img {
+  height: 160px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #053061;
+}
+
+.block-left-republican img {
+  float: left;
+  margin: 20px;
+  height: 160px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #6B0C22;
+}
+
 .block-right {
   float: right;
   width: 200px;
-  margin: 20px;
+  margin: 20px
 }
 
-
-.congress-email {
-  -webkit-box-shadow: 0 0 11px 1px #aaa;
-  background: rgba(33, 102, 172, 0.3);
-  padding: 20px;
-  border: 1px solid #20272D;
-}
-
-.congress-content {
-/*  background-color: blue;*/
+.inner-congress {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
 }
 
 
 input {
-  font-size: 18px;
+  font-size: 17px;
   padding: 10px;
-  width: 300px;
+  width: 290px;
 }
 
 textarea {
