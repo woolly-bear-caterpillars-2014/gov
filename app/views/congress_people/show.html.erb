@@ -59,8 +59,8 @@
 
 
         <div class="congress-email" id="congress-email" style="display: none;">
-          <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-            From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
+          <%= form_tag send_messages_path do %>
+            From: <%= text_field_tag :from, nil, {placeholder: 'Enter your email address'} %>
             To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
             <br>
             <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
@@ -151,60 +151,9 @@
             <p>District: <%= link_to @congress_person.district, "https://www.govtrack.us/congress/members/map" %></p>
           <% end %>
           <p>Next Election: <%= @congress_person.next_election %></p>
-        </div>
-      </div>
-
-
-      <center>
-        <button type="submit" name="email" class="btn" >Send them an Email</button>
-
-        <div class="congress-email-republican" id="congress-email" style="display: none;">
-          <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-            <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
-            <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
-            <br>
-            <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
-            <%= submit_tag "Send!", :class => 'btn' %>
-          <% end %>
-        </div>
-      </center>
-
-      <div class="congress-content">
-        <center>
-          <button type="submit" name="bills" class="btn" >Bills</button>
-          <button type="submit" name="articles" class="btn" >Articles</button>
-
-          <!-- Hidden Bills -->
-          <div class="row-submit" id="congress-bills" style="display: none;">
-            <% @bills.each do |bill| %>
-              <%= link_to bill.pdf_url do %>
-                <div class="congress-content-republican">
-                  <center>
-                    <p>Bill: <%= bill.bill_id %></i></p>
-                    <h3><%= bill.official_title %></h3>
-                    <p><%= bill.short_title %></p>
-                  </center>
-                  <p><i class="fa fa-calendar"></i>    <b><%= bill.introduced_on %></b></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
-          <!-- Hidden Articles -->
-          <div class="row-submit" id="congress-articles" style="display: none;">
-            <% @articles.each do |article| %>
-              <%= link_to article.url do %>
-                <div class="congress-content-republican">
-                  <h3><%= article.title %></h3>
-                  <p><%= article.first_paragraph %></p>
-                  <p><i class="fa fa-calendar"></i> <%= article.publication_date %></p>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-        </center>
-      </div>
-
     <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
