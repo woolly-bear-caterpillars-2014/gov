@@ -1,6 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require underscore
 //= require states
 //= require raphael-min
@@ -15,13 +14,6 @@
 //= require fb
 
 $(document).ready(function() {
-
-  $('button[name=wordmap]').on("click", function(){
-    getWordMap();
-  });
-  $('button[name=sentiment]').on("click", function(){
-    getSentiment();
-  });
 
 
 

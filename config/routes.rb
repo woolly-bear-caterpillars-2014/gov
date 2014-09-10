@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   resources :states, only: [:index, :show]
   resources :congress_people
 
-  get 'congress_people/:id/sentiment_visualization'=> 'congress_people#sentiment_visualization', as: 'data_visualization'
+
+
+
+  match 'congress_people/:id/sentiment_visualization', to: 'congress_people#sentiment_visualization', via: [:get, :post], as: 'data_visualization'
+
 
 	resources :gmaps, only: [:index]
 	resources :articles, only: [:index]
