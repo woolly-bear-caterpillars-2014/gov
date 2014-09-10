@@ -2,9 +2,6 @@ require 'net/http'
 require 'json'
 require 'open-uri'
 
-# nyt = NytimesHelper.new
-# nyt.import
-
 module NytimesHelper
 	class << self
 		attr_accessor :url, :parsed_reply
@@ -52,7 +49,7 @@ module NytimesHelper
 			filtered_article[:source] = 'New York Times'
 			filtered_article
 		end
-		
+
 		def words_to_search(person)
 			chamber = person.title == "Senator" ? "senate" : "congress"
 			title = person.title == "Senator" ? "Senator" : "Congressman"

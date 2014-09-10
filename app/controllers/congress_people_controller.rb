@@ -2,7 +2,7 @@ class CongressPeopleController < ApplicationController
 
   def sentiment_visualization
     @congressperson = CongressPerson.find(params[:id])
-    @congressperson.relevant_tweets 
+    @congressperson.relevant_tweets
     @tweets_to_render = @congressperson.relevant_tweets
     @sentiment_array = @congressperson.preserve_alchemy_map
     @sentiment_array.to_json
