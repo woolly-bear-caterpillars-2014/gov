@@ -2,10 +2,10 @@ require 'net/http'
 require 'json'
 require 'open-uri'
 
-# nyt = NytimesHelper.new
+# nyt = NytimesService.new
 # nyt.import
 
-module NytimesHelper
+module NytimesService
 	class << self
 		attr_accessor :url, :parsed_reply
 		API_KEY = ENV['ARTICLE_SEARCH']

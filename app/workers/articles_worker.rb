@@ -2,7 +2,7 @@ class ArticlesWorker
   include Sidekiq::Worker
 
   def perform(article_id)
-    NytimesHelper.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
+    NytimesService.query_by_keywords("#{person.first_name}" + " " + "#{person.last_name}")['response']['docs'].each do |article|
 			a = Article.find_or_create_by(
 				title: article['headline']['main'],
 				first_paragraph: article['lead_paragraph'],
