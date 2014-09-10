@@ -136,12 +136,11 @@
 
           <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
 
-          <p>Phone Number: <%= @congress_person.phone_number %></p>
-          <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
-          <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
           <% if @congress_person.youtube_id %>
             <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
           <% end %>
+
+          <%= link_to 'Word Map',  data_visualization_path(@congress_person)%>
         </div>
 
         <div class="block-right">
