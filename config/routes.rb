@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	
 	resources :states, only: [:index, :show]
 	resources :congress_people
+
 	resources :gmaps, only: [:index]
 	resources :articles, only: [:index]
 

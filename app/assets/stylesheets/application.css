@@ -14,6 +14,7 @@
  *= require_self
  *= require font-awesome
  */
+ 
 body {
 /*  background-image: url('states/alaska.jpg');*/
   font-family: 'Lato', sans-serif;
@@ -38,12 +39,16 @@ a {
 color: #0C5C60;
 }
 
+.move-left {
+  margin-left: -50px;
+}
 
-.container {
+/*.container {
   padding-top: 50px;
   margin: 10px auto;
   width: 100%;
-}
+  max-width: 1300px;
+}*/
 
 .senator-republican img {
   border-style: solid;
@@ -308,6 +313,7 @@ nav li {
   padding-top: 50px;
   margin: 10px auto;
   width: 100%;
+  max-width: 1300px;
 }
 
 .article {
@@ -414,6 +420,7 @@ footer {
   z-index: 0;
 }
 
+
 #title-bar {
    z-index:100;
    position:relative;
@@ -501,8 +508,10 @@ footer {
   margin: 20px
 }
 
-.rep-img {
-
+.inner-congress {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
 }
 
 
