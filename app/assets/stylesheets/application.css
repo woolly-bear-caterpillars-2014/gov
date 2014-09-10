@@ -54,18 +54,76 @@ img {
 
 a {
 color: #0C5C60;
+text-decoration: none;
+}
+
+nav li {
+  display: inline;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  margin-top: -20px;
+  padding: 20px;
+  -webkit-box-shadow: 0 0 11px 1px #111;
+  background-color: #2A3A48;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+}
+
+nav .session_panel {
+  margin-right: px;
+  float: right;
+}
+
+nav li {
+  display: inline-block;
+}
+
+footer {
+  text-align: center;
+  font-size: 8px;
+  color: #2A3A48;
+  clear: both;
+  position: relative;
+  padding-top: 60px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  font-size: 17px;
+  padding: 10px;
+  width: 290px;
+}
+
+textarea {
+  font-size: 18px;
+  padding: 10px;
+  width: 600px;
+  height: 200px;
+  resize: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 8px;
+  color: #2A3A48;
+  clear: both;
+  position: relative;
+  padding-top: 60px;
 }
 
 .move-left {
   margin-left: -50px;
 }
-
-/*.container {
-  padding-top: 50px;
-  margin: 10px auto;
-  width: 100%;
-  max-width: 1300px;
-}*/
 
 .senator-republican img {
   border-style: solid;
@@ -90,21 +148,6 @@ color: #0C5C60;
   border-width: 5px;
   border-color: blue;
 }
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-  color: black;
-}
-
-
-nav li {
-  display: inline;
-}
-
 
 .mapTooltip {
   position: fixed;
@@ -250,7 +293,6 @@ nav li {
   transition:.5s;
 }
 
-
 .senator-card-republican p {
   text-align: justify;
 }
@@ -273,27 +315,12 @@ nav li {
   margin-left: 20px;
 }
 
-#senator-list {
-  margin: 0 auto;
-}
-
 .senator-democrat {
   margin: 20px;
   padding: 20px;
   float: left;
   background-color: #588C8C;
   -webkit-box-shadow: 0 0 11px 1px #666;
-}
-
-#graph{
-  padding-top: 100px;
-}
-
-
-
-#wordmap{
-  margin-left: 40px;
-  padding-top: 400px;
 }
 
 .senator-republican {
@@ -308,22 +335,6 @@ nav li {
   margin: 0 auto;
   width: 800px;
   height: 100%;
-}
-
-#frame {
-  z-index: 0;
-  height: 160px;
-  overflow: none;
-  width: 100%;
-  margin: 0px 0px;
-  padding: 0px 0px;
-  float: left;
-  background-color: rgba(0,0,0,0);
-  background-image: url('handmadepaper.png');
-  border-bottom: 1px solid;
-  border-top: 1px solid;
-  z-index: 10px;
-  -webkit-box-shadow: inset 0 0 11px 1px #666;
 }
 
 .container {
@@ -341,51 +352,6 @@ nav li {
   margin-left: -100px;
   display: none;
   z-index: 100px;
-}
-
-.slidee li {
-  list-style: none;
-  float: left;
-}
-
-.slidee .senator-card-republican {
-  float: left;
-}
-
-.slidee .senator-card-democrat {
-  float: left;
-}
-
-nav {
-  width: 100%;
-  position: fixed;
-  margin-top: -20px;
-  padding: 20px;
-  -webkit-box-shadow: 0 0 11px 1px #111;
-  background-color: #2A3A48;
-  z-index: 10;
-}
-
-nav a {
-  color: white;
-}
-
-nav .session_panel {
-  margin-right: px;
-  float: right;
-}
-
-nav li {
-  display: inline-block;
-}
-
-footer {
-  text-align: center;
-  font-size: 8px;
-  color: #2A3A48;
-  clear: both;
-  position: relative;
-  padding-top: 60px;
 }
 
 .border {
@@ -427,48 +393,11 @@ footer {
   border: 1px solid #20272D;
 }
 
-#map-canvas {
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: -200px;
-  left: 0;
-  right: 0;
-  z-index: 0;
-}
-
-
-#title-bar {
-   z-index:100;
-   position:relative;
-   color:#fff;
-}
-
-#title-close {
-  color:#fff;
-  opacity:1;
-}
-
-#title-close:hover {
-  opacity:.5;
-}
-
-
-
 .aGraph path {
           stroke: steelblue;
           stroke-width: 1;
           fill: none;
 }
-
-
-
-
-#smalllink {
-  float: right;
-  font-size: 14;
-}
-
 
 .congress-about {
   -webkit-box-shadow: 0 0 11px 1px #aaa;
@@ -531,26 +460,61 @@ footer {
   height: 100%;
 }
 
-
-input {
-  font-size: 17px;
-  padding: 10px;
-  width: 290px;
+#senator-list {
+  margin: 0 auto;
 }
 
-textarea {
-  font-size: 18px;
-  padding: 10px;
-  width: 600px;
-  height: 200px;
-  resize: none;
+#graph{
+  padding-top: 100px;
 }
 
-footer {
-  text-align: center;
-  font-size: 8px;
-  color: #2A3A48;
-  clear: both;
-  position: relative;
-  padding-top: 60px;
+#wordmap{
+  margin-left: 40px;
+  padding-top: 400px;
+}
+
+#frame {
+  z-index: 0;
+  height: 160px;
+  overflow: none;
+  width: 100%;
+  margin: 0px 0px;
+  padding: 0px 0px;
+  float: left;
+  background-color: rgba(0,0,0,0);
+  background-image: url('handmadepaper.png');
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  z-index: 10px;
+  -webkit-box-shadow: inset 0 0 11px 1px #666;
+}
+
+#map-canvas {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#title-bar {
+   z-index:100;
+   position:relative;
+   color:#fff;
+}
+
+#title-close {
+  color:#fff;
+  opacity:1;
+}
+
+#title-close:hover {
+  opacity:.5;
+}
+
+#smalllink {
+  float: right;
+  font-size: 14;
 }
