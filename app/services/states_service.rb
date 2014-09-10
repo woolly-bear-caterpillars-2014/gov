@@ -50,6 +50,5 @@ class StatesService
 	'WA' => "Washington",
 	'WV' => "West Virginia",
 	'WI' => "Wisconsin",
-	'WY' => "Wyoming"
-	}
+	'WY' => "Wyoming" }
 end
