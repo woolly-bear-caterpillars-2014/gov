@@ -1,0 +1,49 @@
+<div class="congress-about">
+    <div class="block-left">
+      <%= render partial: 'person_info' %>
+    </div>
+
+  <center>
+    <button type="submit" name="email" class="btn" >Send them an Email</button>
+
+    <div class="congress-email" id="congress-email" style="display: none;">
+      <%= render partial: 'send_email' %>
+    </div>
+  </center>
+
+  <div class="congress-content">
+    <center>
+      <button type="submit" name="bills" class="btn" >Bills</button>
+      <button type="submit" name="articles" class="btn" >Articles</button>
+
+      <!-- Hidden Bills -->
+      <div class="row-submit" id="congress-bills" style="display: none;">
+        <% @bills.each do |bill| %>
+          <%= link_to bill.pdf_url do %>
+            <div class="congress-content-democrat">
+              <center>
+                <p>Bill: <%= bill.bill_id %></i></p>
+                <h3><%= bill.official_title %></h3>
+                <p><%= bill.short_title %></p>
+              </center>
+              <p><i class="fa fa-calendar"></i>    <b><%= bill.introduced_on %></b></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <!-- Hidden Articles -->
+      <div class="row-submit" id="congress-articles" style="display: none;">
+        <% @articles.each do |article| %>
+          <%= link_to article.url do %>
+            <div class="congress-content-democrat">
+              <h3><%= article.title %></h3>
+              <p><%= article.first_paragraph %></p>
+              <p><i class="fa fa-calendar"></i> <%= article.publication_date %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </center>
+  </div>
+</div>
