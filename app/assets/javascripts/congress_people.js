@@ -89,7 +89,10 @@ var getWordMap = function() {
     var flattened = tweets.reduce(function(a,b){
       return a.concat(b);
     });
-    var fill = d3.scale.category20();
+    var fill = d3.scale.ordinal()
+               .domain
+
+
     d3.layout.cloud().size([5000, 5000])
       .words(flattened.map(function(d) {
         return {text: d, size: 10 + Math.random() * 90};
