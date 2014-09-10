@@ -99,13 +99,18 @@ var getWordMap = function() {
       else
         {flattened.push(inbetween[i])};
     };
-    var fill = d3.scale.category20();
-    d3.layout.cloud().size([5000, 5000])
+    // var fill = d3.scale.category20c();
+
+    var fill = d3.scale.ordinal()
+      .domain([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+      .range(colorbewer.RdBu[9]);
+
+    d3.layout.cloud().size([1500, 1500])
       .words(flattened.map(function(d) {
         return {text: d, size: 10 + Math.random() * 90};
       }))
       .padding(5)
-      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .rotate(0)
       .font("Arial")
       .fontSize(function(d) { return d.size; })
       .on("end", draw)
