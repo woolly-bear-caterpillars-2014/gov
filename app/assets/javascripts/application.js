@@ -15,9 +15,18 @@
 //= require fb
 
 $(document).ready(function() {
+
+  $('button[name=wordmap]').on("click", function(){
+    getWordMap();
+  });
+  $('button[name=sentiment]').on("click", function(){
+    getSentiment();
+  });
+
+
+
   if ($('.state-map').size() > 0) { getRepubDemCount(); }
   if ($('.gmap-area').size() > 0) { generateTweetMap(); }
-  if ($('.sentiment').size() > 0) { getSentimentAnalysis(); }
 
   generateCongressProfileListeners();
 });
