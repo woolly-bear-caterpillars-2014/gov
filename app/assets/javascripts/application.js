@@ -27,7 +27,6 @@ $(document).ready(function() {
 
   if ($('.state-map').size() > 0) { getRepubDemCount(); }
   if ($('.gmap-area').size() > 0) { generateTweetMap(); }
-  if ($('.sentiment').size() > 0) { getSentimentAnalysis(); }
 
   generateCongressProfileListeners();
 });
