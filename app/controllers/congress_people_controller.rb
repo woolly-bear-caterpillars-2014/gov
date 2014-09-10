@@ -2,7 +2,7 @@ class CongressPeopleController < ApplicationController
 
   def sentiment_visualization
     @congressperson = CongressPerson.find(params[:id])
-    @congressperson.relevant_tweets 
+    @congressperson.relevant_tweets
     @tweets_to_render = @congressperson.relevant_tweets
     @sentiment_array = @congressperson.preserve_alchemy_map
     @sentiment_array.to_json
@@ -20,7 +20,7 @@ class CongressPeopleController < ApplicationController
     @congress_person = CongressPerson.find(params[:id])
 
     @articles = @congress_person.articles.order('publication_date DESC')
-    @bills = @congress_person.legislations
+    p @bills = @congress_person.legislations.order('introduced_on DESC')
 
   end
 
@@ -32,24 +32,18 @@ class CongressPeopleController < ApplicationController
   end
 
   def create
-     congress_person = CongressPerson.find(params[:id])
-    p congress_person.oc_email
-    p params[:body]
-    p params[:oc_email] # check for valid email
-
-    CongressPeopleMailer.send_mail(params[:email])
-
-    redirect_to root_url
   end
 
   def update
-    congress_member = CongressPerson.find(params[:id])
-    # p congress_member.email
-    # p params[:email_text]
-    # p params[:email] # check for valid email
-
-    # send_email_to_congress_member()
-
-    redirect_to root_url
   end
+
+   private
+    def congress_person_params
+      # It's mandatory to specify the nested attributes that should be whitelisted.
+      # If you use `permit` with just the key that points to the nested attributes hash,
+      # it will return an empty hash.
+      params.require(:person).permit(:from, :to, :body)
+    end
 end
+
+

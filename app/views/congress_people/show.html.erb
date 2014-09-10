@@ -61,13 +61,7 @@
 
 
         <div class="congress-email" id="congress-email" style="display: none;">
-          <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-            From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
-            To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
-            <br>
-            <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
-            <%= submit_tag "Send!", :class => 'btn' %>
-          <% end %>
+          <%= render partial: 'send_email' %>
         </div>
       </center>
 
@@ -161,13 +155,7 @@
         <button type="submit" name="email" class="btn" >Send them an Email</button>
 
         <div class="congress-email-republican" id="congress-email" style="display: none;">
-          <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-            <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
-            <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
-            <br>
-            <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
-            <%= submit_tag "Send!", :class => 'btn' %>
-          <% end %>
+          <%= render partial: 'send_email' %>
         </div>
       </center>
 

@@ -1,0 +1,10 @@
+<center>
+    <%= form_tag send_messages_path do %>
+      From: <%= text_field_tag :from, nil, {placeholder: 'Enter your email address'} %>
+      To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
+      <br>
+      <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
+      <%= submit_tag "Send!", :class => 'btn' %>
+    <% end %>
+  </div>
+</center>
