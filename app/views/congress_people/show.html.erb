@@ -147,7 +147,9 @@
           <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
           <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
           <p>Seniority: <%= @congress_person.seniority %></p>
-          <p>District: <%= link_to @congress_person.district, "https://www.govtrack.us/congress/members/map" %></p>
+          <% if @congress_person.title == "Congressperson" %>
+            <p>District: <%= link_to @congress_person.district, "https://www.govtrack.us/congress/members/map" %></p>
+          <% end %>
           <p>Next Election: <%= @congress_person.next_election %></p>
         </div>
       </div>
