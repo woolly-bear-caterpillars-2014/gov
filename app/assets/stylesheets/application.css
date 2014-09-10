@@ -39,7 +39,6 @@ color: #0C5C60;
 }
 
 
-
 .container {
   padding-top: 50px;
   margin: 10px auto;
@@ -268,11 +267,11 @@ nav li {
   padding-top: 100px;
 }
 
-path {
+/*path {
   stroke: steelblue;
         stroke-width: 1;
         fill: none;
-}
+}*/
 #wordmap{
   margin-left: 40px;
   padding-top: 400px;

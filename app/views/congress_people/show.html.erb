@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
   <div class="inner">
-  <% if @congress_person.party == "D" %>
     <center><h1>
-      <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
-    </h1></center>
+    <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
+  </h1></center>
 
     <div class="congress-about">
       <div class="block-left">
         <%= image_tag(@congress_person.picture_id) %>
       </div>
-
       <div class="block-left">
         <h2>
           <%= @congress_person.first_name %> <%= @congress_person.last_name %>
@@ -50,18 +48,7 @@
     <center>
       <button type="submit" name="email" class="btn" >Send them an Email</button>
 
-      <div class="congress-email" id="congress-email" style="display: none;">
-        <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-          <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
-          <br><br>
-          <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-          <%= submit_tag "Send Email", :class => 'btn' %>
-        <% end %>
-      </div>
 
-<<<<<<< HEAD
-    </center>
-=======
    <div class="congress-email" id="congress-email" style="display: none;">
       <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
         From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
@@ -72,31 +59,14 @@
       <% end %>
     </div>
   </center>
->>>>>>> 2b56706f6108b72e7d82a0a9fc9bf93bf4fecba6
 
     <div class="congress-content">
       <center>
         <button type="submit" name="bills" class="btn" >Bills</button>
         <button type="submit" name="articles" class="btn" >Articles</button>
+      </center>
+    <center>
 
-<<<<<<< HEAD
-      <!-- Hidden Bills -->
-        <div class="row-submit" id="congress-bills" style="display: none;">
-          <% @bills.each do |bill| %>
-            <%= link_to bill.pdf_url do %>
-              <div class="congress-content-democrat">
-                <center>
-                  <p><i><%= bill.bill_id %></i></p>
-                  <h3><%= bill.official_title %></h3>
-                  <p><%= bill.short_title %></p>
-                </center>
-                <p>Introduced on: <b><%= bill.introduced_on %></b></p>
-                <p>Last Version: <b><%= bill.last_version_on %></b></p>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-=======
   <!-- Hidden Bills -->
     <div class="row-submit" id="congress-bills" style="display: none;">
       <% @bills.each do |bill| %>
@@ -112,7 +82,6 @@
         <% end %>
       <% end %>
     </div>
->>>>>>> 2b56706f6108b72e7d82a0a9fc9bf93bf4fecba6
 
       <!-- Hidden Articles -->
       <div class="row-submit" id="congress-articles" style="display: none;">
@@ -126,92 +95,6 @@
           <% end %>
         </div>
       </div>
-    </center>
-    <% else %>
-
-        <center><h1>
-      <%= link_to @congress_person.state.name, state_path(@congress_person.state.abbreviation) %>
-    </h1></center>
-
-    <div class="congress-about-republican">
-      <div class="block-left">
-        <%= image_tag(@congress_person.picture_id) %>
-      </div>
-
-      <div class="block-left">
-        <h2>
-          <%= @congress_person.first_name %> <%= @congress_person.last_name %>
-        </h2>
-
-        <p>Phone Number: <%= @congress_person.phone_number %></p>
-        <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
-        <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
-        <% if @congress_person.youtube_id %>
-          <p>Youtube ID:<%= @congress_person.youtube_id %></p>
-        <% end %>
-      </div>
-
-      <div class="block-right">
-        <p>Missed votes: <%= @congress_person.missed_votes_pct %>%</p>
-        <p>Votes with party: <%= @congress_person.votes_with_party_pct %>%</p>
-        <p>Seniority: <%= @congress_person.seniority %></p>
-        <p>District: <%= @congress_person.district %></p>
-        <p>Next Election: <%= @congress_person.next_election %></p>
-      </div>
     </div>
-
-    <center>
-      <button type="submit" name="email" class="btn" >Send Email</button>
-
-      <div class="congress-email-republican" id="congress-email" style="display: none;">
-        <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-          <%= text_field_tag :email, nil, {placeholder: 'Enter Your Email'} %>
-          <br><br>
-          <%= text_area_tag :email_text, nil, {placeholder: 'Write what you want to email your congress person.'} %><br>
-          <%= submit_tag "Send Email", :class => 'btn' %>
-        <% end %>
-      </div>
-
-    </center>
-
-    <div class="congress-content">
-      <center>
-        <button type="submit" name="bills" class="btn" >Bills</button>
-        <button type="submit" name="articles" class="btn" >Articles</button>
-
-      <!-- Hidden Bills -->
-        <div class="row-submit" id="congress-bills" style="display: none;">
-          <% @bills.each do |bill| %>
-            <%= link_to bill.pdf_url do %>
-              <div class="congress-content-republican">
-                <center>
-                  <p><i><%= bill.bill_id %></i></p>
-                  <h3><%= bill.official_title %></h3>
-                  <p><%= bill.short_title %></p>
-                </center>
-                <p>Introduced on: <b><%= bill.introduced_on %></b></p>
-                <p>Last Version: <b><%= bill.last_version_on %></b></p>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-
-        <!-- Hidden Articles -->
-        <div class="row-submit" id="congress-articles" style="display: none;">
-          <% @articles.each do |article| %>
-            <%= link_to article.url do %>
-              <div class="congress-content-republican">
-                <h3><%= article.title %></h3>
-                <p><%= article.first_paragraph %></p>
-                <p><%= article.publication_date %></p>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </center>
-
-    <% end %>
-  </div>
+  </center>
 </div>
-
