@@ -249,11 +249,11 @@ nav li {
   padding-top: 100px;
 }
 
-path { 
+/*path { 
   stroke: steelblue;
         stroke-width: 1;
         fill: none;
-}
+}*/
 #wordmap{
   margin-left: 40px;
   padding-top: 400px;
@@ -492,4 +492,13 @@ textarea {
   width: 600px;
   height: 200px;
   resize: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 8px;
+  color: #2A3A48;
+  clear: both;
+  position: relative;
+  padding-top: 60px;
 }

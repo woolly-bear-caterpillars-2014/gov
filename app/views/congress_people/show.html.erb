@@ -27,10 +27,6 @@
           <% end %>
         <p><i class="fa fa-link"></i>  <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         </h2>
-
-        <p>Phone Number: <%= @congress_person.phone_number %></p>
-        <p>Twitter Account: <%= link_to @congress_person.twitter_account, "http://twitter.com/#{@congress_person.twitter_account}" %></p>
-        <p>Website: <%= link_to @congress_person.website_url, "#{@congress_person.website_url}" %></p>
         <% if @congress_person.youtube_id %>
           <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
         <% end %>
@@ -44,21 +40,22 @@
         <p>Next Election: <%= @congress_person.next_election %></p>
       </div>
     </div>
-
+    
+    <% if @congress_person.oc_email %>
     <center>
       <button type="submit" name="email" class="btn" >Send them an Email</button>
 
-
-   <div class="congress-email" id="congress-email" style="display: none;">
-      <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
-        From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
-        To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
-        <br>
-        <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
-        <%= submit_tag "Send!", :class => 'btn' %>
-      <% end %>
-    </div>
-  </center>
+      <div class="congress-email" id="congress-email" style="display: none;">
+        <%= form_tag congress_person_path(@congress_person), method: 'put' do %>
+          From: <%= text_field_tag :email, nil, {placeholder: 'Enter your email address'} %>
+          To: <%= text_field_tag :to, nil, {value: @congress_person.oc_email, readonly: true} %> <br>
+          <br>
+          <%= text_area_tag :body, nil, {placeholder: 'Please enter your message here...'} %><br>
+          <%= submit_tag "Send!", :class => 'btn' %>
+        <% end %>
+      </div>
+    </center>
+    <% end %>
 
     <div class="congress-content">
       <center>
