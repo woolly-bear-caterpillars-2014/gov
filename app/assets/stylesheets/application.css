@@ -14,6 +14,22 @@
  *= require_self
  *= require font-awesome
  */
+.palette {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: bottom;
+  margin: 4px 0 4px 6px;
+  padding: 4px;
+  background: #fff;
+  border: solid 1px #aaa;
+}
+
+.swatch {
+  display: block;
+  vertical-align: middle;
+  width: 37px;
+  height: 22px;
+}
  
 body {
 /*  background-image: url('states/alaska.jpg');*/
