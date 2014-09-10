@@ -38,6 +38,9 @@ a {
 color: #0C5C60;
 }
 
+.move-left {
+  margin-left: -50px;
+}
 
 .container {
   padding-top: 50px;
@@ -501,8 +504,10 @@ footer {
   margin: 20px
 }
 
-.rep-img {
-
+.inner-congress {
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
 }
 
 

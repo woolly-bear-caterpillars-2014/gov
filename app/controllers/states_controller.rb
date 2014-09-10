@@ -13,6 +13,8 @@ class StatesController < ApplicationController
 
   def show
     @state = State.find_by(abbreviation: params[:id])
+    @democrat_count = @state.congress_people.where(party: "D").count
+    @republican_count = @state.congress_people.where(party: "R").count
     @congress_people = @state.congress_people.where(title: "Congressperson")
     @senators = @state.congress_people.where(title: "Senator")
   end
