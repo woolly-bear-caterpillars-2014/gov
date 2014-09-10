@@ -1,4 +1,4 @@
-class SendMessage < ActiveRecord::Base
+class SendMessage
 	def initialize(args={})
 		@from = args[:from]
 		@to = args[:to]
