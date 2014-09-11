@@ -18,6 +18,8 @@ function generateTweetMap() {
     return map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
   });
 
+  var infoWindow = new google.maps.InfoWindow;
+
   $(function() {
     return setInterval(retrieveTweets, 2000);
   });
@@ -38,13 +40,20 @@ function generateTweetMap() {
           draggable: false,
           title: text
         });
-        var infowindow = new google.maps.InfoWindow({
-            content: 'Tweet: <b>' + text + '</b><br>' + username
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-          });
+
+        var onMarkerClick = function() {
+          var marker = this;
+           infoWindow.setContent('Tweet: <b>' + text + '</b><br>' + '<a href="http://twitter.com/' + username + '" target="_blank">' + username + '</a>');
+           infoWindow.open(map, marker);
+         };
+
+        google.maps.event.addListener(marker, 'click', onMarkerClick);
+        
         return marker.setMap(map);
+
+        google.maps.event.addListener(map, 'click', function() {
+               infoWindow.close();
+             });
         $('.tweet-sidebar').append(text);
       });
     });
