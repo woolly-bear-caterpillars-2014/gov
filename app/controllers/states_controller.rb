@@ -3,7 +3,7 @@ class StatesController < ApplicationController
   def index
     @states = State.all
     
-    p state_hash = @states.map { |state| state.generate_hash }
+    state_hash = @states.map { |state| state.generate_hash }
 
     if request.xhr?
       render json: state_hash.to_json
