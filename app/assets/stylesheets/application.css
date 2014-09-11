@@ -37,6 +37,7 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0px 0px;
   padding: 0px 0px;
+  background-color: #EFEFEF;
 }
 
 h1 {
@@ -86,11 +87,16 @@ nav li {
 
 footer {
   text-align: center;
-  font-size: 8px;
+  font-size: 14px;
   color: #2A3A48;
   clear: both;
   position: relative;
   padding-top: 60px;
+}
+
+footer a:hover {
+  background-color: #2A3A48;
+  color: white;
 }
 
 a:hover {
@@ -361,7 +367,7 @@ footer {
 
 .btn {
   background-color: #20272D;
-  color: #F6F6EF;
+  color: #edf2f2;
   margin-top: 20px;
   margin-bottom: 20px;
   margin-right: 10px;
