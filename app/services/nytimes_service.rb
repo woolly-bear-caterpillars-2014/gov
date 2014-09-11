@@ -115,7 +115,7 @@ class NytimesService
 		person[:district] = person_hash["district"]
 		person[:next_election] = person_hash["next_election"]
 		person[:picture_id] = "http://theunitedstates.io/images/congress/225x275/#{person_hash["id"]}.jpg"
-		person[:state] = State.find_or_create_by(abbreviation: person_hash["state"])
+		puts person[:state] = State.find_or_create_by(abbreviation: person_hash["state"], name: StatesService::STATE_LIST[person_hash["state"]])
 		person
 	end
 end

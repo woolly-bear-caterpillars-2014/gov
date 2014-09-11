@@ -1,13 +1,14 @@
+state_list = StatesService::STATE_LIST
+state_list.each do |state_abrev, state_full|
+	s = State.create(abbreviation: state_abrev, name: state_full)
+  puts "#{s.name}, #{s.abbreviation}"
+end
+
 congress_people = NytimesService.get_congress
 congress_people.each do |congressperson|
 	person = CongressPerson.create(congressperson)
 	sunlight_updates = SunlightCongressService.updated_legislator_info(person.bioguide_id)
 	person.update(sunlight_updates)
-end
-
-state_list = StatesService::STATE_LIST
-state_list.each do |state_abrev, state_full|
-	State.create(abbreviation: state_abrev, name: state_full)
 end
 
 CongressPerson.all.each do |person|
