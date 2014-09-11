@@ -42,7 +42,7 @@ function generateMap(response) {
           {
             max: 10,
             attrs: {
-              fill: "#7F2626"
+              fill: "#450003"
             },
             label: "90% Republican"
           },
@@ -50,7 +50,7 @@ function generateMap(response) {
             min: 10,
             max: 20,
             attrs: {
-              fill: "#7F0000"
+              fill: "#5C0002"
             },
             label: "80% Republican"
           },
@@ -58,7 +58,7 @@ function generateMap(response) {
             min: 20,
             max: 30,
             attrs: {
-              fill: "#CC0000"
+              fill: "#94090D"
             },
             label: "70% Republican"
           },
@@ -66,7 +66,7 @@ function generateMap(response) {
             min: 30,
             max: 40,
             attrs : {
-              fill : "#FF0000"
+              fill : "#D40D12"
             },
             label: "60% Republican"
           },
@@ -74,7 +74,7 @@ function generateMap(response) {
             min: 40,
             max: 50,
             attrs: {
-              fill: "#FF4C4C"
+              fill: "#FF1D23"
             },
             label: "50% Republican"
           },
@@ -82,7 +82,7 @@ function generateMap(response) {
             min: 51,
             max: 60,
             attrs: {
-              fill: "#3059FF"
+              fill: "#7ABAF2"
             },
             label: "50% Democrat"
           },
@@ -90,7 +90,7 @@ function generateMap(response) {
             min: 60,
             max: 70,
             attrs: {
-              fill: "#2B26FF"
+              fill: "#7ABAF2"
             },
             label: "60% Democrat"
           },
@@ -98,7 +98,7 @@ function generateMap(response) {
             min: 70,
             max: 80,
             attrs: {
-              fill: "#0003D6"
+              fill: "#0074D9"
             },
             label: "70% Democrat"
           },
@@ -106,14 +106,14 @@ function generateMap(response) {
             min: 80,
             max: 90,
             attrs: {
-              fill: "#0F2096"
+              fill: "#004B8D"
             },
             label: "80% Democrat"
           },
           {
             min: 90,
             attrs: {
-              fill: "#020570"
+              fill: "#00305A"
             },
             label: "90% Democrat"
           }
