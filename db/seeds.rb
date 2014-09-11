@@ -18,11 +18,11 @@ CongressPerson.all.each do |person|
 		ArticleCongressPerson.create(article: a, congress_person: person)
 	end
 
-	# nyt_articles = NytimesService.get_articles(person)
-	# nyt_articles.each do |article|
-	# 	a = Article.create(article)
-	# 	ArticleCongressPerson.create(article: a, congress_person: person)
-	# end
+	nyt_articles = NytimesService.get_articles(person)
+	nyt_articles.each do |article|
+		a = Article.create(article)
+		ArticleCongressPerson.create(article: a, congress_person: person)
+	end
 
 	bills = SunlightCongressService.get_bills(person.bioguide_id)
 	bills.each do |bill|
