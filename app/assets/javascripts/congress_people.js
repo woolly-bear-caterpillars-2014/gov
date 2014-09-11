@@ -70,15 +70,15 @@ var getSentiment = function() {
     .attr("text-anchor", "end")
     .attr("x", w)
     .attr("y", h)
-    .text("Tweets");
+    .text("TWEETS");
 
     graph.append("text")
     .attr("class", "y label")
     .attr("text-anchor", "end")
-    .attr("y", 6)
-    .attr("dy", "-.60em")
+    .attr("y", 0)
+    .attr("dy", "-.55em")
     .attr("transform", "rotate(-90)")
-    .text("Sentiment Score");
+    .text("SENTIMENT  SCORE");
 });
 
 
