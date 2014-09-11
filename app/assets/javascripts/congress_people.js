@@ -45,6 +45,7 @@ var getSentiment = function() {
           .append("svg:g")
             .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
+
       // create yAxis
       var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
       // Add the x-axis.
@@ -61,7 +62,23 @@ var getSentiment = function() {
             .attr("class", "y axis")
             .attr("transform", "translate(-25,0)")
             .call(yAxisLeft);
+            
     graph.append("svg:path").attr("d", line(data));
+
+    graph.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", w)
+    .attr("y", h)
+    .text("Tweets");
+
+    graph.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("y", 6)
+    .attr("dy", "-.60em")
+    .attr("transform", "rotate(-90)")
+    .text("Sentiment Score");
 });
 
 
