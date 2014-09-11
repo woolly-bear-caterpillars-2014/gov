@@ -45,6 +45,7 @@ var getSentiment = function() {
           .append("svg:g")
             .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
+
       // create yAxis
       var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
       // Add the x-axis.
@@ -61,7 +62,23 @@ var getSentiment = function() {
             .attr("class", "y axis")
             .attr("transform", "translate(-25,0)")
             .call(yAxisLeft);
+            
     graph.append("svg:path").attr("d", line(data));
+
+    graph.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", w)
+    .attr("y", h)
+    .text("TWEETS");
+
+    graph.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("y", 0)
+    .attr("dy", "-.55em")
+    .attr("transform", "rotate(-90)")
+    .text("SENTIMENT  SCORE");
 });
 
 
@@ -116,8 +133,8 @@ var getWordMap = function() {
 
   function draw(words) {
     d3.select("#wordmap").append("svg")
-        .attr("width", 1400)
-        .attr("height", 1400)
+        .attr("width", 1100)
+        .attr("height", 1100)
       .append("g")
         .attr("transform", "translate(500,500)")
       .selectAll("text")
