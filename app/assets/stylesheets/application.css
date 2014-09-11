@@ -466,11 +466,12 @@ footer {
 
 #graph{
   padding-top: 100px;
+  margin-left:10px;
 }
 
 #wordmap{
-  margin-left: 40px;
-  padding-top: 400px;
+  margin-left: 10px;
+  padding-top: 40px;
 }
 
 #frame {
