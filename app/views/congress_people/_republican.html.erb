@@ -5,7 +5,7 @@
 
 
 	<center>
-	  <button type="submit" name="email" class="btn" >Send them an Email</button>
+	  <button type="submit" name="email" class="btn" >Send <%= @congress_person.first_name %> an Email</button>
 
 	  <div class="congress-email-republican" id="congress-email" style="display: none;">
 	    <%= render partial: 'send_email' %>
