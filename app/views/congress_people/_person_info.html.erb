@@ -28,7 +28,7 @@
             <p><i class="fa fa-youtube"></i>  <%= @congress_person.youtube_id %></p>
           <% end %>
 
-          <%= link_to 'Word Map',  data_visualization_path(@congress_person)%>
+          <i class="fa fa-users"></i>   <b><%= link_to 'What are people saying?',  data_visualization_path(@congress_person)%></b>
         </div>
 
         <div class="block-right">

@@ -1,6 +1,7 @@
-Gov: A new way of viewing legislation, news, and reaction. 
+LegiStat.us: A new way of viewing legislation, news, and reaction. 
+
+- http://www.legistat.us
 - Trello: https://trello.com/b/6dZ7iia4/the-governors
-- Heroku: http://youhavetherighttoknow.herokuapp.com/
 
 
 Team members:
@@ -15,7 +16,10 @@ Integrating the following API's:
 - GovTrack
 - Federal Register
 - Sunglight API
-- Twitter
+- Alchemy
+- Twitter REST
+- Twitter Streaming
+- Facebook
 - The New York Times (Article search and Congressional)
-- Bing
+- Bing News
 - Google Maps

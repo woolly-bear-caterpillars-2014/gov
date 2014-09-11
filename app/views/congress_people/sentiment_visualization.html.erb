@@ -2,7 +2,7 @@
 <div class = "inner">
   <div class="sentiment">
     <center>
-      <h2>How do people feel about <%=@congressperson.first_name%></h2>
+      <h2>How people feel about <%= @congressperson.first_name %> <%= @congressperson.last_name %></h2>
       <button name="wordmap" class="btn">Wordmap</button>
       <button type="submit" name="sentiment" class ='btn'>Sentiment</button>
     </center>

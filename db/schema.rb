@@ -84,6 +84,11 @@ ActiveRecord::Schema.define(version: 20140910193912) do
     t.datetime "updated_at"
   end
 
+  create_table "send_messages", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "states", force: true do |t|
     t.string   "name"
     t.string   "abbreviation"

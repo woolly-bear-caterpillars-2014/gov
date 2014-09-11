@@ -2,7 +2,6 @@ require 'net/http'
 require 'json'
 require 'open-uri'
 
-<<<<<<< HEAD
 # nyt = NytimesService.new
 # nyt.import
 
@@ -19,22 +18,6 @@ class NytimesService
 		congress_people.concat(congress("senate"))
 		congress_people
 	end
-=======
-module NytimesService
-	class << self
-		attr_accessor :url, :parsed_reply
-		API_KEY = ENV['ARTICLE_SEARCH']
-		BASE_URI = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?'
-		CONGRESS_KEY = ENV["CONGRESS_KEY"]
-
-
-		def get_congress
-			congress_people = Array.new
-			congress_people.concat(congress("house"))
-			congress_people.concat(congress("senate"))
-			congress_people
-		end
->>>>>>> ff6bd05d5787f47a5b9e32c73887d885da119935
 
 	def self.get_articles(person)
 		articles = Array.new
@@ -132,7 +115,7 @@ module NytimesService
 		person[:district] = person_hash["district"]
 		person[:next_election] = person_hash["next_election"]
 		person[:picture_id] = "http://theunitedstates.io/images/congress/225x275/#{person_hash["id"]}.jpg"
-		person[:state] = State.find_or_create_by(abbreviation: person_hash["state"])
+		puts person[:state] = State.find_or_create_by(abbreviation: person_hash["state"], name: StatesService::STATE_LIST[person_hash["state"]])
 		person
 	end
 end
