@@ -116,8 +116,8 @@ var getWordMap = function() {
 
   function draw(words) {
     d3.select("#wordmap").append("svg")
-        .attr("width", 1400)
-        .attr("height", 1400)
+        .attr("width", 1100)
+        .attr("height", 1100)
       .append("g")
         .attr("transform", "translate(500,500)")
       .selectAll("text")
