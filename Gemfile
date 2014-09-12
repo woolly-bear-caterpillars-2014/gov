@@ -30,9 +30,7 @@ gem 'spring',        group: :development
 
 # Use unicorn as the app server
 gem 'unicorn'
-
 gem 'd3-rails'
-
 gem 'alchemy-api-rb'
 
 # Use Capistrano for deployment
@@ -42,6 +40,11 @@ gem 'alchemy-api-rb'
 # gem 'debugger', group: [:development, :test]
 
 gem 'rails_12factor', group: :production
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'capybara'
+end
 
 # gem 'nytimes-articles'
 gem 'twitter'
@@ -55,4 +58,3 @@ gem 'searchbing'
 # gem 'sidekiq'
 gem 'whenever'
 gem 'mail'
-gem 'rspec'
