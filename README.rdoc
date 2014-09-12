@@ -15,11 +15,12 @@ Integrating the following API's:
 
 - GovTrack
 - Federal Register
-- Sunglight API
+- Open Congress
+- Sunlight API
 - Alchemy
 - Twitter REST
 - Twitter Streaming
 - Facebook
-- The New York Times (Article search and Congressional)
+- The New York Times (Article search and Congress)
 - Bing News
 - Google Maps
